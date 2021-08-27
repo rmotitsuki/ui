@@ -24,8 +24,10 @@ import KytosContextPanel from './components/kytos/misc/ContextPanel.vue';
 import KytosMenubar from './components/kytos/misc/Menubar.vue';
 import KytosActionMenu from './components/kytos/misc/ActionMenu.vue';
 import KytosInfoPanel from './components/kytos/misc/InfoPanel.vue';
-import KytosStatusBar from './components/kytos/misc/StatusBar.vue'
+import KytosStatusBar from './components/kytos/misc/StatusBar.vue';
 import KytosInput from './components/kytos/inputs/Input.vue';
+import KytosInputAutocomplete from './components/kytos/inputs/InputAutocomplete.vue';
+
 import KytosTextarea from './components/kytos/inputs/Textarea.vue';
 import KytosCheckbox from './components/kytos/inputs/Checkbox.vue';
 import MapBoxSettings from './components/kytos/map/MapBoxSettings.vue';
@@ -63,6 +65,7 @@ Vue.component('k-dropdown', KytosDropdown);
 Vue.component('k-button-group', KytosButtonGroup);
 Vue.component('k-action-menu', KytosActionMenu);
 Vue.component('k-input', KytosInput);
+Vue.component('k-input-auto', KytosInputAutocomplete);
 Vue.component('k-textarea', KytosTextarea);
 Vue.component('k-checkbox', KytosCheckbox);
 Vue.component('k-status-bar', KytosStatusBar);
