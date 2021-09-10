@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import TypeIt from "typeit";
 /**
  * A GUI widget the shows notifications and System Information.
  *
@@ -32,11 +33,11 @@ export default {
     display_messages(){
       var message= this.messages.shift()
       if (message !== undefined){
-        this.get_terminal().tiType(message).tiPause(1500).tiDelete()
+        this.get_terminal().type(message).pause(1500).delete().go();
       }
     },
     get_terminal (){
-      return $('.k-status-bar span').typeIt(this.options)
+      return new TypeIt('.k-status-bar span', this.options);
     },
     /**
      * Display a message inside the k-status-bar.
