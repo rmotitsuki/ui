@@ -39,13 +39,15 @@ export default {
   },
   computed: {
     endpoint () {
-      let url = this.$kytos_server_api + "kytos/of_stats/v1/"
-      return url + this.dpid + "/ports"
+      // TODO: of_stats/kronos must implement the endpoint
+      //let url = this.$kytos_server_api + "kytos/of_stats/v1/"
+      //return url + this.dpid + "/ports"
     }
   },
   methods: {
     updateChart () {
-      json(this.endpoint, this.parseData)
+      // TODO: of_stats/kronos must implement the endpoint
+      // json(this.endpoint, this.parseData)
     },
     parseData (data) {
       if (!data) {
