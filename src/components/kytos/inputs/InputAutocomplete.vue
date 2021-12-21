@@ -30,30 +30,34 @@
               { 'autocomplete-input-focused': focused }
             ]"
             :id="id" 
+            :value="value"
             :tooltip="tooltip"
             :placeholder="placeholder"
             @input="updateText"
             @focus="handleFocus"
             @blur="handleBlur"
           ></custom-input>
-          <ul
-            v-if="noResults"
-            class="autocomplete-result-list"
-            style="position: absolute; z-index: 1; width: 100%; top: 100%;"
-          >
-            <li class="autocomplete-result">
-              No results found
-            </li>
-          </ul>
-          <ul v-bind="resultListProps" v-on="resultListListeners">
-            <li
-              v-for="(result, index) in results"
-              :key="resultProps[index].id"
-              v-bind="resultProps[index]"
-            >
-              {{ result }}
-            </li>
-          </ul>
+          <template v-if="noResults">
+            <ul
+              :class="[
+                'autocomplete-result-list',
+                { 'autocomplete-result-focused': focused }
+              ]"
+              style="position: absolute; z-index: 1; width: 100%; top: 100%;">
+              <li class="autocomplete-result">
+                No results found
+              </li>
+            </ul>
+          </template>
+          <template v-else>
+            <ul v-bind="resultListProps" v-on="resultListListeners">
+              <li v-for="(result, index) in results"
+                :key="resultProps[index].id"
+                v-bind="resultProps[index]">
+                {{ result }}
+              </li>
+            </ul>
+          </template>
         </div>
       </template>
     </autocomplete>
@@ -149,8 +153,7 @@ export default {
     * The value to input button.
     */
    value: {
-      type: String,
-      default: ""
+      type: String
    },
    /**
     * The label to input button.
@@ -276,21 +279,22 @@ export default {
 
 .autocomplete-wrap
   display: flex
+  width: 100%
+
+.autocomplete-wrap .autocomplete
+  width: 100%
+
+.autocomplete-input
+  width: 100%
+  position: relative
+  font-size: 0.8em
+  flex: 1
+
 </style>
 
 <style>
 // Autocomplete https://vuejsexamples.com/accessible-autocomplete-component-for-vanilla-javascript-and-vue/
-.autocomplete {
-  width: 11.5em;
-}
-
-.autocomplete-input {
-  width:100%;
-  position:relative;
-  font-size:0.8em;
-  flex:1;
-}
-.autocomplete-input:focus,.autocomplete-input[aria-expanded=true] { 
+.autocomplete-input:focus, .autocomplete-input[aria-expanded=true] { 
   outline:none;
 }
 
@@ -309,6 +313,7 @@ export default {
 }
 .autocomplete-result-list { 
   font: 400 13.3333px Arial;
+  color: black;
   margin:0;
   border:1px solid rgba(0,0,0,.12);
   padding:0.5em 0 0 0.5em;
@@ -320,6 +325,7 @@ export default {
   background:#fff;
   list-style:none;
   box-shadow:0 2px 2px rgba(0,0,0,.16);
+  visibility: hidden;
 }
 [data-position=below] .autocomplete-result-list { 
   margin-top:-1px;border-top-color:transparent;border-radius:0 0 8px 8px;padding-bottom:8px;
@@ -333,6 +339,9 @@ export default {
 }
 .autocomplete-result:hover,.autocomplete-result[aria-selected=true] {
   background-color:rgba(0,0,0,.06);
+}
+.autocomplete-result-focused {
+  visibility: visible;
 }
 @keyframes rotate {0%{transform:translateY(-50%) rotate(0deg);}to{transform:translateY(-50%) rotate(359deg);}}
 </style>
