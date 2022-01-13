@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack')
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
   entry: './src/main.js',
@@ -19,25 +20,46 @@ module.exports = {
           }
           // other vue-loader options go here
         }
-      },
+      }, 
       {
-        test: /\.scss$/,
-        loaders: ["style", "css", "sass"]
+        test: /\.s(a|c)ss$/,
+        use: ['style-loader', 'css-loader', 
+          {
+            loader: "sass-loader",
+            options: {
+              sassOptions: {
+                indentedSyntax : true
+              }
+            },
+          }]
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        include: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'node_modules/vue-awesome')]
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        },
+        include: [
+          path.resolve(__dirname, 'src'), 
+          path.resolve(__dirname, 'node_modules/vue-awesome')]
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[ext]?[hash]'
-        }
+        test: /\.(png|jpg|gif|svg)$/i,
+        exclude: /\.(s?(a?|c)ss|js|html)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]?[hash]',
+            esModule: false
+          }
+        },
       }
     ]
   },
+  plugins: [
+    // make sure to include the plugin!
+    new VueLoaderPlugin()
+  ],
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
@@ -45,4 +67,5 @@ module.exports = {
       'components': path.resolve(__dirname, './src/components')
     }
   },
+  
 }
