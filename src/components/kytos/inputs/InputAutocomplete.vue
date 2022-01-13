@@ -290,58 +290,64 @@ export default {
   font-size: 0.8em
   flex: 1
 
-</style>
-
-<style>
 // Autocomplete https://vuejsexamples.com/accessible-autocomplete-component-for-vanilla-javascript-and-vue/
-.autocomplete-input:focus, .autocomplete-input[aria-expanded=true] { 
-  outline:none;
-}
+.autocomplete-input:focus, .autocomplete-input[aria-expanded=true] 
+  outline: none
 
-.autocomplete[data-loading=true]:after {
-  content:"";
-  border:3px solid rgba(0,0,0,.12);
-  border-right-color:rgba(0,0,0,.48);
-  border-radius:100%;
-  width:100%;
-  height:20px;
-  position:absolute;
-  right:12px;
-  top:50%;
-  transform:translateY(-50%);
-  animation:rotate 1s linear infinite;
-}
-.autocomplete-result-list { 
-  font: 400 13.3333px Arial;
-  color: black;
-  margin:0;
-  border:1px solid rgba(0,0,0,.12);
-  padding:0.5em 0 0 0.5em;
-  box-sizing:border-box;
-  height: 7em;
-  max-height:150px;
+.autocomplete[data-loading=true]:after
+  content: ""
+  border: 3px solid rgba(0,0,0,.12)
+  border-right-color: rgba(0,0,0,.48)
+  border-radius: 100%
+  width: 100%
+  height: 20px
+  position: absolute
+  right: 12px
+  top: 50%
+  transform: translateY(-50%)
+  animation: rotate 1s linear infinite
 
-  overflow-y:auto;
-  background:#fff;
-  list-style:none;
-  box-shadow:0 2px 2px rgba(0,0,0,.16);
-  visibility: hidden;
-}
-[data-position=below] .autocomplete-result-list { 
-  margin-top:-1px;border-top-color:transparent;border-radius:0 0 8px 8px;padding-bottom:8px;
-}
-[data-position=above] .autocomplete-result-list {
-  margin-bottom:-1px;border-bottom-color:transparent;border-radius:8px 8px 0 0;padding-top:8px;
-}
-.autocomplete-result {
-  cursor:default;
-  font-size:0.7em;
-}
-.autocomplete-result:hover,.autocomplete-result[aria-selected=true] {
-  background-color:rgba(0,0,0,.06);
-}
-.autocomplete-result-focused {
-  visibility: visible;
-}
-@keyframes rotate {0%{transform:translateY(-50%) rotate(0deg);}to{transform:translateY(-50%) rotate(359deg);}}
+.autocomplete-result-list
+  font: 400 13.3333px Arial
+  color: black
+  margin: 0
+  border: 1px solid rgba(0,0,0,.12)
+  padding: 0.5em 0 0 0.5em
+  box-sizing: border-box
+  height: 7em
+  max-height: 150px
+
+  overflow-y: auto
+  background: #fff
+  list-style: none
+  box-shadow: 0 2px 2px rgba(0,0,0,.16)
+  visibility: hidden
+
+[data-position=below] .autocomplete-result-list
+  margin-top: -1px
+  border-top-color: transparent
+  border-radius: 0 0 8px 8px
+  padding-bottom: 8px
+
+[data-position=above] .autocomplete-result-list
+  margin-bottom: -1px
+  border-bottom-color: transparent
+  border-radius: 8px 8px 0 0
+  padding-top: 8px
+
+.autocomplete-result
+  cursor: default
+  font-size: 0.7em
+
+.autocomplete-result:hover, .autocomplete-result[aria-selected=true]
+  background-color: rgba(0,0,0,.06)
+
+.autocomplete-result-focused
+  visibility: visible
+
+@keyframes rotate
+  0%
+    transform: translateY(-50%) rotate(0deg)
+  to
+    transform: translateY(-50%) rotate(359deg)
 </style>

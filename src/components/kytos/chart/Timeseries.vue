@@ -321,50 +321,50 @@ export default {
 @import "../../../assets/styles/variables"
 
 .chart-timeseries
-  width: 100%;
-  float: left;
-  background-color: $fill-bar;
+  width: 100%
+  float: left
+  background-color: $fill-bar
 
   text
-    fill: grey;
-    font-size: 0.85;
+    fill: grey
+    font-size: 0.85
 
   .grid
     line
-      stroke: grey;
-      stroke-opacity: 0.7;
+      stroke: grey
+      stroke-opacity: 0.7
 
     path
-      stroke-width: 0;
+      stroke-width: 0
 
   .axis
-    font-size: 0.9em;
+    font-size: 0.9em
 
     path
-      fill: none;
-      stroke-width: 1;
-      stroke: #00FFFF;
+      fill: none
+      stroke-width: 1
+      stroke: #00FFFF
 
   .area
-    stroke-width: 0;
-    fill-opacity: 0.4;
+    stroke-width: 0
+    fill-opacity: 0.4
 
-  .line,
-    stroke-width: 2;
-    fill: none;
+  .line
+    stroke-width: 2
+    fill: none
 
   .rx
     &.line
-      stroke: #FF00FF;
+      stroke: #FF00FF
     &.area
-      fill: #FF00FF;
+      fill: #FF00FF
 
   .tx
     &.line
-      stroke: #00FFFF;
+      stroke: #00FFFF
     &.area
-      fill: #00FFFF;
+      fill: #00FFFF
 
   .hidden
-    display: none;
+    display: none
 </style>

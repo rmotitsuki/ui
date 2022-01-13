@@ -151,55 +151,55 @@ export default {
 @import "../../../assets/styles/variables"
 
 .chart-radar
-  width: 100%;
-  //float: left;
-  background-color: $fill-button-bg-h;
+  width: 100%
+  //float: left
+  background-color: $fill-button-bg-h
 
   svg
-    display: block;
-    margin: 0 auto;
+    display: block
+    margin: 0 auto
 
   .kytosAxisWrapper
 
     text
-      pointer-events: none;
+      pointer-events: none
 
     .kytosGridCircle
-        fill: #795ca7;
+        fill: #795ca7
         fill-opacity: 0.1
-        stroke: #795ca7;
-        stroke-width: 0.6;
-        stroke-opacity: 0.2;
+        stroke: #795ca7
+        stroke-width: 0.6
+        stroke-opacity: 0.2
 
   .kytosRadarArea
-    fill-opacity: 0.3;
-    stroke-width: 0;
-    stroke-opacity: 0;
+    fill-opacity: 0.3
+    stroke-width: 0
+    stroke-opacity: 0
 
   .kytosRadarStroke
-    fill-opacity: 0;
-    stroke-width: 1.5;
-    stroke-opacity: 0.7;
+    fill-opacity: 0
+    stroke-width: 1.5
+    stroke-opacity: 0.7
 
   .kytosRadarArea,
   .kytosRadarStroke
 
     &.tx
-      fill: rgba(102, 255, 255, 0.6);
-      stroke: rgba(102, 255, 255, 0.6);
+      fill: rgba(102, 255, 255, 0.6)
+      stroke: rgba(102, 255, 255, 0.6)
 
     &.rx
-      fill: rgba(255, 102, 255, 0.6);
-      stroke: rgba(255, 102, 255, 0.6);
+      fill: rgba(255, 102, 255, 0.6)
+      stroke: rgba(255, 102, 255, 0.6)
 
     &:hover
-      fill-opacity: 0.7;
+      fill-opacity: 0.7
 
   .kytosAxis
-    display: none;
+    display: none
 
   .kytosTooltip
     fill: rgba(255, 255, 255, 0.7)
-    font-size: 14px;
+    font-size: 14px
 
 </style>
