@@ -103,22 +103,22 @@ export default {
 
 <style lang="sass">
 #k-map
-  background-color: #222;
-  display: -webkit-flex;
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
+  background-color: #222
+  display: -webkit-flex
+  display: flex
+  width: 100%
+  height: 100vh
+  overflow: hidden
+  position: absolute
+  top: 0
+  left: 0
+  z-index: 0
 
   canvas
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+    position: absolute
+    width: 100%
+    height: 100%
+    z-index: 1
 
 .mapboxgl-ctrl-attrib
   top: -25px

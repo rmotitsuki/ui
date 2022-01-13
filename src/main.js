@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import VueHotkey from 'v-hotkey'
 import App from './App.vue'
-import {version} from '../package.json';
+import * as packageInfo from '../package.json';
+const {version} = packageInfo;
 
 Vue.use(VueHotkey)
 

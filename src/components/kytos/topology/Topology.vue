@@ -2,7 +2,7 @@
 </template>
 
 <script>
-import * as d3 from "d3"
+import * as d3 from "d3";
 import KytosBase from '../base/KytosBase';
 import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
 
@@ -553,73 +553,66 @@ export default {
 <style lang="sass">
 #k-map
   svg, #svg-topo
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: none;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 55;
+    width: 100%
+    height: 100vh
+    overflow: hidden
+    background: none
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 55
 
     rect#click_background
-      fill: none;
-      pointer-events: all;
+      fill: none
+      pointer-events: all
 
     .label
-      font-size: 10px;
-      pointer-events: none;
+      font-size: 10px
+      pointer-events: none
 
       text
-        fill: white;
-        color: white;
-        background-color: #554077;
-        -webkit-border-radius: 36px;
-        -moz-border-radius: 36px;
-        border-radius: 36px;
-        font-size: 11px;
+        fill: white
+        color: white
+        background-color: #554077
+        -webkit-border-radius: 36px
+        -moz-border-radius: 36px
+        border-radius: 36px
+        font-size: 11px
 
     .hide
-      display: none;
+      display: none
 
     .node
-      cursor: pointer;
+      cursor: pointer
 
     .downlight
-      opacity: 0.2;
+      opacity: 0.2
 
     .node
-      stroke-width: 0;
+      stroke-width: 0
 
       &.switch
-        fill: rgba(85, 64, 199, 0.8);
+        fill: rgba(85, 64, 199, 0.8)
 
       &.iep
-        fill: rgba(236, 236, 31, 0.5);
-        stroke: rgba(236, 236, 31, 0.5);
-        cursor: grab;
-        cursor: -webkit-grab;
+        fill: rgba(236, 236, 31, 0.5)
+        stroke: rgba(236, 236, 31, 0.5)
+        cursor: grab
+        cursor: -webkit-grab
 
       &.interface
-        fill: rgba(255, 255, 255, 0.5);
-        stroke: rgba(255, 255, 255, 0.5);
-        stroke-width: 1;
-        cursor: grab;
-        cursor: -webkit-grab;
+        fill: rgba(255, 255, 255, 0.5)
+        stroke: rgba(255, 255, 255, 0.5)
+        stroke-width: 1
+        cursor: grab
+        cursor: -webkit-grab
 
       &.host
-        fill: rgba(255,0,0,1);
-        stroke: rgba(255,255,255,0.5);
-
+        fill: rgba(255,0,0,1)
+        stroke: rgba(255,255,255,0.5)
+      
       &.amlight,
       &.fibre
-        stroke-width: 2;
-
-      //&.amlight
-      //  stroke: rgba(0, 149, 255, 0.75);
-
-      //&.fibre
-      //  stroke: rgba(7, 195, 21, 0.74);
-
+        stroke-width: 2
 
 </style>

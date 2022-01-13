@@ -22,7 +22,6 @@
 <script>
 import KytosBase from '../base/KytosBase'
 import KytosBaseWithIcon from '../base/KytosBaseWithIcon'
-import Icon from '../../../../node_modules/vue-awesome/components/Icon.vue'
 
 export default {
   name: 'k-menu-bar',

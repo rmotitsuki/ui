@@ -154,7 +154,7 @@ export default {
     bottom: 2px
     background-color: $fill-icon
     -webkit-transition: 0.4s
-    transition: 0.4s;
+    transition: 0.4s
     border-radius: 50%
 
   input:checked

@@ -1,32 +1,32 @@
 /* Colors Kytos */
 
-$kytos-white: #EEE !global;
-$kytos-dark-white: #CCC !global;
+$kytos-white: #EEE;
+$kytos-dark-white: #CCC;
 
-$kytos-black: #222 !global;
+$kytos-black: #222;
 
-$kytos-gray: #515151 !global;
-$kytos-light-gray: #b3b3b3 !global;
-$kytos-medium-gray: #414141 !global;
-$kytos-dark-gray: #313131 !global;
-$kytos-extra-dark: #2a2a2a !global;
+$kytos-gray: #515151;
+$kytos-light-gray: #b3b3b3;
+$kytos-medium-gray: #414141;
+$kytos-dark-gray: #313131;
+$kytos-extra-dark: #2a2a2a;
 
-$kytos-purple: #554077 !global;
-$kytos-dark-purple: #322c5d !global;
+$kytos-purple: #554077;
+$kytos-dark-purple: #322c5d;
 
-$kytos-blue: #008690 !global;
-$kytos-dark-blue: #233f55 !global;
+$kytos-blue: #008690;
+$kytos-dark-blue: #233f55;
 
-$kytos-green: #8bc34a !global;
-$kytos-yellow: #f9a825 !global;
-$kytos-red: #dd2c00 !global;
+$kytos-green: #8bc34a;
+$kytos-yellow: #f9a825;
+$kytos-red: #dd2c00;
 
 /* Gradient BGs */
 
-$kytos-gradient: $kytos-dark-purple linear-gradient(45deg, $kytos-dark-purple 50%,#68286a 100%,$kytos-dark-purple 100%,#207cca 100%) !global;
-$gradient-dark: $kytos-extra-dark linear-gradient(-45deg, #111 0%,$kytos-extra-dark 30%,$kytos-extra-dark 30%) !global;
-$gradient-gray: $kytos-gray linear-gradient(-45deg, $kytos-purple 0%,$kytos-gray 30%,$kytos-gray 50%) !global;
-$gradient-dark-gray: $kytos-dark-gray linear-gradient(-45deg, $kytos-dark-purple 0%,$kytos-dark-gray 50%,$kytos-dark-gray 50%) !global;
+$kytos-gradient: $kytos-dark-purple linear-gradient(45deg, $kytos-dark-purple 50%,#68286a 100%,$kytos-dark-purple 100%,#207cca 100%);
+$gradient-dark: $kytos-extra-dark linear-gradient(-45deg, #111 0%,$kytos-extra-dark 30%,$kytos-extra-dark 30%);
+$gradient-gray: $kytos-gray linear-gradient(-45deg, $kytos-purple 0%,$kytos-gray 30%,$kytos-gray 50%);
+$gradient-dark-gray: $kytos-dark-gray linear-gradient(-45deg, $kytos-dark-purple 0%,$kytos-dark-gray 50%,$kytos-dark-gray 50%);
 
 /* Theme Choice */
 

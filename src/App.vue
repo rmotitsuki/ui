@@ -88,7 +88,7 @@ a
   background-color: rgba(0,0,0,0.8)
 
 ::-webkit-scrollbar
-  width: 12px;
+  width: 12px
   background-color: rgba(0,0,0,0.8)
 
 ::-webkit-scrollbar-thumb
