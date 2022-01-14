@@ -27,6 +27,20 @@ Changed
 =======
 
 
+[1.4.3] - 2022-01-14
+********************
+
+Added
+=====
+
+- new UI component: k-input-auto - Input with autocomplete
+
+Fixed
+=======
+
+- Fixed of_stats REST calls
+
+
 [1.4.2] - 2021-05-31
 ********************
 
