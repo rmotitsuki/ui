@@ -1,7 +1,7 @@
 #########
 Changelog
 #########
-All notable changes to the Kytos UI project will be documented in this file.
+All notable changes to the Kytos-NG UI project will be documented in this file.
 
 UNRELEASED - Under development
 ******************************
@@ -25,6 +25,14 @@ Security
 
 Changed
 =======
+
+
+[2022.1.0] - 2022-01-31
+**********************************
+
+Changed
+=======
+- New README reflecting the change to Kytos NG.
 
 
 [1.4.3] - 2022-01-14
