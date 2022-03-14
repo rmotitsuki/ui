@@ -1,7 +1,7 @@
 <template>
   <div class="k-textarea-wrap no-compact">
     <icon v-if="icon" v-bind:name="icon"></icon>
-    <textarea ref="textarea" @textarea="updateText($event.target.value)"  type="text" :id="id" class="k-textarea" :value="value" :tooltip="tooltip" :placeholder="placeholder"
+    <textarea ref="textarea" @input="updateText" type="text" :id="id" class="k-textarea" :value="value" :tooltip="tooltip" :placeholder="placeholder"
       v-bind:disabled="isDisabled" onshow="this.focus()" autofocus>
     </textarea>
   </div>
@@ -51,6 +51,9 @@ export default {
     updateText(value){
       this.$emit('textarea', value)
       this.action(value)
+
+      this.$emit('update:value', this.$refs.textarea.value)
+      this.action(this.$refs.textarea.value)
     }
   }
 }
