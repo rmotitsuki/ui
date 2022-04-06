@@ -141,4 +141,38 @@ export default {
 </script>
 <style lang="sass">
 @import '../assets/styles/variables'
+
+.metadata_table 
+  color: #ccc
+  max-height: 250px
+  text-align: center
+  margin: 0 auto
+  display: block
+  padding: 0.5em 0 1em 0.3em
+  font-size: 0.8em
+  overflow-x: hidden
+  overflow-y: auto
+
+.metadata_table table
+  display: table
+  width: 100%
+
+.metadata_table thead
+  font-weight: bold
+  background: #554077
+
+.metadata_table th
+  padding: 0.6em 0 0.6em 0
+
+.metadata_table td
+  vertical-align: middle
+  padding: 0.45em 0 0.45em 0
+  word-break: break-all
+
+.metadata_table tbody tr:nth-child(even)
+  background: #313131
+
+.metadata_table tbody tr:hover
+    color: #eee
+    background-color: #666
 </style>
