@@ -89,8 +89,9 @@ export default {
       return this.interface_id.split(":").slice(0,-1).join(":")
     },
     endpoint () {
-      let url = this.$kytos_server_api + "kytos/of_stats/v1/"
-      return url + this.dpid + "/ports/" + Number(this.port_number)
+      // TODO: of_stats/kronos must implement the endpoint
+      //let url = this.$kytos_server_api + "kytos/of_stats/v1/"
+      //return url + this.dpid + "/ports/" + Number(this.port_number)
     },
     utilization_color_class: function () {
       if (this.speed === null) return ''
@@ -124,7 +125,8 @@ export default {
       }
     },
     update_chart() {
-      json(this.endpoint, this.parseInterfaceData)
+      // TODO: of_stats/kronos must implement the endpoint
+      //json(this.endpoint, this.parseInterfaceData)
     }
   },
   mounted () {

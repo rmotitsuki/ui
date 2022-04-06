@@ -71,8 +71,9 @@ export default {
   },
   computed: {
     endpoint () {
-      let url = this.$kytos_server_api + "kytos/of_stats/v1/"
-      return url + this.metadata.dpid + "/ports/" + this.metadata.port_number
+      // TODO: of_stats/kronos must implement the endpoint
+      //let url = this.$kytos_server_api + "kytos/of_stats/v1/"
+      //return url + this.metadata.dpid + "/ports/" + this.metadata.port_number
     }
   },
   methods: {
@@ -106,7 +107,8 @@ export default {
         return endpoint_url;
     },
     update_chart() {
-        json(this.build_url(), this.parseInterfaceData)
+        // TODO: of_stats/kronos must implement the endpoint
+        //json(this.build_url(), this.parseInterfaceData)
     },
     change_plotRange(range) {
         this.plotRange = range
