@@ -50,6 +50,30 @@ export default {
     interface_id: {
       type: String,
       required: true,
+    },
+    enabled: {
+      type: Boolean,
+      required: true,
+    },
+    active: {
+      type: Boolean,
+      required: true,
+    },
+    lldp: {
+      type: Boolean,
+      required: true,
+    },
+    nni: {
+      type: Boolean,
+      required: true,
+    },
+    uni: {
+      type: Boolean,
+      required: true,
+    },
+    metadata: {
+      type: Object,
+      required: false,
     }
   },
   data () {
@@ -65,9 +89,8 @@ export default {
       return this.interface_id.split(":").slice(0,-1).join(":")
     },
     endpoint () {
-      // TODO: of_stats/kronos must implement the endpoint
-      //let url = this.$kytos_server_api + "kytos/of_stats/v1/"
-      //return url + this.dpid + "/ports/" + Number(this.port_number)
+      let url = this.$kytos_server_api + "kytos/of_stats/v1/"
+      return url + this.dpid + "/ports/" + Number(this.port_number)
     },
     utilization_color_class: function () {
       if (this.speed === null) return ''
@@ -101,8 +124,7 @@ export default {
       }
     },
     update_chart() {
-      // TODO: of_stats/kronos must implement the endpoint
-      //json(this.endpoint, this.parseInterfaceData)
+      json(this.endpoint, this.parseInterfaceData)
     }
   },
   mounted () {

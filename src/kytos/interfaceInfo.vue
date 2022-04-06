@@ -19,6 +19,25 @@
           </k-property-panel>
       </k-accordion-item>
 
+      <k-accordion-item title="Metadata" v-if="Object.keys(this.metadata_items).length !== 0">
+         <div class="metadata_table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Key</th>
+                  <th>Value</th>  
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(value, key) in this.metadata_items">
+                  <td >{{key}}</td>
+                  <td >{{value}}</td>
+                </tr>
+              </tbody>
+            </table>
+         </div>
+      </k-accordion-item>
+
     </k-accordion>
 </template>
 
@@ -33,12 +52,18 @@ export default {
   data () {
     return {
       display: false,
-      metadata: {"interface_id": "",
+      metadata_items: [],
+      metadata: {"enabled": "",
+                 "active": "",
+                 "interface_id": "",
                  "name": "",
                  "port_number": "",
                  "dpid": "",
                  "mac": "",
-                 "speed": ""},
+                 "speed": "",
+                 "lldp": "",
+                 "nni": "",
+                 "uni": "",},
       chartJsonData: null,
       interval: null,
       plotRange: null
@@ -46,9 +71,8 @@ export default {
   },
   computed: {
     endpoint () {
-      // TODO: of_stats/kronos must implement the endpoint
-      //let url = this.$kytos_server_api + "kytos/of_stats/v1/"
-      //return url + this.metadata.dpid + "/ports/" + this.metadata.port_number
+      let url = this.$kytos_server_api + "kytos/of_stats/v1/"
+      return url + this.metadata.dpid + "/ports/" + this.metadata.port_number
     }
   },
   methods: {
@@ -82,18 +106,22 @@ export default {
         return endpoint_url;
     },
     update_chart() {
-        // TODO: of_stats/kronos must implement the endpoint
-        //json(this.build_url(), this.parseInterfaceData)
+        json(this.build_url(), this.parseInterfaceData)
     },
     change_plotRange(range) {
         this.plotRange = range
         this.update_chart()
+    },
+    get_metadata() {
+      if(this.content === undefined) return
+      this.metadata_items = this.content.metadata
     }
   },
   mounted () {
     this.update_interface_content()
     this.update_chart()
     this.interval = setInterval(this.update_chart, 60000)
+    this.get_metadata()
   },
   beforeDestroy () {
     clearInterval(this.interval)
@@ -103,13 +131,12 @@ export default {
       if (this.content) {
         this.update_interface_content()
         this.update_chart()
+        this.get_metadata()
       }
     }
   }
 }
 </script>
 <style lang="sass">
-
 @import '../assets/styles/variables'
-
 </style>
