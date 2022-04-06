@@ -7,6 +7,8 @@ UNRELEASED - Under development
 ******************************
 Added
 =====
+-Added active, enabled, lldp, nni and uni items to ``kytos/interfaceInfo`` to be displayed in basic details
+-Added a table to ``kytos/interfaceInfo`` to be displayed interface metadata
 
 Changed
 =======
