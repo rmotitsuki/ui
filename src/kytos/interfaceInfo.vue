@@ -41,7 +41,8 @@ export default {
                  "speed": ""},
       chartJsonData: null,
       interval: null,
-      plotRange: null
+      plotRange: null,
+      content_switch: []
     }
   },
   computed: {
@@ -89,18 +90,23 @@ export default {
         this.plotRange = range
         this.update_chart()
     },
+    update_content_switch(){
+      if(this.content === undefined) return
+      this.content_switch = this.content["content_switch"]
+    },
     back_switch() {
       let panel_content = {component: 'kytos-topology-k-info-panel-switch_info',
-                           content: this.content["content_switch"],
+                           content: this.content_switch,
                            icon: "gear",
                            title: "Switch Details",
-                           subtitle: this.content["content_switch"].connection,}
+                           subtitle: this.content_switch.connection,}
       this.$kytos.$emit("showInfoPanel", panel_content)
     }
   },
   mounted () {
     this.update_interface_content()
     this.update_chart()
+    this.update_content_switch()
     this.interval = setInterval(this.update_chart, 60000)
   },
   beforeDestroy () {
@@ -111,6 +117,7 @@ export default {
       if (this.content) {
         this.update_interface_content()
         this.update_chart()
+        this.update_content_switch()
       }
     }
   }
