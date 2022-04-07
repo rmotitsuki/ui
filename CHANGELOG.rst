@@ -7,8 +7,6 @@ UNRELEASED - Under development
 ******************************
 Added
 =====
--Added active, enabled, lldp, nni and uni items to ``kytos/interfaceInfo`` to be displayed in basic details
--Added a table to ``kytos/interfaceInfo`` to be displayed interface metadata
 
 Changed
 =======
@@ -27,6 +25,14 @@ Security
 
 Changed
 =======
+
+[2022.2.0.b0] - 2022-04-07
+**************************
+
+Added
+=====
+-Added active, enabled, lldp, nni and uni items to ``kytos/interfaceInfo`` to be displayed in basic details
+-Added a table to ``kytos/interfaceInfo`` to be displayed interface metadata
 
 [2022.1.1] - 2022-03-14
 **********************************
