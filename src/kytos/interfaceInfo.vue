@@ -88,7 +88,6 @@ export default {
         }
         self.metadata[key] = String(value)
       });
-      this.get_next_state()
     },
     parseInterfaceData (data) {
       if (!data) {
@@ -136,10 +135,9 @@ export default {
           description: 'The interface ' + _this.metadata.interface_id + ' was ' + _this.next_state.toLowerCase() + 'd.',
           icon: 'gear',
         }
-        let new_state = _this.next_state == 'Enable'? 'Disable' : 'Enable'
-        _this.next_state = new_state
-        _this.content['enabled'] = new_state
-        _this.metadata['enabled'] = new_state
+        _this.next_state = _this.next_state == 'Enable'? 'Disable' : 'Enable'
+        _this.content['enabled'] = _this.next_state == 'Enable'? 'false' : 'true'
+        _this.metadata['enabled'] = _this.content['enabled']
         _this.$kytos.$emit("setNotification", notification)
       });
       request.fail(function() {
@@ -157,6 +155,7 @@ export default {
     this.update_chart()
     this.interval = setInterval(this.update_chart, 60000)
     this.get_metadata()
+    this.get_next_state()
   },
   beforeDestroy () {
     clearInterval(this.interval)
@@ -167,6 +166,7 @@ export default {
         this.update_interface_content()
         this.update_chart()
         this.get_metadata()
+        this.get_next_state()
       }
     }
   }
