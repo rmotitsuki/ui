@@ -50,7 +50,11 @@ export default {
     interface_id: {
       type: String,
       required: true,
-    }
+    },
+    content_switch: {
+      type: Object,
+      required: true,
+    },
   },
   data () {
     return {
