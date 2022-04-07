@@ -1,6 +1,6 @@
 <template>
     <k-accordion>
-
+      <k-button :on_click="bt_state_toggle" :title="next_state"></k-button>
       <k-accordion-item title="Interface Plot" v-if="chartJsonData">
         <k-button-group>
             <!-- input type="text" class="k-input" placeholder="Zoom" disabled -->
@@ -66,7 +66,8 @@ export default {
                  "uni": "",},
       chartJsonData: null,
       interval: null,
-      plotRange: null
+      plotRange: null,
+      next_state: "",
     }
   },
   computed: {
@@ -79,7 +80,7 @@ export default {
   methods: {
     update_interface_content () {
       var self = this
-      let filter = this.$root.$options.filters.humanize_bytes
+      let filter = this.$root.$options.filters.humanize_bytes      
       Object.keys(this.metadata).forEach(function (key) {
         let value = self.content[key]
         if (key == 'speed') {
@@ -87,6 +88,7 @@ export default {
         }
         self.metadata[key] = String(value)
       });
+      this.get_next_state()
     },
     parseInterfaceData (data) {
       if (!data) {
@@ -117,7 +119,38 @@ export default {
     get_metadata() {
       if(this.content === undefined) return
       this.metadata_items = this.content.metadata
-    }
+    },
+    get_next_state() {
+      this.next_state = this.metadata.enabled == 'true'? 'Disable' : 'Enable'
+    },
+    bt_state_toggle(){
+      var _this = this
+      let request = $.ajax({
+                       type:"POST",
+                       url: this.$kytos_server_api + "kytos/topology/v3/interfaces/" + this.metadata.interface_id
+                             + "/" + this.next_state.toLowerCase(),
+                       async: true,});
+      request.done(function() {
+        let notification = {
+          title: 'Interface ' + _this.next_state + 'd: Succeed',
+          description: 'The interface ' + _this.metadata.interface_id + ' was ' + _this.next_state.toLowerCase() + 'd.',
+          icon: 'gear',
+        }
+        let new_state = _this.next_state == 'Enable'? 'Disable' : 'Enable'
+        _this.next_state = new_state
+        _this.content['enabled'] = new_state
+        _this.metadata['enabled'] = new_state
+        _this.$kytos.$emit("setNotification", notification)
+      });
+      request.fail(function() {
+        let notification = {
+          title: 'Interface ' + _this.next_state + 'd: Failed',
+          description: data.status + ': ' + data.responseJSON.description + '. The interface ' + _this.metadata.interface_id + ' was not ' + _this.next_state.toLowerCase() + 'd.',
+          icon: 'gear',
+        }
+        _this.$kytos.$emit("setNotification", notification)
+      });
+    },
   },
   mounted () {
     this.update_interface_content()
