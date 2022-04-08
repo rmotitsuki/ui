@@ -50,6 +50,30 @@ export default {
     interface_id: {
       type: String,
       required: true,
+    },
+    enabled: {
+      type: Boolean,
+      required: true,
+    },
+    active: {
+      type: Boolean,
+      required: true,
+    },
+    lldp: {
+      type: Boolean,
+      required: true,
+    },
+    nni: {
+      type: Boolean,
+      required: true,
+    },
+    uni: {
+      type: Boolean,
+      required: true,
+    },
+    metadata: {
+      type: Object,
+      required: false,
     }
   },
   data () {
