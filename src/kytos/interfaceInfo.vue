@@ -19,6 +19,25 @@
           </k-property-panel>
       </k-accordion-item>
 
+      <k-accordion-item title="Metadata" v-if="Object.keys(this.metadata_items).length !== 0">
+         <div class="metadata_table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Key</th>
+                  <th>Value</th>  
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(value, key) in this.metadata_items">
+                  <td >{{key}}</td>
+                  <td >{{value}}</td>
+                </tr>
+              </tbody>
+            </table>
+         </div>
+      </k-accordion-item>
+
     </k-accordion>
 </template>
 
@@ -33,12 +52,18 @@ export default {
   data () {
     return {
       display: false,
-      metadata: {"interface_id": "",
+      metadata_items: [],
+      metadata: {"enabled": "",
+                 "active": "",
+                 "interface_id": "",
                  "name": "",
                  "port_number": "",
                  "dpid": "",
                  "mac": "",
-                 "speed": ""},
+                 "speed": "",
+                 "lldp": "",
+                 "nni": "",
+                 "uni": "",},
       chartJsonData: null,
       interval: null,
       plotRange: null,
@@ -101,6 +126,10 @@ export default {
                            title: "Switch Details",
                            subtitle: this.content_switch.connection,}
       this.$kytos.$emit("showInfoPanel", panel_content)
+    },
+    get_metadata() {
+      if(this.content === undefined) return
+      this.metadata_items = this.content.metadata
     }
   },
   mounted () {
@@ -108,6 +137,7 @@ export default {
     this.update_chart()
     this.update_content_switch()
     this.interval = setInterval(this.update_chart, 60000)
+    this.get_metadata()
   },
   beforeDestroy () {
     clearInterval(this.interval)
@@ -118,13 +148,46 @@ export default {
         this.update_interface_content()
         this.update_chart()
         this.update_content_switch()
+        this.get_metadata()
       }
     }
   }
 }
 </script>
 <style lang="sass">
-
 @import '../assets/styles/variables'
 
+.metadata_table 
+  color: #ccc
+  max-height: 250px
+  text-align: center
+  margin: 0 auto
+  display: block
+  padding: 0.5em 0 1em 0.3em
+  font-size: 0.8em
+  overflow-x: hidden
+  overflow-y: auto
+
+.metadata_table table
+  display: table
+  width: 100%
+
+.metadata_table thead
+  font-weight: bold
+  background: #554077
+
+.metadata_table th
+  padding: 0.6em 0 0.6em 0
+
+.metadata_table td
+  vertical-align: middle
+  padding: 0.45em 0 0.45em 0
+  word-break: break-all
+
+.metadata_table tbody tr:nth-child(even)
+  background: #313131
+
+.metadata_table tbody tr:hover
+    color: #eee
+    background-color: #666
 </style>
