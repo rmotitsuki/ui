@@ -31,6 +31,13 @@ Changed
 
 Added
 =====
+-Added a back button to ``kytos/interfaceInfo`` to return to ``k-info-panel/switch_info``
+
+[2022.2.0.b0] - 2022-04-07
+**************************
+
+Added
+=====
 -Added active, enabled, lldp, nni and uni items to ``kytos/interfaceInfo`` to be displayed in basic details
 -Added a table to ``kytos/interfaceInfo`` to be displayed interface metadata
 
