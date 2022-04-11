@@ -1,6 +1,6 @@
 <template>
     <k-accordion>
-
+      <k-button tooltip="Go back to switch info" title="< Back to switch" :on_click="back_switch"></k-button>
       <k-accordion-item title="Interface Plot" v-if="chartJsonData">
         <k-button-group>
             <!-- input type="text" class="k-input" placeholder="Zoom" disabled -->
@@ -79,6 +79,7 @@ export default {
       plotRange: null,
       to_add: "",
       to_delete: "",
+      content_switch: []
     }
   },
   computed: {
@@ -125,6 +126,18 @@ export default {
     change_plotRange(range) {
         this.plotRange = range
         this.update_chart()
+    },
+    update_content_switch(){
+      if(this.content === undefined) return
+      this.content_switch = this.content["content_switch"]
+    },
+    back_switch() {
+      let panel_content = {component: 'kytos-topology-k-info-panel-switch_info',
+                           content: this.content_switch,
+                           icon: "gear",
+                           title: "Switch Details",
+                           subtitle: this.content_switch.connection,}
+      this.$kytos.$emit("showInfoPanel", panel_content)
     },
     get_metadata() {
       if(this.content === undefined) return
@@ -195,6 +208,7 @@ export default {
   mounted () {
     this.update_interface_content()
     this.update_chart()
+    this.update_content_switch()
     this.interval = setInterval(this.update_chart, 60000)
     this.get_metadata()
   },
@@ -206,6 +220,7 @@ export default {
       if (this.content) {
         this.update_interface_content()
         this.update_chart()
+        this.update_content_switch()
         this.get_metadata()
       }
     }

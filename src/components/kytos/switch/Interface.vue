@@ -51,6 +51,10 @@ export default {
       type: String,
       required: true,
     },
+    content_switch: {
+      type: Object,
+      required: true,
+    },
     enabled: {
       type: Boolean,
       required: true,

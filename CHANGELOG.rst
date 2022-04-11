@@ -26,6 +26,14 @@ Security
 Changed
 =======
 
+[2022.2.0.b1] - 2022-04-11
+**************************
+
+Added
+=====
+-Added a back button to ``kytos/interfaceInfo`` to return to ``k-info-panel/switch_info``
+
+
 [2022.2.0.b0] - 2022-04-07
 **************************
 
