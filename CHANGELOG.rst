@@ -26,12 +26,16 @@ Security
 Changed
 =======
 
-[2022.2.0.b2] - 2022-04-12
+[2022.2.0-b2] - 2022-04-12
 **************************
 
 Added
 =====
--Added buttons to modify metadata from ``kytos/interfaceInfo``
+- Added buttons to modify metadata from ``kytos/interfaceInfo``
+
+Changed
+=======
+- Interface switch details component is minimized by default
 
 
 [2022.2.0.b1] - 2022-04-11
