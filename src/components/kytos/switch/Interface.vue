@@ -113,7 +113,6 @@ export default {
     open_interface() {
       var content = {"component": InterfaceInfo,
                      "content": this,
-                     "maximized": true,
                      "icon": "gear",
                      "title": "Interface Details",
                      "subtitle": this.name}
