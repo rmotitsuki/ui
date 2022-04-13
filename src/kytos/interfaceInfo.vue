@@ -38,6 +38,16 @@
             </table>
          </div>
       </k-accordion-item>
+      <k-accordion-item title="Metadata actions"> 
+         <k-textarea title="Add metadata" icon="arrow-right" placeholder='Eg. {"node_name": "some_name", "address": "some_address"}' :value.sync="to_add"></k-textarea>
+         <div class="metadata_container">
+              <k-button title="Add metadata" :on_click="bt_add_metadata"></k-button>
+         </div>
+         <k-input title="Delete metadata" icon="arrow-right" placeholder="Eg. node_name" :value.sync="to_delete"></k-input>
+         <div class="metadata_container">
+              <k-button title="Remove metadata" :on_click="bt_rmv_metadata"></k-button>
+         </div>
+      </k-accordion-item>
 
     </k-accordion>
 </template>
@@ -69,6 +79,8 @@ export default {
       interval: null,
       plotRange: null,
       next_state: "",
+      to_add: "",
+      to_delete: "",
       content_switch: []
     }
   },
@@ -160,9 +172,70 @@ export default {
           description: data.status + ': ' + data.responseJSON.description + '. The interface ' + _this.metadata.interface_id + ' was not ' + _this.next_state.toLowerCase() + 'd.',
           icon: 'gear',
         }
+      _this.$kytos.$emit("setNotification", notification)
+      })
+    },
+    bt_add_metadata() {
+      var _this = this
+      let request = $.ajax({
+                       type: "POST",
+                       url: this.$kytos_server_api + "kytos/topology/v3/interfaces/" + this.metadata.interface_id
+                             + "/metadata",
+                       async: true,
+                       data: this.to_add,
+                       dataType: "json",
+                       contentType: "application/json; charset=utf-8",
+      });
+      request.done(function() {
+        let notification = {
+             icon: 'gear',
+             title: 'Add metadata: Success',
+             description: '"' + _this.to_add + '" was added to the metadata. Interface: ' + _this.metadata.interface_id,
+        }
+        _this.$kytos.$emit("setNotification", notification)
+        let temp = JSON.parse(_this.to_add)
+        var item = ""
+        for (item in temp){
+          _this.content.metadata[item] = temp[item]
+        }
+        _this.to_add = ''
+      });
+      request.fail(function(data) {
+        let notification = {
+             icon: 'gear',
+             title: 'Add metadata: Failure',
+             description: data.status + ': ' + data.responseJSON.description + ' "' + _this.to_add + '" was not added to the metadata. Interface: ' + _this.metadata.interface_id,
+        }
         _this.$kytos.$emit("setNotification", notification)
       });
     },
+    bt_rmv_metadata() {
+      var _this = this
+      let request = $.ajax({
+                       type: "DELETE",
+                       url: this.$kytos_server_api + "kytos/topology/v3/interfaces/" + this.metadata.interface_id
+                             + "/metadata/" + this.to_delete,
+                       async: true,
+      });
+      request.done(function() {
+        let notification = {
+             icon: 'gear',
+             title: 'Delete metadata: Success',
+             description: '"' + _this.to_delete + '" was deleted from the metadata. Interface: ' + _this.metadata.interface_id,
+        }
+        _this.$kytos.$emit("setNotification", notification)
+        delete _this.content.metadata[_this.to_delete]
+        _this.to_delete = ''
+      });
+      request.fail(function(data) {
+        let notification = {
+             icon: 'gear',
+             title: 'Delete metadata: Failure',
+             description: data.status + ': ' + data.responseJSON.description + ' "' + _this.to_delete + '" was not deleted from the metadata. Interface: ' + _this.metadata.interface_id,
+        }
+        _this.$kytos.$emit("setNotification", notification)
+      });
+    }
   },
   mounted () {
     this.update_interface_content()
@@ -224,4 +297,13 @@ export default {
 .metadata_table tbody tr:hover
     color: #eee
     background-color: #666
+
+.metadata_container 
+  width: 100%
+  display: flex
+  justify-content: center
+
+.metadata_container .k-button
+  width: 150px
+
 </style>
