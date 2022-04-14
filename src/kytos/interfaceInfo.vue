@@ -166,13 +166,13 @@ export default {
         _this.metadata['enabled'] = _this.content['enabled']
         _this.$kytos.$emit("setNotification", notification)
       });
-      request.fail(function() {
+      request.fail(function(data) {
         let notification = {
           title: 'Interface ' + _this.next_state + 'd: Failed',
           description: data.status + ': ' + data.responseJSON.description + '. The interface ' + _this.metadata.interface_id + ' was not ' + _this.next_state.toLowerCase() + 'd.',
           icon: 'gear',
         }
-      _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.$emit("setNotification", notification)
       })
     },
     bt_add_metadata() {
