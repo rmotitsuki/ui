@@ -26,6 +26,14 @@ Security
 Changed
 =======
 
+
+[2022.2.0-b3] - 2022-04-15
+**************************
+
+Added
+=====
+- Added a toggle button to enable and disable an interface in the ``kytos/interfaceInfo`` component
+
 [2022.2.0-b2] - 2022-04-12
 **************************
 
