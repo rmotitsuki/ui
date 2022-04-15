@@ -1,7 +1,9 @@
 <template>
     <k-accordion>
-      <k-button tooltip="Go back to switch info" title="< Back to switch" :on_click="back_switch"></k-button>
-      <k-button :on_click="bt_state_toggle" :title="next_state"></k-button>
+      <div style="display:flex;justify-content: space-between;">
+        <k-button tooltip="Go back to switch info" title="< Back to switch" :on_click="back_switch"></k-button>
+        <k-button :on_click="bt_state_toggle" :title="next_state"></k-button>
+      </div>
       <k-accordion-item title="Interface Plot" v-if="chartJsonData">
         <k-button-group>
             <!-- input type="text" class="k-input" placeholder="Zoom" disabled -->
