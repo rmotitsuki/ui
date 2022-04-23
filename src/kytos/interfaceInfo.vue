@@ -1,6 +1,6 @@
 <template>
     <k-accordion>
-      <div style="display:flex;justify-content: space-between;">
+      <div class="button_container">
         <k-button tooltip="Go back to switch info" title="< Back to switch" :on_click="back_switch"></k-button>
         <k-button :on_click="bt_state_toggle" :title="next_state"></k-button>
       </div>
@@ -307,5 +307,9 @@ export default {
 
 .metadata_container .k-button
   width: 150px
+
+.button_container
+  display: flex
+  justify-content: space-between
 
 </style>
