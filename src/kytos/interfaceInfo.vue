@@ -1,6 +1,9 @@
 <template>
     <k-accordion>
-      <k-button tooltip="Go back to switch info" title="< Back to switch" :on_click="back_switch"></k-button>
+      <div class="button_container">
+        <k-button tooltip="Go back to switch info" title="< Back to switch" :on_click="back_switch"></k-button>
+        <k-button :on_click="bt_state_toggle" :title="next_state"></k-button>
+      </div>
       <k-accordion-item title="Interface Plot" v-if="chartJsonData">
         <k-button-group>
             <!-- input type="text" class="k-input" placeholder="Zoom" disabled -->
@@ -77,6 +80,7 @@ export default {
       chartJsonData: null,
       interval: null,
       plotRange: null,
+      next_state: "",
       to_add: "",
       to_delete: "",
       content_switch: []
@@ -92,7 +96,7 @@ export default {
   methods: {
     update_interface_content () {
       var self = this
-      let filter = this.$root.$options.filters.humanize_bytes
+      let filter = this.$root.$options.filters.humanize_bytes      
       Object.keys(this.metadata).forEach(function (key) {
         let value = self.content[key]
         if (key == 'speed') {
@@ -142,6 +146,36 @@ export default {
     get_metadata() {
       if(this.content === undefined) return
       this.metadata_items = this.content.metadata
+    },
+    get_next_state() {
+      this.next_state = this.metadata.enabled == 'true'? 'Disable' : 'Enable'
+    },
+    bt_state_toggle(){
+      var _this = this
+      let request = $.ajax({
+                       type:"POST",
+                       url: this.$kytos_server_api + "kytos/topology/v3/interfaces/" + this.metadata.interface_id
+                             + "/" + this.next_state.toLowerCase(),
+                       async: true,});
+      request.done(function() {
+        let notification = {
+          title: 'Interface ' + _this.next_state + 'd: Succeed',
+          description: 'The interface ' + _this.metadata.interface_id + ' was ' + _this.next_state.toLowerCase() + 'd.',
+          icon: 'gear',
+        }
+        _this.next_state = _this.next_state == 'Enable'? 'Disable' : 'Enable'
+        _this.content['enabled'] = _this.next_state == 'Enable'? 'false' : 'true'
+        _this.metadata['enabled'] = _this.content['enabled']
+        _this.$kytos.$emit("setNotification", notification)
+      });
+      request.fail(function(data) {
+        let notification = {
+          title: 'Interface ' + _this.next_state + 'd: Failed',
+          description: data.status + ': ' + data.responseJSON.description + '. The interface ' + _this.metadata.interface_id + ' was not ' + _this.next_state.toLowerCase() + 'd.',
+          icon: 'gear',
+        }
+        _this.$kytos.$emit("setNotification", notification)
+      })
     },
     bt_add_metadata() {
       var _this = this
@@ -211,6 +245,7 @@ export default {
     this.update_content_switch()
     this.interval = setInterval(this.update_chart, 60000)
     this.get_metadata()
+    this.get_next_state()
   },
   beforeDestroy () {
     clearInterval(this.interval)
@@ -222,6 +257,7 @@ export default {
         this.update_chart()
         this.update_content_switch()
         this.get_metadata()
+        this.get_next_state()
       }
     }
   }
@@ -271,5 +307,9 @@ export default {
 
 .metadata_container .k-button
   width: 150px
+
+.button_container
+  display: flex
+  justify-content: space-between
 
 </style>
