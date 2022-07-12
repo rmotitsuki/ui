@@ -1,6 +1,7 @@
-import KytosBase from './KytosBase'
+import KytosBase from './KytosBase';
 import 'vue-awesome/icons';
-import Icon from 'vue-awesome/components/Icon.js';
+import Icon from 'vue-awesome/components/Icon';
+
 
 /**
  * A base components with icon in property.
