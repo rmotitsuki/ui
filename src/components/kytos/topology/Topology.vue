@@ -344,7 +344,7 @@ export default {
       // this event need to be registered to be better
       var content = {component: 'kytos-topology-k-info-panel-switch_info',
                      content: obj,
-                     icon: "gear",
+                     icon: "cog",
                      title: "Switch Details",
                      subtitle: obj.connection}
       this.$kytos.$emit("showInfoPanel", content)

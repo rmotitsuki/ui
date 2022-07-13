@@ -1,9 +1,9 @@
 <template>
   <div :id="id" v-bind:class="{ 'k-flow': true, 'k-flow-active': isOwner }">
       <div class="info">
-        <div class="info-item" title="Priority"><icon name="level-up"></icon> {{content.priority}}</div>
-        <div class="info-item" title="Hard/Idle Timeouts"><icon name="clock-o"></icon> {{content.hard_timeout}} / {{content.idle_timeout}}</div>
-        <div class="info-item" title="Cookie"><icon name="bookmark-o"></icon> {{content.cookie}}</div>
+        <div class="info-item" title="Priority"><icon name="level-up-alt"></icon> {{content.priority}}</div>
+        <div class="info-item" title="Hard/Idle Timeouts"><icon name="regular/clock"></icon> {{content.hard_timeout}} / {{content.idle_timeout}}</div>
+        <div class="info-item" title="Cookie"><icon name="regular/bookmark"></icon> {{content.cookie}}</div>
       </div>
 
       <div class="match">

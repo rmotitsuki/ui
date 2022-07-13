@@ -13,8 +13,8 @@ import KytosBase from '../../base/KytosBase';
  * Allows to group buttons (``k-button``), which trigger events when clicked.
  * @example <k-button-group>
  *     <k-button tooltip="Map Background" icon="globe"></k-button>
- *     <k-button tooltip="Image Background (disabled)" icon="photo" :is-disabled="true"></k-button>
- *     <k-button tooltip="No Background" icon="window-close-o"></k-button>
+ *     <k-button tooltip="Image Background (disabled)" icon="regular/image" :is-disabled="true"></k-button>
+ *     <k-button tooltip="No Background" icon="regular/window-close"></k-button>
  *   </k-button-group>
  * @example /_static/imgs/components/input/k-button-group.png
  */

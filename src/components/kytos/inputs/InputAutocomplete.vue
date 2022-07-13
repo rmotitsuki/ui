@@ -68,7 +68,7 @@
 /*
 Autocomplete usage example.
 In your template:
-  <k-input-auto title="Switch Labels:" placeholder="Search DPID" icon="circle-o" :candidates="dpids" ></k-input-auto>
+  <k-input-auto title="Switch Labels:" placeholder="Search DPID" icon="regular/circle" :candidates="dpids" ></k-input-auto>
 
 In your script component:
 
