@@ -1,7 +1,7 @@
 <template>
    <label class="k-dropdown" v-bind:class="{ 'no-title' : !title }">
     <div class="k-dropdown__title">
-      <icon v-if="icon" v-bind:name="icon"></icon>
+      <icon v-if="icon" v-bind:name="iconName"></icon>
       {{title}}
     </div>
     <select class="k-dropdown__select" v-model="selected" @change.prevent="emitEvent">

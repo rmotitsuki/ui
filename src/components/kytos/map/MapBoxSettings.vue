@@ -9,7 +9,7 @@
 
           <k-accordion-item title="Background">
             <k-button-group>
-              <k-button tooltip="Map Background" icon="globe"></k-button>
+              <k-button tooltip="Map Background" icon="desktop"></k-button>
               <k-button tooltip="Image Background (disabled)" icon="regular/image" :is-disabled="true"></k-button>
               <k-button tooltip="No Background" icon="regular/window-close"></k-button>
             </k-button-group>

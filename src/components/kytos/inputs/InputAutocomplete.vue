@@ -18,7 +18,7 @@
           resultProps
         }"
       >
-        <icon v-if="icon" v-bind:name="icon"></icon>
+        <icon v-if="icon" v-bind:name="iconName"></icon>
         <div v-bind="rootProps">
           <custom-input
             v-bind="inputProps"

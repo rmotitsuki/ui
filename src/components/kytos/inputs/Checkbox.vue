@@ -1,6 +1,6 @@
 <template>
   <div class="k-checkbox-wrap">
-  <icon v-if="icon" v-bind:name="icon"></icon>
+  <icon v-if="icon" v-bind:name="iconName"></icon>
   <label class="checkbox">
     <input type="checkbox" id="checkbox" v-model="enabled" @change="update_check()">
     <span class="slider"></span>
