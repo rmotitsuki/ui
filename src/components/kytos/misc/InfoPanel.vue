@@ -50,7 +50,7 @@ export default {
     return {
       infoPanelView: undefined,
       content: undefined,
-      myIcon: 'gear',
+      myIcon: 'cog',
       myTitle: '',
       mySubtitle: '',
       maximized: false,
@@ -106,7 +106,7 @@ export default {
         let standard_infoPanel = {
           component: 'search-hosts',
           title: '',
-          icon: 'gear'
+          icon: 'cog'
         }
         this.show(standard_infoPanel)
       }

@@ -17,14 +17,14 @@ import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
  * @example
  * <k-accordion>
  *    <k-accordion-item title="Custom Labels">
- *        <k-dropdown title="Switch Labels:" icon="circle-o" :options="switchLabels" :event="{name: 'topology-toggle-label', content: {node_type: 'switch'}}"></k-dropdown>
+ *        <k-dropdown title="Switch Labels:" icon="regular/circle" :options="switchLabels" :event="{name: 'topology-toggle-label', content: {node_type: 'switch'}}"></k-dropdown>
  *        <k-dropdown title="Interface Labels:" icon="plug" :options="interfaceLabels" :event="{name: 'topology-toggle-label', content: {node_type: 'interface'}}"></k-dropdown>
  *    </k-accordion-item>
  *    <k-accordion-item title="Background">
  *        <k-button-group>
  *          <k-button tooltip="Map Background" icon="globe"></k-button>
- *          <k-button tooltip="Image Background (disabled)" icon="photo" :is-disabled="true"></k-button>
- *          <k-button tooltip="No Background" icon="window-close-o"></k-button>
+ *          <k-button tooltip="Image Background (disabled)" icon="regular/image" :is-disabled="true"></k-button>
+ *          <k-button tooltip="No Background" icon="regular/window-close"></k-button>
  *        </k-button-group>
  *        <k-slider icon="adjust" :initial-value="mapOpacity" :action="emitMapOpacity"></k-slider>
  *    </k-accordion-item>

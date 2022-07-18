@@ -14,7 +14,7 @@
           <k-button title="Debug" @click.native="select('debug')"  tooltip="Only debug messages"></k-button>
         </k-button-group>
         <k-button-group>
-          <k-input v-model="highlight_string" v-on:change.native='highlight' icon="lightbulb-o" tooltip="Highlight string" placeholder="Highlight string"></k-input>
+          <k-input v-model="highlight_string" v-on:change.native='highlight' icon="regular/lightbulb" tooltip="Highlight string" placeholder="Highlight string"></k-input>
         </k-button-group>
       </div>
 

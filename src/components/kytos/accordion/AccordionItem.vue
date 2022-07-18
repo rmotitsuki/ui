@@ -22,8 +22,8 @@ import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
  *    <k-accordion-item title="Background">
  *        <k-button-group>
  *          <k-button tooltip="Map Background" icon="globe"></k-button>
- *          <k-button tooltip="Image Background (disabled)" icon="photo" :is-disabled="true"></k-button>
- *          <k-button tooltip="No Background" icon="window-close-o"></k-button>
+ *          <k-button tooltip="Image Background (disabled)" icon="regular/image" :is-disabled="true"></k-button>
+ *          <k-button tooltip="No Background" icon="regular/window-close"></k-button>
  *        </k-button-group>
  *        <k-slider icon="adjust" :initial-value="mapOpacity" :action="emitMapOpacity"></k-slider>
  *    </k-accordion-item>

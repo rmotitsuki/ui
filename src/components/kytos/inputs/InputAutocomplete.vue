@@ -18,7 +18,7 @@
           resultProps
         }"
       >
-        <icon v-if="icon" v-bind:name="icon"></icon>
+        <icon v-if="icon" v-bind:name="iconName"></icon>
         <div v-bind="rootProps">
           <custom-input
             v-bind="inputProps"
@@ -68,7 +68,7 @@
 /*
 Autocomplete usage example.
 In your template:
-  <k-input-auto title="Switch Labels:" placeholder="Search DPID" icon="circle-o" :candidates="dpids" ></k-input-auto>
+  <k-input-auto title="Switch Labels:" placeholder="Search DPID" icon="regular/circle" :candidates="dpids" ></k-input-auto>
 
 In your script component:
 

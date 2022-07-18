@@ -1,6 +1,6 @@
 <template>
   <div class="k-textarea-wrap no-compact">
-    <icon v-if="icon" v-bind:name="icon"></icon>
+    <icon v-if="icon" v-bind:name="iconName"></icon>
     <textarea ref="textarea" @input="updateText" type="text" :id="id" class="k-textarea" :value="value" :tooltip="tooltip" :placeholder="placeholder"
       v-bind:disabled="isDisabled" onshow="this.focus()" autofocus>
     </textarea>

@@ -97,7 +97,7 @@ export default {
     open_switch (s) {
       var content = {"component": switchInfo,
                      "content": s,
-                     "icon": "gear",
+                     "icon": "cog",
                      "title": "Switch Details",
                      "subtitle": s.connection}
       this.$kytos.$emit("showInfoPanel", content)

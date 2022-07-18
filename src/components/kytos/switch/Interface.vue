@@ -113,7 +113,7 @@ export default {
     open_interface() {
       var content = {"component": InterfaceInfo,
                      "content": this,
-                     "icon": "gear",
+                     "icon": "cog",
                      "title": "Interface Details",
                      "subtitle": this.name}
       this.$kytos.$emit("showInfoPanel", content)

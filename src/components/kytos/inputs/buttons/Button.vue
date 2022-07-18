@@ -3,7 +3,7 @@
     @click="this.click"
     v-bind:title="tooltip"
     v-bind:disabled="isDisabled">
-      <icon v-if="icon" v-bind:name="icon"></icon>
+      <icon v-if="icon" v-bind:name="iconName"></icon>
       {{title}}
   </button>
 </template>
@@ -14,7 +14,7 @@ import KytosBaseWithIcon from '../../base/KytosBaseWithIcon';
 
 /**
  * This component represents a button that triggers an event when clicked.
- * @example <k-button tooltip="Request Circuit" title="Request Circuit" icon="gear" :action="request_circuit"></k-button>
+ * @example <k-button tooltip="Request Circuit" title="Request Circuit" icon="cog" :action="request_circuit"></k-button>
  * @example /_static/imgs/components/input/k-button.png
  */
 

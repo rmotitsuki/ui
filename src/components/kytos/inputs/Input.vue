@@ -1,6 +1,6 @@
 <template>
   <div class="k-input-wrap">
-    <icon v-if="icon" v-bind:name="icon"></icon>
+    <icon v-if="icon" v-bind:name="iconName"></icon>
     <input :value="value" :id="id" class="k-input" :tooltip="tooltip" :placeholder="placeholder"
       @input="updateText"
       ref="inputValue"

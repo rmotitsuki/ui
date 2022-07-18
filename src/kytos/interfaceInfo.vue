@@ -138,7 +138,7 @@ export default {
     back_switch() {
       let panel_content = {component: 'kytos-topology-k-info-panel-switch_info',
                            content: this.content_switch,
-                           icon: "gear",
+                           icon: "cog",
                            title: "Switch Details",
                            subtitle: this.content_switch.connection,}
       this.$kytos.$emit("showInfoPanel", panel_content)
@@ -161,7 +161,7 @@ export default {
         let notification = {
           title: 'Interface ' + _this.next_state + 'd: Succeed',
           description: 'The interface ' + _this.metadata.interface_id + ' was ' + _this.next_state.toLowerCase() + 'd.',
-          icon: 'gear',
+          icon: 'cog',
         }
         _this.next_state = _this.next_state == 'Enable'? 'Disable' : 'Enable'
         _this.content['enabled'] = _this.next_state == 'Enable'? 'false' : 'true'
@@ -172,7 +172,7 @@ export default {
         let notification = {
           title: 'Interface ' + _this.next_state + 'd: Failed',
           description: data.status + ': ' + data.responseJSON.description + '. The interface ' + _this.metadata.interface_id + ' was not ' + _this.next_state.toLowerCase() + 'd.',
-          icon: 'gear',
+          icon: 'cog',
         }
         _this.$kytos.$emit("setNotification", notification)
       })
@@ -190,7 +190,7 @@ export default {
       });
       request.done(function() {
         let notification = {
-             icon: 'gear',
+             icon: 'cog',
              title: 'Add metadata: Success',
              description: '"' + _this.to_add + '" was added to the metadata. Interface: ' + _this.metadata.interface_id,
         }
@@ -204,7 +204,7 @@ export default {
       });
       request.fail(function(data) {
         let notification = {
-             icon: 'gear',
+             icon: 'cog',
              title: 'Add metadata: Failure',
              description: data.status + ': ' + data.responseJSON.description + ' "' + _this.to_add + '" was not added to the metadata. Interface: ' + _this.metadata.interface_id,
         }
@@ -221,7 +221,7 @@ export default {
       });
       request.done(function() {
         let notification = {
-             icon: 'gear',
+             icon: 'cog',
              title: 'Delete metadata: Success',
              description: '"' + _this.to_delete + '" was deleted from the metadata. Interface: ' + _this.metadata.interface_id,
         }
@@ -231,7 +231,7 @@ export default {
       });
       request.fail(function(data) {
         let notification = {
-             icon: 'gear',
+             icon: 'cog',
              title: 'Delete metadata: Failure',
              description: data.status + ': ' + data.responseJSON.description + ' "' + _this.to_delete + '" was not deleted from the metadata. Interface: ' + _this.metadata.interface_id,
         }

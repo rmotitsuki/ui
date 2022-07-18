@@ -1,7 +1,7 @@
 <template>
   <section class="k-context-panel">
     <div class="k-context-panel-title">
-      <icon v-if="icon" v-bind:name="icon"></icon>
+      <icon v-if="icon" v-bind:name="iconName"></icon>
       <div v-if="title" class="pannel-title">
         <h1 :style="style">{{ title }} <small>{{ subtitle }}</small></h1>
       </div>
@@ -19,7 +19,7 @@ import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
  * Represents a context where the developer can add any desired content.
  *
  * @example:
- * <k-context-panel title_color="#554077" subtitle="Some Subtitle" title="Some Title" icon="gear">
+ * <k-context-panel title_color="#554077" subtitle="Some Subtitle" title="Some Title" icon="cog">
  *     <any-k-component></any-k-component>
  * </k-context-panel>
  *
@@ -87,6 +87,7 @@ export default {
     > svg
       vertical-align: middle
       color: $fill-icon
+      fill: $fill-icon
       width: 20px
       height: 20px
       margin-right: 5px

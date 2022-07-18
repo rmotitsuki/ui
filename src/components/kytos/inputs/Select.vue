@@ -1,7 +1,7 @@
 <template>
    <label class="k-select no-compact">
     <div class="k-select__title">
-      <icon v-if="icon" v-bind:name="icon"></icon>
+      <icon v-if="icon" v-bind:name="iconName"></icon>
       {{title}}
     </div>
     <select class="k-select__select" v-model="selected" @change.prevent="emitEvent"  multiple>
