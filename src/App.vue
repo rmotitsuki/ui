@@ -1,5 +1,9 @@
 <template>
   <div id="app" v-bind:class="{ compacted: compacted  }">
+  
+    <!-- Force Node to load the favicon.png asset for the head. -->
+    <img src="./assets/imgs/favicon.png" style="display:none">
+
     <k-menubar v-bind:toggle=toggle v-bind:compacted=compacted></k-menubar>
     <k-tabs></k-tabs>
 
