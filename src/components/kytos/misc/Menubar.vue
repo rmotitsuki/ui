@@ -2,11 +2,11 @@
  <div class="container">
    <section class="k-menu-bar">
      <div class="logo" v-on:click="toggle" v-bind:class="{ compacted: compacted  }">
-       <div v-show="!compacted">
-         <img src="../../../assets/logo-kytos.svg" class="logo-kytos" alt="Kytos" height="35">
+       <div class="logo-wrapper" v-show="!compacted">
+         <img src="../../../assets/kytosng_logo_white.svg" class="logo-kytos" alt="Kytos">
          <div id="kytos-version">v{{version}}</div>
        </div>
-       <img v-show="compacted" src="../../../assets/icon-kytos.svg" class="icon-kytos" alt="Kytos" height="35">
+       <img v-show="compacted" src="../../../assets/kytosng_icon_white.svg" class="icon-kytos" alt="Kytos">
      </div>
      <k-button v-for="(component, index) in components"
                v-bind:class="{ active: activeItem==(index+1) }"
@@ -84,6 +84,19 @@ export default {
     background: $kytos-gradient
     cursor: pointer
     text-align: center
+ 
+ .logo-wrapper
+   width: 15em
+
+   .logo-kytos
+     height: 1.5em
+     position: relative
+     top: 4px
+    
+ .icon-kytos
+   height: 1.5em
+   position: relative
+   top: 4px
 
  .k-menu-bar
    box-shadow: none
