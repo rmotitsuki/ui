@@ -7,10 +7,11 @@
    width="140"
    height="140"
    viewBox="0 0 140 140"
-   sodipodi:docname="82050_Kytos-ng_Flat_HXYZ__2__square.svg"
+   sodipodi:docname="82050_Kytos-ng_Flat_HXYZ__1__square.svg"
    inkscape:version="1.1 (c68e22c387, 2021-05-23)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
   <defs
@@ -1074,6 +1075,39 @@
          d="m 842.285,653.525 h 19.289 v -22.272 h -19.289 z"
          id="path1792" />
     </clipPath>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient308"
+       id="linearGradient2294"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(85.616516,0,0,-85.616516,896.58215,1445.2742)"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="0"
+       spreadMethod="pad" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient328"
+       id="linearGradient2296"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(85.617386,0,0,-85.617386,896.58179,1444.4115)"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="0"
+       spreadMethod="pad" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient348"
+       id="linearGradient2298"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(85.616867,0,0,-85.616867,896.58191,1453.2729)"
+       x1="0"
+       y1="0"
+       x2="1"
+       y2="0"
+       spreadMethod="pad" />
   </defs>
   <sodipodi:namedview
      id="namedview4"
@@ -1085,9 +1119,9 @@
      inkscape:pagecheckerboard="true"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="2.8284271"
-     inkscape:cx="88.211571"
-     inkscape:cy="94.929086"
+     inkscape:zoom="4"
+     inkscape:cx="51.625"
+     inkscape:cy="76.125"
      inkscape:window-width="1920"
      inkscape:window-height="1013"
      inkscape:window-x="-9"
@@ -1098,6 +1132,7 @@
      shape-rendering="auto"
      inkscape:pageshadow="2"
      width="140px"
+     height="141px"
      showguides="true"
      inkscape:guide-bbox="true">
     <inkscape:page
@@ -1107,74 +1142,62 @@
        width="2666.6667"
        height="2666.6667" />
     <sodipodi:guide
-       position="70.003571,183.13351"
+       position="70,147"
        orientation="1,0"
-       id="guide5009" />
+       id="guide2188" />
   </sodipodi:namedview>
   <g
      id="g10"
      inkscape:groupmode="layer"
      inkscape:label="Page 1"
-     transform="matrix(1.3333333,0,0,-1.3333333,-1219.0949,1522.4544)">
+     transform="matrix(1.3333333,0,0,-1.3333333,-1219.3642,2160.7571)">
     <g
-       id="g292-3-8-2"
-       transform="matrix(4.9848085,0,0,4.9848083,-3700.9658,-6112.5808)"
-       style="fill:#ffffff">
+       id="g292-3-8"
+       transform="matrix(4.9719181,0,0,4.9719181,-3688.6959,-5615.2819)">
       <g
-         id="g294-2-8-2"
-         style="fill:#ffffff">
+         id="g294-2-8">
         <g
-           id="g300-0-4-2"
-           style="fill:#ffffff">
+           id="g300-0-4">
           <g
-             id="g302-6-3-0"
-             style="fill:#ffffff">
+             id="g302-6-3">
             <path
                d="m 935.556,1447.212 c -0.254,-0.106 -0.473,-0.249 -0.657,-0.432 v 0 c -0.182,-0.184 -0.323,-0.404 -0.421,-0.665 v 0 c -0.097,-0.259 -0.146,-0.54 -0.146,-0.84 v 0 c 0,-0.309 0.049,-0.592 0.146,-0.847 v 0 c 0.098,-0.256 0.239,-0.475 0.421,-0.658 v 0 c 0.184,-0.184 0.403,-0.327 0.657,-0.432 v 0 c 0.258,-0.107 0.538,-0.159 0.847,-0.159 v 0 c 0.31,0 0.592,0.052 0.847,0.159 v 0 c 0.258,0.105 0.476,0.248 0.658,0.432 v 0 c 0.184,0.183 0.324,0.402 0.42,0.658 v 0 c 0.098,0.255 0.147,0.538 0.147,0.847 v 0 c 0,0.3 -0.049,0.581 -0.147,0.84 v 0 c -0.096,0.261 -0.236,0.481 -0.42,0.665 v 0 c -0.182,0.183 -0.4,0.326 -0.658,0.432 v 0 c -0.255,0.105 -0.537,0.157 -0.847,0.157 v 0 c -0.309,0 -0.589,-0.052 -0.847,-0.157"
-               style="fill:#ffffff;stroke:none"
-               id="path310-1-1-5" />
+               style="fill:url(#linearGradient2294);stroke:none"
+               id="path310-1-1" />
           </g>
         </g>
       </g>
     </g>
     <g
-       id="g312-5-4-5"
-       transform="matrix(4.9848085,0,0,4.9848083,-3700.9658,-6112.5808)"
-       style="fill:#ffffff">
+       id="g312-5-4"
+       transform="matrix(4.9719181,0,0,4.9719181,-3688.6959,-5615.2819)">
       <g
-         id="g314-5-9-2"
-         style="fill:#ffffff">
+         id="g314-5-9">
         <g
-           id="g320-4-2-9"
-           style="fill:#ffffff">
+           id="g320-4-2">
           <g
-             id="g322-7-0-0"
-             style="fill:#ffffff">
+             id="g322-7-0">
             <path
                d="m 939.568,1452.547 c 0,-0.387 0.111,-0.749 0.299,-1.058 v 0 l -0.979,-1.367 c -0.09,0.042 -0.178,0.086 -0.273,0.123 v 0 c -0.674,0.27 -1.413,0.405 -2.212,0.405 v 0 c -0.812,0 -1.553,-0.135 -2.22,-0.405 v 0 c -0.669,-0.267 -1.248,-0.64 -1.738,-1.115 v 0 c -0.49,-0.475 -0.869,-1.044 -1.136,-1.704 v 0 c -0.27,-0.662 -0.404,-1.38 -0.404,-2.15 v 0 c 0,-0.773 0.134,-1.49 0.404,-2.15 v 0 c 0.267,-0.662 0.646,-1.23 1.136,-1.708 v 0 c 0.49,-0.474 1.069,-0.845 1.738,-1.115 v 0 c 0.445,-0.18 0.927,-0.293 1.437,-0.353 v 0 -1.798 c -0.734,-0.307 -1.25,-1.031 -1.25,-1.876 v 0 c 0,-1.124 0.911,-2.034 2.034,-2.034 v 0 c 1.123,0 2.034,0.91 2.034,2.034 v 0 c 0,0.837 -0.507,1.556 -1.229,1.867 v 0 1.812 c 0.495,0.06 0.965,0.172 1.406,0.348 v 0 c 0.675,0.27 1.259,0.641 1.746,1.115 v 0 c 0.491,0.478 0.87,1.046 1.139,1.708 v 0 c 0.267,0.66 0.402,1.377 0.402,2.15 v 0 c 0,0.77 -0.135,1.488 -0.402,2.15 v 0 c -0.269,0.66 -0.648,1.229 -1.139,1.704 v 0 c -0.045,0.044 -0.094,0.082 -0.141,0.125 v 0 l 0.938,1.309 c 0.143,-0.032 0.291,-0.05 0.444,-0.05 v 0 c 1.124,0 2.034,0.911 2.034,2.033 v 0 c 0,1.124 -0.91,2.035 -2.034,2.035 v 0 c -1.123,0 -2.034,-0.911 -2.034,-2.035 m 1.203,0 c 0,0.46 0.372,0.831 0.831,0.831 v 0 c 0.459,0 0.832,-0.371 0.832,-0.831 v 0 c 0,-0.459 -0.373,-0.831 -0.832,-0.831 v 0 c -0.459,0 -0.831,0.372 -0.831,0.831 m -5.805,-10.558 c -0.433,0.179 -0.804,0.423 -1.115,0.734 v 0 c -0.309,0.309 -0.547,0.683 -0.713,1.116 v 0 c -0.167,0.432 -0.249,0.912 -0.249,1.437 v 0 c 0,0.507 0.082,0.985 0.249,1.426 v 0 c 0.166,0.441 0.404,0.815 0.713,1.125 v 0 c 0.311,0.312 0.682,0.556 1.115,0.735 v 0 c 0.436,0.179 0.913,0.267 1.437,0.267 v 0 c 0.524,0 1.005,-0.088 1.438,-0.267 v 0 c 0.435,-0.179 0.806,-0.423 1.115,-0.735 v 0 c 0.311,-0.31 0.549,-0.684 0.713,-1.125 v 0 c 0.166,-0.441 0.249,-0.919 0.249,-1.426 v 0 c 0,-0.525 -0.083,-1.005 -0.249,-1.437 v 0 c -0.164,-0.433 -0.402,-0.807 -0.713,-1.116 v 0 c -0.309,-0.311 -0.68,-0.555 -1.115,-0.734 v 0 c -0.433,-0.182 -0.914,-0.269 -1.438,-0.269 v 0 c -0.524,0 -1.001,0.087 -1.437,0.269"
-               style="fill:#ffffff;stroke:none"
-               id="path330-6-6-2" />
+               style="fill:url(#linearGradient2296);stroke:none"
+               id="path330-6-6" />
           </g>
         </g>
       </g>
     </g>
     <g
-       id="g332-5-8-8"
-       transform="matrix(4.9848085,0,0,4.9848083,-3700.9658,-6112.5808)"
-       style="fill:#ffffff">
+       id="g332-5-8"
+       transform="matrix(4.9719181,0,0,4.9719181,-3688.6959,-5615.2819)">
       <g
-         id="g334-6-9-3"
-         style="fill:#ffffff">
+         id="g334-6-9">
         <g
-           id="g340-9-2-8"
-           style="fill:#ffffff">
+           id="g340-9-2">
           <g
-             id="g342-3-6-0"
-             style="fill:#ffffff">
+             id="g342-3-6">
             <path
                d="m 929.336,1453.273 c 0,-1.124 0.91,-2.034 2.034,-2.034 v 0 c 1.123,0 2.034,0.91 2.034,2.034 v 0 c 0,1.123 -0.911,2.033 -2.034,2.033 v 0 c -1.124,0 -2.034,-0.91 -2.034,-2.033"
-               style="fill:#ffffff;stroke:none"
-               id="path350-7-6-4" />
+               style="fill:url(#linearGradient2298);stroke:none"
+               id="path350-7-6" />
           </g>
         </g>
       </g>
