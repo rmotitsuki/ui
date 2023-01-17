@@ -61,32 +61,24 @@ export default {
       this.action(this.selected)
     }
   },
-  mounted () {
-    let _selected = [];
-    this.options.forEach((item) => {
-      if(item.selected) {
-        _selected.push(item.value);
-      }
-    });
-    this.selected = _selected;
+  beforeMount () {
+    // Initialize the selected values with the :value.sync property
+    if(this.value) {
+      let _selected = [];
+      this.value.forEach((item) => {
+        if(!this.selected.includes(item)) {
+          _selected.push(item);
+        }
+      });
+      this.selected = _selected;
+    }
   },
   watch: {
     selected () {
       this.emitEvent();
     },
-    options () {
-      let _selected = [];
-      this.options.forEach((item) => {
-        if(item.selected) {
-          _selected.push(item.value);
-        }
-      });
-      this.selected = _selected;
-    }
   }
 }
-
-
 </script>
 
 <style lang="sass">
