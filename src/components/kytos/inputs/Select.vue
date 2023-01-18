@@ -6,7 +6,7 @@
     </div>
     <select class="k-select__select" v-model="selected" @change.prevent="emitEvent"  multiple>
       <option v-for="item in options":value="item.value">
-        {{item.description}}
+        {{item.description}} 
       </option>
     </select>
    </label>
@@ -22,6 +22,7 @@ import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
  *
  * @example <k-select icon="link" title="Undesired links:" :options="get_links" :value.sync ="undesired_links"></k-select>
  * @example /_static/imgs/components/input/k-select.png
+ * 
  */
 
 export default {
@@ -60,25 +61,24 @@ export default {
       this.action(this.selected)
     }
   },
-  mounted () {
-    this.options.forEach((item) => {
-      this.selected.push(item)
-    })
+  beforeMount () {
+    // Initialize the selected values with the :value.sync property
+    if(this.value) {
+      let _selected = [];
+      this.value.forEach((item) => {
+        if(!this.selected.includes(item)) {
+          _selected.push(item);
+        }
+      });
+      this.selected = _selected;
+    }
   },
   watch: {
     selected () {
-      this.emitEvent()
+      this.emitEvent();
     },
-    options () {
-      this.options.forEach((item) => {
-
-        this.selected.push(item);
-      })
-    }
   }
 }
-
-
 </script>
 
 <style lang="sass">
