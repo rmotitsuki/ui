@@ -5,6 +5,7 @@ All notable changes to the Kytos-NG UI project will be documented in this file.
 
 UNRELEASED - Under development
 ******************************
+
 Added
 =====
 
@@ -32,6 +33,11 @@ Changed
 Added
 =====
 - New Kytos-ng logo and icon
+
+Fixed
+=====
+- Fix Select component event trigger
+
 
 [2022.2.0] - "kiko" - 2022-08-12
 ********************************
