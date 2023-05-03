@@ -3,7 +3,7 @@
     <div class="k-logging-toolbar">
         <k-button-group>
           <k-button icon="trash" v-on:click.native="clear" tooltip="Clear Logging"></k-button>
-          <k-button v-bind:icon="playing" v-on:click.native="play_pause" tooltip="Pause/Play Logging" ></k-button>
+          <k-button v-if="false" v-bind:icon="playing" v-on:click.native="play_pause" tooltip="Pause/Play Logging" ></k-button>
           <k-checkbox icon="paint-brush" v-on:change.native="change_colors" class="round"></k-checkbox>
         </k-button-group>
         <k-button-group>
@@ -29,11 +29,10 @@
 
 <script>
 import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
-import LoggingUtils from './Logging-Utils';
 
 export default {
   name: 'k-logging',
-  mixins: [KytosBaseWithIcon, LoggingUtils],
+  mixins: [KytosBaseWithIcon],
   methods: {
     /**
      * Method called to change the log level.
