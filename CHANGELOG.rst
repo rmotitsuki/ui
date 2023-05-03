@@ -17,7 +17,6 @@ Deprecated
 
 Removed
 =======
-- Logs on console with ``socket.io`` has been removed. In the future, it'll be supported without ``socket.io``.
 
 Fixed
 =====
@@ -27,6 +26,14 @@ Security
 
 Changed
 =======
+
+[2023.1.0.b1] - 2023-05-03
+**************************
+
+Removed
+=======
+
+- Logs on console with ``socket.io`` has been removed. In the future, it'll be supported without ``socket.io``.
 
 [2022.3.0] - 2022-12-15
 ***********************
