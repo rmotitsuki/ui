@@ -17,6 +17,7 @@ Deprecated
 
 Removed
 =======
+- Logs on console with ``socket.io`` has been removed. In the future, it'll be supported without ``socket.io``.
 
 Fixed
 =====
