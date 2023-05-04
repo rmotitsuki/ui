@@ -89,6 +89,8 @@ export default {
   },
   data () {
     return {
+      channels: new Set(),
+      logs: [],
       colors: "no_colors",
       playing: "stop",
       highlight_string: "",
