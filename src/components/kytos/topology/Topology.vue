@@ -27,7 +27,7 @@ export default {
       strokes: {interface: 0, link: 1, host: 1},
       // other attributes
       labels_display: {
-        switch: 'name'
+        switch: 'node_name'
       }
     }
   },
@@ -484,6 +484,7 @@ export default {
       // only labeling switches, but not interfaces
       switch_labeled_items = gnodes.filter(function(d) {return d.type == "switch" || d.type == "iep";})
 
+      this.add_label("switch", "node_name", switch_labeled_items, true) // METADATA.NODE_NAME LABEL
       this.add_label("switch", "name", switch_labeled_items, true) // NAME LABEL
       this.add_label("switch", "description", switch_labeled_items, false)// DPID LABEL
       this.add_label("switch", "connection", switch_labeled_items, false)// ADDRESS LABEL
