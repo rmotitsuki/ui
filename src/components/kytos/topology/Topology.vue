@@ -379,9 +379,10 @@ export default {
             .style("fill", "rgba(155,155,255,0.2)")
 
       // adding the attribute itself as a svg text element
+      // fallback to 'name' attribute
       var label_text = label_group
           .append("text")
-            .text(function(d){ return d[attribute] })
+            .text(function(d){ return d[attribute] || d['name'] })
 
       // fixing the rect width and height according to the attribute size.
       label_rects
