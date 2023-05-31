@@ -11,6 +11,7 @@ Added
 
 Changed
 =======
+- Changed topology graph to display ``metadata.node_name`` as a default value. If node_name is not defined, display the datapath-id
 
 Deprecated
 ==========
