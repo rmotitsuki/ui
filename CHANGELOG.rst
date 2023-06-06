@@ -6,27 +6,12 @@ All notable changes to the Kytos-NG UI project will be documented in this file.
 UNRELEASED - Under development
 ******************************
 
-Added
-=====
+[2023.1.0] - 2023-06-05
+***********************
 
 Changed
 =======
 - Changed topology graph to display ``metadata.node_name`` as a default value. If node_name is not defined, display the datapath-id
-
-Deprecated
-==========
-
-Removed
-=======
-
-Fixed
-=====
-
-Security
-========
-
-Changed
-=======
 
 [2023.1.0-b1] - 2023-05-03
 **************************
