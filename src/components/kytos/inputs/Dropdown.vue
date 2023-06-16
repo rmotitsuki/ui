@@ -73,6 +73,9 @@ export default {
     },
     clear () {
       this.selected = '';
+    },
+    reset () {
+      this.selected = '';
       if(this.options && this.options.length > 0) {
         this.options.forEach((item) => {
           if (this.selected == '' && item.selected) {this.selected = item.value}
