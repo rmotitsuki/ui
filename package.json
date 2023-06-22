@@ -1,7 +1,7 @@
 {
   "name": "kytos-web-ui",
   "description": "Kytos-NG Web-ui project",
-  "version": "2023.1.0-b1",
+  "version": "2023.1.0-b2",
   "author": "Beraldo Leal <beraldo.leal@cern.ch>",
   "private": true,
   "scripts": {

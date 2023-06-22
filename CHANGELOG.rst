@@ -11,7 +11,6 @@ Added
 
 Changed
 =======
-- Changed topology graph to display ``metadata.node_name`` as a default value. If node_name is not defined, display the datapath-id
 
 Deprecated
 ==========
@@ -27,6 +26,17 @@ Security
 
 Changed
 =======
+
+
+[2023.1.0-b2] - 2023-06-22
+**************************
+
+Changed
+=======
+- Added clear and reset functions to  ``components/kytos/inputs/Dropdown`` component
+- Added clear function to ``components/kytos/inputs/Select`` component
+- Changed topology graph to display ``metadata.node_name`` as a default value. If node_name is not defined, display the datapath-id
+
 
 [2023.1.0-b1] - 2023-05-03
 **************************
