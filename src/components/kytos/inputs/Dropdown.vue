@@ -70,6 +70,17 @@ export default {
       }
       this.$emit('update:value', this.selected)
       this.action(this.selected)
+    },
+    clear () {
+      this.selected = '';
+    },
+    reset () {
+      this.selected = '';
+      if(this.options && this.options.length > 0) {
+        this.options.forEach((item) => {
+          if (this.selected == '' && item.selected) {this.selected = item.value}
+        })
+      }
     }
   },
   mounted () {

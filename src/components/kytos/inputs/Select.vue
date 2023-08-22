@@ -59,6 +59,9 @@ export default {
       }
       this.$emit('update:value', this.selected)
       this.action(this.selected)
+    },
+    clear () {
+      this.selected = [];
     }
   },
   beforeMount () {
