@@ -6,9 +6,6 @@ All notable changes to the Kytos-NG UI project will be documented in this file.
 UNRELEASED - Under development
 ******************************
 
-Added
-=====
-
 Changed
 =======
 
@@ -24,9 +21,10 @@ Fixed
 Security
 ========
 
-Changed
-=======
+[2023.1.0] - 2023-06-05
+***********************
 
+No major changes since the last 2023.1.0 beta releases.
 
 [2023.1.0-b2] - 2023-06-22
 **************************
