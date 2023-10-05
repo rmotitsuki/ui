@@ -78,7 +78,15 @@ export default {
     metadata: {
       type: Object,
       required: false,
-    }
+    },
+    available_tags: {
+      type: Object,
+      required: true,
+    },
+    tag_ranges: {
+      type: Object,
+      required: true,
+    },
   },
   data () {
     return {
