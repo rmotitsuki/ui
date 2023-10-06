@@ -33,13 +33,13 @@
             <tbody>
               <tr v-for="(value, key) in this.available_tags">
                 <td >{{key}}</td>
-                <td >{{value}}</td>
+                <td style="text-align: left;">{{value}}</td>
               </tr>
             </tbody>
           </table>
         </div>
       </k-accordion-item>
-      <k-accordion-item title="Tag range">
+      <k-accordion-item title="Tag ranges">
         <div class="metadata_table">
           <table>
             <thead>
@@ -51,7 +51,7 @@
             <tbody>
               <tr v-for="(value, key) in this.tag_ranges">
                 <td >{{key}}</td>
-                <td >{{value}}</td>
+                <td style="text-align: left;">{{value}}</td>
               </tr>
             </tbody>
           </table>
@@ -323,7 +323,7 @@ export default {
         _request.fail(function(data) {
           let notification = {
             title: 'Set ' + intf_id + ' tag_range: Succeed',
-            description: data.status + ': ' + data.responseJSON.description + '"tag_ranges" change was successful '
+            description: data.status + ': ' + data.responseJSON.description + ' "tag_ranges" change was successful '
                          + 'but there was an error obtaining the resized "available_tags". Try refreshing the page.',
             icon: 'cog',
           }
@@ -333,7 +333,7 @@ export default {
       request.fail(function(data) {
         let notification = {
           title: 'Set ' + intf_id + ' tag_range: Failed',
-          description: data.status + ': ' + data.responseJSON.description + '"tag_ranges" was not set.',
+          description: data.status + ': ' + data.responseJSON.description + ' "tag_ranges" was not set.',
           icon: 'cog',
         }
         _this.$kytos.$emit("setNotification", notification)
@@ -347,7 +347,23 @@ export default {
       ];
       return _result;
     },
-    get_tag_ranges() {
+    get_tag_ranges_endpoint() {
+      var _this = this
+      if(this.content === undefined) return
+      let request = $.ajax({
+                       type: "GET",
+                       url: this.$kytos_server_api + "kytos/topology/v3/interfaces/"
+                              + this.metadata.interface_id + "/tag_ranges",
+                       async: true
+      })
+      request.done(function(data) {
+        _this.content['tag_ranges'] = data[_this.metadata.interface_id]['tag_ranges']
+        _this.content['available_tags'] = data[_this.metadata.interface_id]['available_tags']
+        _this.tag_ranges = _this.content.tag_ranges
+        _this.available_tags = _this.content.available_tags
+      })
+    },
+    get_tag_ranges_content() {
       if(this.content === undefined) return
       this.tag_ranges = this.content.tag_ranges
       this.available_tags = this.content.available_tags
@@ -360,7 +376,7 @@ export default {
     this.interval = setInterval(this.update_chart, 60000)
     this.get_metadata()
     this.get_next_state()
-    this.get_tag_ranges()
+    this.get_tag_ranges_endpoint()
   },
   beforeDestroy () {
     clearInterval(this.interval)
@@ -373,7 +389,7 @@ export default {
         this.update_content_switch()
         this.get_metadata()
         this.get_next_state()
-        this.get_tag_ranges()
+        this.get_tag_ranges_content()
       }
     }
   }
