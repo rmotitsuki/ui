@@ -8,6 +8,8 @@ UNRELEASED - Under development
 
 Changed
 =======
+- Added ``available_tags`` and ``tag_ranges`` to ``src/kytos/interfaceInfo``
+- Added options to modify ``tag_ranges``
 
 Deprecated
 ==========
