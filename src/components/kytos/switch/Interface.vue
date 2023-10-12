@@ -78,7 +78,7 @@ export default {
     metadata: {
       type: Object,
       required: false,
-    }
+    },
   },
   data () {
     return {

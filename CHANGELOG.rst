@@ -6,6 +6,9 @@ All notable changes to the Kytos-NG UI project will be documented in this file.
 UNRELEASED - Under development
 ******************************
 
+Added
+=====
+
 Changed
 =======
 
@@ -20,6 +23,14 @@ Fixed
 
 Security
 ========
+
+[2023.2.0-b1] - 2023-10-23
+**************************
+
+Changed
+=======
+- Added ``available_tags`` and ``tag_ranges`` to ``src/kytos/interfaceInfo``
+- Added options to modify ``tag_ranges``
 
 [2023.1.0] - 2023-06-05
 ***********************

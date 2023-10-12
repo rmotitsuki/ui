@@ -21,7 +21,50 @@
               <k-property-panel-item :name="key" :value="value" :key="key" v-if="content" v-for="(value, key) in this.metadata"></k-property-panel-item>
           </k-property-panel>
       </k-accordion-item>
-
+      <k-accordion-item title="Available Tags">
+        <div class="metadata_table">
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Value Ranges</th>  
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(value, key) in this.available_tags">
+                <td >{{key}}</td>
+                <td style="text-align: left;">{{value}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </k-accordion-item>
+      <k-accordion-item title="Tag ranges">
+        <div class="metadata_table">
+          <table>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Value Ranges</th>  
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(value, key) in this.tag_ranges">
+                <td >{{key}}</td>
+                <td style="text-align: left;">{{value}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="color:#ccc;text-align: center;"> Set tag_ranges </div>
+        <div class="metric">
+          <k-dropdown title="Tag type" :options="get_tag_types()" :value.sync ="new_tag_type"></k-dropdown>
+        </div>
+        <k-textarea title="Set tag_ranges" icon="arrow-right" placeholder="Eg. [[100, 200], [400, 4095]]" :value.sync="new_tag_ranges"></k-textarea>
+        <div class="metadata_container">
+          <k-button title="Set tag_ranges" :on_click="set_tag_ranges"></k-button>
+        </div>
+      </k-accordion-item>
       <k-accordion-item title="Metadata" v-if="Object.keys(this.metadata_items).length !== 0">
          <div class="metadata_table">
             <table>
@@ -83,6 +126,10 @@ export default {
       next_state: "",
       to_add: "",
       to_delete: "",
+      new_tag_ranges: "",
+      new_tag_type: "",
+      tag_ranges: {},
+      available_tags: {},
       content_switch: []
     }
   },
@@ -237,7 +284,90 @@ export default {
         }
         _this.$kytos.$emit("setNotification", notification)
       });
-    }
+    },
+    set_tag_ranges() {
+      var _this = this
+      let ranges_list = JSON.parse(this.new_tag_ranges)
+      let payload = {tag_type: this.new_tag_type, tag_ranges: ranges_list}
+      let intf_id = this.metadata.interface_id
+      let api = this.$kytos_server_api
+      let request = $.ajax({
+                       type: "POST",
+                       url: api + "kytos/topology/v3/interfaces/" + intf_id
+                             + "/tag_ranges",
+                       async: true,
+                       data: JSON.stringify(payload),
+                       dataType: "json",
+                       contentType: "application/json; charset=utf-8",
+      })
+      request.done(function() {
+        let new_available_tags = {}
+        let _request = $.ajax({
+                       type: "GET",
+                       url: api + "kytos/topology/v3/interfaces/" + intf_id
+                             + "/tag_ranges",
+                       async: true
+        })
+        _request.done(function(data) {
+          new_available_tags = data[intf_id]["available_tags"][_this.new_tag_type]
+          _this.content['tag_ranges'][_this.new_tag_type] = _this.new_tag_ranges
+          _this.content['available_tags'][_this.new_tag_type] = new_available_tags
+          let notification = {
+            title: 'Set ' + intf_id + ' tag_range: Succeed',
+            description: 'For TAG type "' + _this.new_tag_type + '", a new tag_range was set: ' 
+                         + _this.new_tag_ranges,
+            icon: 'cog',
+          }
+          _this.$kytos.$emit("setNotification", notification)
+        })
+        _request.fail(function(data) {
+          let notification = {
+            title: 'Set ' + intf_id + ' tag_range: Succeed',
+            description: data.status + ': ' + data.responseJSON.description + ' "tag_ranges" change was successful '
+                         + 'but there was an error obtaining the resized "available_tags". Try refreshing the page.',
+            icon: 'cog',
+          }
+          _this.$kytos.$emit("setNotification", notification)
+        })
+      });
+      request.fail(function(data) {
+        let notification = {
+          title: 'Set ' + intf_id + ' tag_range: Failed',
+          description: data.status + ': ' + data.responseJSON.description + ' "tag_ranges" was not set.',
+          icon: 'cog',
+        }
+        _this.$kytos.$emit("setNotification", notification)
+      });
+    },
+    get_tag_types() {
+      let _result = [
+        {value: "vlan", description: "vlan", selected: true},
+        {value: "vlan_qinq", description: "vlan_qinq"},
+        {value: "mpls", description: "mpls"},
+      ];
+      return _result;
+    },
+    get_tag_ranges_endpoint() {
+      var _this = this
+      if(this.content === undefined) return
+      let request = $.ajax({
+                       type: "GET",
+                       url: this.$kytos_server_api + "kytos/topology/v3/interfaces/"
+                              + this.metadata.interface_id + "/tag_ranges",
+                       async: true
+      })
+      request.done(function(data) {
+        _this.content['tag_ranges'] = data[_this.metadata.interface_id]['tag_ranges']
+        _this.content['available_tags'] = data[_this.metadata.interface_id]['available_tags']
+        _this.tag_ranges = _this.content.tag_ranges
+        _this.available_tags = _this.content.available_tags
+      })
+    },
+    get_tag_ranges_content() {
+      if(this.content === undefined) return
+      this.tag_ranges = this.content.tag_ranges
+      this.available_tags = this.content.available_tags
+    },
   },
   mounted () {
     this.update_interface_content()
@@ -246,6 +376,7 @@ export default {
     this.interval = setInterval(this.update_chart, 60000)
     this.get_metadata()
     this.get_next_state()
+    this.get_tag_ranges_endpoint()
   },
   beforeDestroy () {
     clearInterval(this.interval)
@@ -258,6 +389,7 @@ export default {
         this.update_content_switch()
         this.get_metadata()
         this.get_next_state()
+        this.get_tag_ranges_content()
       }
     }
   }
@@ -292,6 +424,7 @@ export default {
   vertical-align: middle
   padding: 0.45em 0 0.45em 0
   word-break: break-all
+  line-height: 20px
 
 .metadata_table tbody tr:nth-child(even)
   background: #313131
@@ -312,4 +445,16 @@ export default {
   display: flex
   justify-content: space-between
 
+.metric .k-dropdown
+  height: 20px
+  width: 100%
+  overflow: hidden
+  display: flex
+  flex-wrap: wrap
+
+.metric .k-dropdown__title
+  width: 15%
+
+.metric .k-dropdown__select
+  width: 82%
 </style>
