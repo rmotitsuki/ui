@@ -3,7 +3,7 @@
 <div id="k-circuit-search">
 
   <div id="k-input-search" class="k-input-wrap">
-   <icon name="search"></icon>
+   <icon v-if="icon" icon="search"></icon>
    <input type="text" v-model="search" class="k-input" placeholder="Search for circuit" onshow="this.focus()" autofocus id="k-circuits-search-input">
   </div>
 

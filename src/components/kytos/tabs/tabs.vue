@@ -9,16 +9,16 @@
       <k-status-bar></k-status-bar>
 
       <div class="k-tabs-control">
-        <a class="k-hidden-tab" v-on:click="this.toggleTerminal">
-          <icon v-if="!hiddenTabs" name="chevron-down"></icon>
-          <icon v-else name="chevron-up"></icon>
+        <a class="k-hidden-tab" @click="this.toggleTerminal">
+          <icon v-if="!hiddenTabs" icon="chevron-down"></icon>
+          <icon v-else icon="chevron-up"></icon>
         </a>
-        <a class="k-hidden-tab k-toggle-info-panel" v-on:click="this.latestInfoPanel">
-          <icon v-if="!hiddenPanel" name="chevron-left"></icon>
-          <icon v-else name="chevron-right"></icon>
+        <a class="k-hidden-tab k-toggle-info-panel" @click="this.latestInfoPanel">
+          <icon v-if="!hiddenPanel" icon="chevron-left"></icon>
+          <icon v-else icon="chevron-right"></icon>
         </a>
-        <a v-on:click="this.fullTerminal">
-          <icon name="arrows-alt"></icon>
+        <a @click="this.fullTerminal">
+          <icon v-if="icon" icon="arrows-alt"></icon>
         </a>
       </div><!-- .k-tabs-control -->
 
@@ -258,10 +258,12 @@ export default {
 
 .k-tabs-nav button:hover svg
   fill: $fill-icon-h
-  
+  color: $fill-icon-h
+
 .k-tabs-nav .active svg
   fill: $fill-icon
-  
+  color: $fill-icon
+
 .k-tabs-nav svg
   width: 13px
   margin-right: 5px
@@ -282,7 +284,8 @@ export default {
   svg
     width: 8px
     fill: $fill-icon
-    
+    color: $fill-icon
+
   a
     display: block
     cursor: pointer
@@ -290,7 +293,8 @@ export default {
 
   a:hover svg
     fill: $fill-icon-h
-    
+    color: $fill-icon-h
+
 .k-tabs:-moz-full-screen .tabcontent
   height: auto
   min-height: 100vh

@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="k-info-title">
-      <icon v-if="myIcon" v-bind:name="myIcon"></icon>
+      <icon v-if="myIcon" :icon="iconName"></icon>
       <div v-if="myTitle" class="panel-title">
         <h1> {{ myTitle }}
           <small v-if="mySubtitle">{{ mySubtitle }}</small>
@@ -21,7 +21,7 @@
       </div>
     </div>
     <div class="k-info-wrapper">
-      <component v-bind:is="this.infoPanelView" v-bind:content="content"></component>
+        <component v-bind:is="this.infoPanelView" v-bind:content="content"></component>
     </div>
   </section>
 </template>
@@ -73,7 +73,7 @@ export default {
       if (this.hasContent) {
         this.$kytos.$emit('toggleInfoPanelIcon', 'hide')
       }
-    },
+          },
     /**
      * Show the Info Panel displayed in the right.
      *
@@ -95,21 +95,21 @@ export default {
       this.mySubtitle = content.subtitle
       this.myIcon = content.icon
       this.classObject['k-info-panel-max'] = content.maximized
-
+      
       this.hasContent = true
       this.$kytos.$emit('toggleInfoPanelIcon', 'show')
     },
     latestContent() {
-      if (this.hasContent) {
+if (this.hasContent) {
         this.show(this.lastContent)
       } else {
         let standard_infoPanel = {
           component: 'search-hosts',
-          title: '',
-          icon: 'cog'
+                    title: '',
+                    icon: 'cog'
         }
         this.show(standard_infoPanel)
-      }
+}
     },
     maximize() {
       /**
@@ -151,6 +151,10 @@ export default {
         'ctrl+alt+space': this.toggle,
         'esc': this.hide,
       }
+    },
+    iconName() {
+      if(this.myIcon) return this.myIcon;
+      else return '';
     }
   },
   mounted: function () {
@@ -195,6 +199,7 @@ export default {
 
   svg
     fill: $fill-icon
+    color: $fill-icon
     width: 50px
     height: 50px
     padding: 10px

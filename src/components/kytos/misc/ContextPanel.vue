@@ -1,7 +1,7 @@
 <template>
   <section class="k-context-panel">
     <div class="k-context-panel-title">
-      <icon v-if="icon" v-bind:name="iconName"></icon>
+      <icon v-if="icon" :icon="iconName"></icon>
       <div v-if="title" class="pannel-title">
         <h1 :style="style">{{ title }} <small>{{ subtitle }}</small></h1>
       </div>

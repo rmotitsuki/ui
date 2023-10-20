@@ -478,7 +478,7 @@ export default {
                .classed("amlight", function(d) { return d.metadata && d.metadata.network && d.metadata.network.indexOf("Amlight") != -1 })
                .classed("fibre", function(d) { return d.metadata && d.metadata.network && d.metadata.network.indexOf("Fibre") != -1 })
                .attr("r", this.gnode_radius)
-               .on("click", this.highlight_switch)
+               .on("click", self.highlight_switch)
 
       /*******************/
       /* SWITCH LABELING */
@@ -567,7 +567,8 @@ export default {
 
     rect#click_background
       fill: none
-            pointer-events: all
+      color: none
+      pointer-events: all
 
     .label
       font-size: 10px
@@ -596,23 +597,27 @@ export default {
 
       &.switch
         fill: rgba(85, 64, 199, 0.8)
-        
+        color: rgba(85, 64, 199, 0.8)
+
       &.iep
         fill: rgba(236, 236, 31, 0.5)
-                stroke: rgba(236, 236, 31, 0.5)
+        color: rgba(236, 236, 31, 0.5)
+        stroke: rgba(236, 236, 31, 0.5)
         cursor: grab
         cursor: -webkit-grab
 
       &.interface
         fill: rgba(255, 255, 255, 0.5)
-                stroke: rgba(255, 255, 255, 0.5)
+        color: rgba(255, 255, 255, 0.5)
+        stroke: rgba(255, 255, 255, 0.5)
         stroke-width: 1
         cursor: grab
         cursor: -webkit-grab
 
       &.host
         fill: rgba(255,0,0,1)
-                stroke: rgba(255,255,255,0.5)
+        color: rgba(255,0,0,1)
+        stroke: rgba(255,255,255,0.5)
       
       &.amlight,
       &.fibre

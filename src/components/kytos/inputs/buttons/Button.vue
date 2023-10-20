@@ -1,9 +1,10 @@
 <template>
   <button :id="id" class="k-button compact"
-    @click="this.click"
+    @click="this.handleClick"
     v-bind:title="tooltip"
     v-bind:disabled="isDisabled">
-      <icon v-if="icon" v-bind:name="iconName"></icon>
+      <icon v-if="icon" :icon="iconName"></icon>
+
       {{title}}
   </button>
 </template>
@@ -14,14 +15,14 @@ import KytosBaseWithIcon from '../../base/KytosBaseWithIcon';
 
 /**
  * This component represents a button that triggers an event when clicked.
- * @example <k-button tooltip="Request Circuit" title="Request Circuit" icon="cog" :action="request_circuit"></k-button>
+ * @example <k-button tooltip="Request Circuit" title="Request Circuit" icon="cog" :action="request_circuit" @click="on_click"></k-button>
  * @example /_static/imgs/components/input/k-button.png
  */
 
 export default {
   name: 'k-button',
   mixins: [KytosBaseWithIcon],
-  props: {
+props: {
     /**
     * Function called after the button is clicked.
     */
@@ -73,16 +74,19 @@ export default {
 
    &> svg
     fill: $fill-icon-h
+    color: $fill-icon-h
     outline: 0
 
   &.active
    & > svg
      fill: $fill-icon-h
+     color: $fill-icon-h
      outline: 0
 
   & > svg
    vertical-align: middle
    fill: $fill-icon
+   color: $fill-icon
    outline: 0
 
 .k-toolbar

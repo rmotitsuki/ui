@@ -1,8 +1,8 @@
 <template>
   <div class="k-slider">
-    <icon v-if="icon" v-bind:name="iconName"></icon>
+    <icon v-if="icon" :icon="iconName"></icon>
     <span class="range-slider__value">{{value}}</span>
-    <input @input="doRange" :id="id" class="k-slider__range" type="range" v-model:value="value" v-bind:min="min" v-bind:max="max" v-bind:step="step">
+    <input @input="doRange" :id="id" class="k-slider__range" type="range" :value="value" v-bind:min="min" v-bind:max="max" v-bind:step="step">
   </div>
 </template>
 
@@ -92,9 +92,11 @@ export default {
    margin-top: 3px
    width: 20px
    fill: $fill-icon
+   color: $fill-icon
 
   &:hover svg
     fill: $fill-icon-h
+    color: $fill-icon-h
 
 .range-slider__value
   font-size: 10px

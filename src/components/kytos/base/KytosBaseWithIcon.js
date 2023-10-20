@@ -3,6 +3,17 @@ import 'vue-awesome/icons';
 import Icon from 'vue-awesome/components/Icon';
 
 
+/*
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+<font-awesome-icon icon="fa-solid fa-user-secret" />
+
+Example valid sintax:
+  <k-button icon="rectangle-xmark"></k-button>
+  <k-button icon="fa-rectangle-xmark"></k-button>
+  <k-button icon="fa-solid fa-rectangle-xmark"></k-button>
+*/
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 /**
  * A base components with icon in property.
  * @mixin
@@ -18,9 +29,12 @@ export default {
     icon: {
       type: String,
     },
+    class: {
+      type: String,
+    }
   },
   components: {
-      'icon': Icon
+      'icon': FontAwesomeIcon,
   },
   data() {
     return {
@@ -35,15 +49,16 @@ export default {
        * The icons with the '-o' (outlined) suffix are located now
        * in the /regular folder.
        */
-      let temp = this.icon;
+      let temp = this.icon || '';
 
       let index = this.old_icons.indexOf(temp);
-      if(index >= 0)
+      if(index >= 0) {
         temp = this.new_icons[index]
 
-      if(temp.endsWith("-o")) {
-        temp = temp.replace(/-o$/, '')
-        temp = "regular/" + temp; 
+        if(temp.endsWith("-o")) {
+          temp = temp.replace(/-o$/, '')
+          temp = "regular/" + temp; 
+        }
       }
       return temp
     }

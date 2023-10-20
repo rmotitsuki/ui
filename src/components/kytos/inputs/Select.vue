@@ -1,7 +1,7 @@
 <template>
    <label class="k-select no-compact">
     <div class="k-select__title">
-      <icon v-if="icon" v-bind:name="iconName"></icon>
+      <icon v-if="icon"  :icon="iconName"></icon>
       {{title}}
     </div>
     <select class="k-select__select" v-model="selected" @change.prevent="emitEvent"  multiple>
@@ -99,7 +99,8 @@ export default {
 
  &:hover svg
   fill: $fill-icon-h
-  
+  color: $fill-icon-h
+
   .k-select__title
    padding-bottom: 2px
    padding-left: 3px
@@ -119,7 +120,8 @@ export default {
 
  svg
   fill: $fill-icon
-    margin-bottom: -5px
+  color: $fill-icon
+  margin-bottom: -5px
   margin-right: 5px
 
 .k-select__select

@@ -18,7 +18,7 @@
           resultProps
         }"
       >
-        <icon v-if="icon" v-bind:name="iconName"></icon>
+        <icon v-if="icon" :icon="iconName"></icon>
         <div v-bind="rootProps">
           <custom-input
             v-bind="inputProps"
@@ -54,9 +54,9 @@
               <li v-for="(result, index) in results"
                 :key="resultProps[index].id"
                 v-bind="resultProps[index]">
-                {{ result }}
-              </li>
-            </ul>
+                  {{ result }}
+                </li>
+                          </ul>
           </template>
         </div>
       </template>
@@ -68,7 +68,7 @@
 /*
 Autocomplete usage example.
 In your template:
-  <k-input-auto title="Switch Labels:" placeholder="Search DPID" icon="regular/circle" :candidates="dpids" ></k-input-auto>
+  <k-input-auto title="Switch Labels:" placeholder="Search DPID" icon="circle" :candidates="dpids" ></k-input-auto>
 
 In your script component:
 
@@ -250,9 +250,11 @@ export default {
   input, svg
    background: $fill-input-content
    fill: $fill-icon-h
+   color: $fill-icon-h
 
  svg
   fill: $fill-icon
+  color: $fill-icon
   padding: 0.3em 0.5em
 
 .k-input-auto
