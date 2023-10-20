@@ -100,7 +100,7 @@ export default {
                      "icon": "cog",
                      "title": "Switch Details",
                      "subtitle": s.connection}
-      this.$kytos.$emit("showInfoPanel", content)
+      this.$kytos.eventBus.$emit("showInfoPanel", content)
     }
   },
   mounted () {

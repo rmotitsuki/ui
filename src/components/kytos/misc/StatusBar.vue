@@ -59,7 +59,7 @@ export default {
        * @event statusMessage
        * @type {string}
        */
-      this.$kytos.$on('statusMessage', this.set_status)
+      this.$kytos.eventBus.$on('statusMessage', this.set_status)
     }
   }
 }

@@ -3,6 +3,7 @@ import { createApp } from 'vue'
 import VueHotkey from 'v-hotkey3'
 import App from './App.vue'
 import * as packageInfo from '../package.json';
+import eventBus from './event-bus'
 
 const {version} = packageInfo;
 

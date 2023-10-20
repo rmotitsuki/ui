@@ -68,7 +68,7 @@ export default {
        * @event addActionMenuItem
        * @type {object}
        */
-      this.$kytos.$on('addActionMenuItem', this.add_action_menu_item)
+      this.$kytos.eventBus.$on('addActionMenuItem', this.add_action_menu_item)
     },
   },
   mounted() {

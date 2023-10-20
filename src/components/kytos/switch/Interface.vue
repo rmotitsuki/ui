@@ -12,7 +12,7 @@
         </div>
       </div>
 
-      <k-chart-timeseries v-if="chartJsonData" :interface_id="interface_id" :jsonData="chartJsonData" :showGrid="false" :showAxis="false" :plotArea="false" :chartHeight="45"></k-chart-timeseries>
+<k-chart-timeseries v-if="chartJsonData" :interface_id="interface_id" :jsonData="chartJsonData" :showGrid="false" :showAxis="false" :plotArea="false" :chartHeight="45"></k-chart-timeseries>
       <div class="warn" v-else=>&nbsp;Interface speed is unavailable</div>
 
   </div>
@@ -116,13 +116,13 @@ export default {
                      "icon": "cog",
                      "title": "Interface Details",
                      "subtitle": this.name}
-      this.$kytos.$emit("showInfoPanel", content)
+      this.$kytos.eventBus.$emit("showInfoPanel", content)
 
     },
     parseInterfaceData (data) {
       if (!data) {
         var msg = "Error while trying to fetch interface data."
-        this.$kytos.$emit('statusMessage', msg, true)
+        this.$kytos.eventBus.$emit('statusMessage', msg, true)
       } else {
         this.chartJsonData = data['data']
       }

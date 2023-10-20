@@ -18,7 +18,9 @@
 
       <k-accordion-item title="Basic Details">
           <k-property-panel>
-              <k-property-panel-item :name="key" :value="value" :key="key" v-if="content" v-for="(value, key) in this.metadata"></k-property-panel-item>
+            <template v-if="content"> 
+              <k-property-panel-item :name="key" :value="value" :key="key" v-for="(value, key) in this.metadata"></k-property-panel-item>
+            </template>
           </k-property-panel>
       </k-accordion-item>
       <k-accordion-item title="Available Tags">
@@ -155,7 +157,7 @@ export default {
     parseInterfaceData (data) {
       if (!data) {
         var msg = "Error while trying to fetch interface data."
-        this.$kytos.$emit('statusMessage', msg, true)
+        this.$kytos.eventBus.$emit('statusMessage', msg, true)
       } else {
         this.chartJsonData = data["data"]
       }
@@ -188,7 +190,7 @@ export default {
                            icon: "cog",
                            title: "Switch Details",
                            subtitle: this.content_switch.connection,}
-      this.$kytos.$emit("showInfoPanel", panel_content)
+      this.$kytos.eventBus.$emit("showInfoPanel", panel_content)
     },
     get_metadata() {
       if(this.content === undefined) return
@@ -213,7 +215,7 @@ export default {
         _this.next_state = _this.next_state == 'Enable'? 'Disable' : 'Enable'
         _this.content['enabled'] = _this.next_state == 'Enable'? 'false' : 'true'
         _this.metadata['enabled'] = _this.content['enabled']
-        _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.eventBus.$emit("setNotification", notification)
       });
       request.fail(function(data) {
         let notification = {
@@ -221,7 +223,7 @@ export default {
           description: data.status + ': ' + data.responseJSON.description + '. The interface ' + _this.metadata.interface_id + ' was not ' + _this.next_state.toLowerCase() + 'd.',
           icon: 'cog',
         }
-        _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.eventBus.$emit("setNotification", notification)
       })
     },
     bt_add_metadata() {
@@ -241,7 +243,7 @@ export default {
              title: 'Add metadata: Success',
              description: '"' + _this.to_add + '" was added to the metadata. Interface: ' + _this.metadata.interface_id,
         }
-        _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.eventBus.$emit("setNotification", notification)
         let temp = JSON.parse(_this.to_add)
         var item = ""
         for (item in temp){
@@ -255,7 +257,7 @@ export default {
              title: 'Add metadata: Failure',
              description: data.status + ': ' + data.responseJSON.description + ' "' + _this.to_add + '" was not added to the metadata. Interface: ' + _this.metadata.interface_id,
         }
-        _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.eventBus.$emit("setNotification", notification)
       });
     },
     bt_rmv_metadata() {
@@ -272,7 +274,7 @@ export default {
              title: 'Delete metadata: Success',
              description: '"' + _this.to_delete + '" was deleted from the metadata. Interface: ' + _this.metadata.interface_id,
         }
-        _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.eventBus.$emit("setNotification", notification)
         delete _this.content.metadata[_this.to_delete]
         _this.to_delete = ''
       });
@@ -282,7 +284,7 @@ export default {
              title: 'Delete metadata: Failure',
              description: data.status + ': ' + data.responseJSON.description + ' "' + _this.to_delete + '" was not deleted from the metadata. Interface: ' + _this.metadata.interface_id,
         }
-        _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.eventBus.$emit("setNotification", notification)
       });
     },
     set_tag_ranges() {

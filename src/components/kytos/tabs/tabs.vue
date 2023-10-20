@@ -84,12 +84,12 @@ export default {
       this.hiddenTabs = !this.hiddenTabs
     },
     toggleInfoPanelIcon(action) {
-      this.hiddenPanel = (action !== 'show')
+     this.hiddenPanel = (action !== 'show')
     },
     latestInfoPanel() {
       let infoPanelEvent
       (this.hiddenPanel) ? infoPanelEvent = 'showLatestInfoPanel' : infoPanelEvent = 'hideInfoPanel'
-      this.$kytos.$emit(infoPanelEvent)
+      this.$kytos.eventBus.$emit(infoPanelEvent)
     },
     setNotification(notification) {
       this.openTab('notifications')
@@ -178,7 +178,7 @@ export default {
        *         **icon**: "desktop" //fa-icon name as the main icon of the notification
        *       }
        */
-      this.$kytos.$on('setNotification', this.setNotification)
+      this.$kytos.eventBus.$on('setNotification', this.setNotification)
 
       /**
        * Toggle the InfoPanel icon
@@ -186,7 +186,7 @@ export default {
        * @event toggleInfoPanelIcon
        * @type {NULL}
        */
-      this.$kytos.$on('toggleInfoPanelIcon', this.toggleInfoPanelIcon)
+      this.$kytos.eventBus.$on('toggleInfoPanelIcon', this.toggleInfoPanelIcon)
     }
   },
   mounted() {
@@ -258,10 +258,10 @@ export default {
 
 .k-tabs-nav button:hover svg
   fill: $fill-icon-h
-
+  
 .k-tabs-nav .active svg
   fill: $fill-icon
-
+  
 .k-tabs-nav svg
   width: 13px
   margin-right: 5px
@@ -282,7 +282,7 @@ export default {
   svg
     width: 8px
     fill: $fill-icon
-
+    
   a
     display: block
     cursor: pointer
@@ -290,7 +290,7 @@ export default {
 
   a:hover svg
     fill: $fill-icon-h
-
+    
 .k-tabs:-moz-full-screen .tabcontent
   height: auto
   min-height: 100vh

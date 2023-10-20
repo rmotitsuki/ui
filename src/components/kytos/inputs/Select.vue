@@ -55,7 +55,7 @@ export default {
       if (this.event !== undefined){
         let content = this.event.content
         content.value = this.selected
-        this.$kytos.$emit(this.event.name, content)
+        this.$kytos.eventBus.$emit(this.event.name, content)
       }
       this.$emit('update:value', this.selected)
       this.action(this.selected)
@@ -99,7 +99,7 @@ export default {
 
  &:hover svg
   fill: $fill-icon-h
-
+  
   .k-select__title
    padding-bottom: 2px
    padding-left: 3px
@@ -119,7 +119,7 @@ export default {
 
  svg
   fill: $fill-icon
-  margin-bottom: -5px
+    margin-bottom: -5px
   margin-right: 5px
 
 .k-select__select

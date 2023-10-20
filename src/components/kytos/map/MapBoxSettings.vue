@@ -25,7 +25,7 @@ module.exports = {
 
   methods: {
     emitMapOpacity (value) {
-      this.$kytos.$emit('change-map-opacity', value)
+      this.$kytos.eventBus.$emit('change-map-opacity', value)
     },
     addSwitchLabel (content) {
       let value = content.value
@@ -44,13 +44,13 @@ module.exports = {
                                    selected: content.selected})
     },
     toggleLabel (type, label) {
-      this.$kytos.$emit('topology-toggle-label', type, label)
+      this.$kytos.eventBus.$emit('topology-toggle-label', type, label)
     },
   },
   created: function() {
     // Registering listeners
-    this.$kytos.$on('menu-add-switch-label', this.addSwitchLabel)
-    this.$kytos.$on('menu-add-interface-label', this.addInterfaceLabel)
+    this.$kytos.eventBus.$on('menu-add-switch-label', this.addSwitchLabel)
+    this.$kytos.eventBus.$on('menu-add-interface-label', this.addInterfaceLabel)
   },
   data: function() {
       return {

@@ -66,7 +66,7 @@ export default {
       if (this.event !== undefined){
         let content = this.event.content
         content.value = this.selected
-        this.$kytos.$emit(this.event.name, content)
+        this.$kytos.eventBus.$emit(this.event.name, content)
       }
       this.$emit('update:value', this.selected)
       this.action(this.selected)

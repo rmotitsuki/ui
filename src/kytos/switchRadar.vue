@@ -52,7 +52,7 @@ export default {
     parseData (data) {
       if (!data) {
         var msg = "Error while fetching switch data."
-        this.$kytos.$emit("statusMessage", msg, true)
+        this.$kytos.eventBus.$emit("statusMessage", msg, true)
       } else {
         let rx = {key: "rx", values: []}
         let tx = {key: "tx", values: []}

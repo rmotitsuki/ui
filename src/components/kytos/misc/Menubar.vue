@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     toggleLabel (type, label) {
-      this.$kytos.$emit('topology-toggle-label', type, label)
+      this.$kytos.eventBus.$emit('topology-toggle-label', type, label)
     },
     setItem (item) {
       this.activeItem = item
@@ -117,11 +117,11 @@ export default {
    padding: 10px 9px 10px 5px
    cursor: pointer
    fill: $fill-icon
-   border-left: 3px solid transparent
+      border-left: 3px solid transparent
 
   &:hover
    fill: $fill-icon-h
-   border-color: $fill-menubar-b
+      border-color: $fill-menubar-b
    background: $fill-menubar-b
 
   &::-moz-focus-inner
