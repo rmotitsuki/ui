@@ -8,7 +8,7 @@
   </div>
 
   <div id="search-result">
-    <div class="item-search" :title="c.name" v-for="c in circuitsFiltered" v-on:click="open_circuit(c)">
+    <div class="item-search" :title="c.name" v-for="c in circuitsFiltered" @click="open_circuit(c)">
           <div class="item-content"><span>{{c.id}}</span></div>
           <div class="item-switch"><span>{{c.name}} </span><br /><b>Hops:</b> {{c.path | length}}</div>
           <div class="item-content"><b>Bandwidth:</b> {{c.bandwidth | humanize_bytes}}</div>

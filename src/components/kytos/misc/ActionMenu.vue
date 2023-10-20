@@ -3,7 +3,7 @@
   <div class="k-action-menu" v-show="show">
   <span  v-for="item in keymap"  v-hotkey = "item" v-show="false"></span>
   <div class="k-input-wrap">
-    <k-input :value.sync="search" icon="search" id="k-action-menu-input" placeholder="Search for actions"></k-input>
+    <k-input v-model:value="search" icon="search" id="k-action-menu-input" placeholder="Search for actions"></k-input>
   </div>
   <div class="k-action-list">
      <div v-for="item in actionItems" class="k-action-item" @click="show_info_panel(item)">

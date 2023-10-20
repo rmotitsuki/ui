@@ -5,7 +5,7 @@
       {{title}}
     </div>
     <select class="k-select__select" v-model="selected" @change.prevent="emitEvent"  multiple>
-      <option v-for="item in options":value="item.value">
+      <option v-for="item in options" :value="item.value">
         {{item.description}} 
       </option>
     </select>

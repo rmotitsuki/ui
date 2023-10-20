@@ -27,9 +27,6 @@ export default {
       buttons: []
     }
   },
-created: function() {
-      this.buttons = this.$children;
-  },
 }
 </script>
 

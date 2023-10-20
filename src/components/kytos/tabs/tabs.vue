@@ -2,10 +2,10 @@
   <div id="tabs-panel" class="k-tabs" v-bind:class="{ hiddenTabs: hiddenTabs }">
     <div class="k-tabs-nav">
 
-      <k-button class="tab-nav terminal" title="Terminal" icon="terminal" @click.native="openTab('terminal')"></k-button>
-      <k-button class="tab-nav switches" title="Switches" icon="regular/circle" @click.native="openTab('switches')"></k-button>
-      <k-button class="tab-nav logging" title="Logging" icon="heartbeat" @click.native="openTab('logging')"></k-button>
-      <k-button class="tab-nav notifications" title="Notifications" icon="regular/bell" @click.native="openTab('notifications')"></k-button>
+      <k-button class="tab-nav terminal" title="Terminal" icon="terminal" @click="openTab('terminal')"></k-button>
+      <k-button class="tab-nav switches" title="Switches" icon="circle" @click="openTab('switches')"></k-button>
+      <k-button class="tab-nav logging" title="Logging" icon="heartbeat" @click="openTab('logging')"></k-button>
+      <k-button class="tab-nav notifications" title="Notifications" icon="bell" @click="openTab('notifications')"></k-button>
       <k-status-bar></k-status-bar>
 
       <div class="k-tabs-control">

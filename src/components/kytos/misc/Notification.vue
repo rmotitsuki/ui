@@ -11,7 +11,7 @@
           <p v-if="description != undefined" class="notification-text notification-description">{{ description }}</p>
         </div>
       </div>
-      <k-button class="dismiss-notification" :on_click="dismiss" tooltip="Dismiss Notification" icon="times"></k-button>
+      <k-button class="dismiss-notification" @click="dismiss" tooltip="Dismiss Notification" icon="times"></k-button>
     </div>
     <hr class="notification-separator">
   </div>

@@ -2,8 +2,8 @@
   <div :id="id" class="k-terminal">
     <div class="k-terminal-toolbar">
         <k-button-group>
-          <k-button title="Terminal JS" tooltip="Running Terminal JS" v-on:click="this.runTerminal"></k-button>
-          <k-button title="Bash terminal" tooltip="Running Terminal Bash" @click.native="runTerminal()"></k-button>
+          <k-button title="Terminal JS" tooltip="Running Terminal JS" @click="this.runTerminal"></k-button>
+          <k-button title="Bash terminal" tooltip="Running Terminal Bash" @click="runTerminal()"></k-button>
         </k-button-group>
       </div>
 

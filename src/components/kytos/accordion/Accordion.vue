@@ -34,12 +34,6 @@ export default {
     name: 'k-accordion',
     mixins: [KytosBaseWithIcon],
     data: function() {
-return {
-            tabs: []
-        }
-    },
-    created: function() {
-        this.tabs = this.$children;
     },
 }
 

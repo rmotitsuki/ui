@@ -1,17 +1,17 @@
 <template>
     <k-accordion>
       <div class="button_container">
-        <k-button tooltip="Go back to switch info" title="< Back to switch" :on_click="back_switch"></k-button>
-        <k-button :on_click="bt_state_toggle" :title="next_state"></k-button>
+        <k-button tooltip="Go back to switch info" title="< Back to switch" @click="back_switch"></k-button>
+        <k-button @click="bt_state_toggle" :title="next_state"></k-button>
       </div>
       <k-accordion-item title="Interface Plot" v-if="chartJsonData">
         <k-button-group>
             <!-- input type="text" class="k-input" placeholder="Zoom" disabled -->
-            <k-button title="5" tooltip="5 minutes" v-on:click.native="change_plotRange(5)"></k-button>
-            <k-button title="10" tooltip="10 minutes" v-on:click.native="change_plotRange(10)"></k-button>
-            <k-button title="15" tooltip="15 minutes" v-on:click.native="change_plotRange(15)"></k-button>
-            <k-button title="60" tooltip="60 minutes" v-on:click.native="change_plotRange(60)"></k-button>
-            <k-button title="120" tooltip="120 minutes" v-on:click.native="change_plotRange(120)"></k-button>
+            <k-button title="5" tooltip="5 minutes" @click="change_plotRange(5)"></k-button>
+            <k-button title="10" tooltip="10 minutes" @click="change_plotRange(10)"></k-button>
+            <k-button title="15" tooltip="15 minutes" @click="change_plotRange(15)"></k-button>
+            <k-button title="60" tooltip="60 minutes" @click="change_plotRange(60)"></k-button>
+            <k-button title="120" tooltip="120 minutes" @click="change_plotRange(120)"></k-button>
           </k-button-group>
         <k-chart-timeseries :interface_id="metadata.interface_id" :jsonData="chartJsonData" :display_legend="true" :chartHeight="200" ></k-chart-timeseries>
       </k-accordion-item>
@@ -86,13 +86,13 @@
          </div>
       </k-accordion-item>
       <k-accordion-item title="Metadata actions"> 
-         <k-textarea title="Add metadata" icon="arrow-right" placeholder='Eg. {"node_name": "some_name", "address": "some_address"}' :value.sync="to_add"></k-textarea>
+         <k-textarea title="Add metadata" icon="arrow-right" placeholder='Eg. {"node_name": "some_name", "address": "some_address"}' v-model:value="to_add"></k-textarea>
          <div class="metadata_container">
-              <k-button title="Add metadata" :on_click="bt_add_metadata"></k-button>
+              <k-button title="Add metadata" @click="bt_add_metadata"></k-button>
          </div>
-         <k-input title="Delete metadata" icon="arrow-right" placeholder="Eg. node_name" :value.sync="to_delete"></k-input>
+         <k-input title="Delete metadata" icon="arrow-right" placeholder="Eg. node_name" v-model:value="to_delete"></k-input>
          <div class="metadata_container">
-              <k-button title="Remove metadata" :on_click="bt_rmv_metadata"></k-button>
+              <k-button title="Remove metadata" @click="bt_rmv_metadata"></k-button>
          </div>
       </k-accordion-item>
 

@@ -1,6 +1,8 @@
 <template>
   <div class="tab">
-    <input class="k-accordion-input" :id="id" type="checkbox" name="tabs" v-model="checked">
+    <input class="k-accordion-input" :id="id" type="checkbox" name="tabs" 
+      :checked="checked"
+      @input="checked = $event.target.checked" />
     <label class="k-accordion-label" :for="id">{{title}}</label>
     <div class="tab-content">
      <!-- @slot Empty Pannel, please define some items inside. -->
