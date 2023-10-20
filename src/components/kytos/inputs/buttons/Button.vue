@@ -8,7 +8,9 @@
       {{title}}
   </button>
 </template>
-
+<script setup>
+  defineEmits(['click']);
+</script>
 <script>
 import KytosBase from '../../base/KytosBase';
 import KytosBaseWithIcon from '../../base/KytosBaseWithIcon';
@@ -22,25 +24,16 @@ import KytosBaseWithIcon from '../../base/KytosBaseWithIcon';
 export default {
   name: 'k-button',
   mixins: [KytosBaseWithIcon],
-props: {
-    /**
-    * Function called after the button is clicked.
-    */
-    on_click: {
-      type: Function,
-      default: function(val) { return },
-    }
-  },
   methods: {
      /**
-     * Call on_click event.
+     * Call click event.
      *
      * @public
      * @param {object} event trigged event
      */
-    click(event){
-      this.on_click()
-    }
+    handleClick(event){
+      this.$emit('click', event.target.value); 
+    },
   }
 }
 </script>

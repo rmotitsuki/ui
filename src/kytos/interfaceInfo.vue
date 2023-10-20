@@ -145,7 +145,7 @@ export default {
   methods: {
     update_interface_content () {
       var self = this
-      let filter = this.$root.$options.filters.humanize_bytes      
+      let filter = this.$filters.humanize_bytes      
       Object.keys(this.metadata).forEach(function (key) {
         let value = self.content[key]
         if (key == 'speed') {

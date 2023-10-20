@@ -123,7 +123,7 @@ export default {
       this.xaxis = d3.axisBottom(this.x)
 
       // Init y axis
-      let humanize_bytes = this.$root.$options.filters.humanize_bytes
+      let humanize_bytes = this.$filters.humanize_bytes
       this.yaxis = d3.axisLeft(this.y)
         .tickFormat(function(v) { return humanize_bytes(v * 8) })
 
