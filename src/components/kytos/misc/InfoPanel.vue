@@ -1,14 +1,14 @@
 <template>
-  <section v-bind:class="classObject" v-hotkey="keymap" v-show="this.infoPanelView">
+  <section v-bind:class="classObject" v-hotkey="keymap" v-show="showContent">
     <div class="row" style="display: flex;justify-content: flex-end;">
       <div class="actions-btn">
         <k-button class='info-panel-btn max' icon="window-maximize"
                   tooltip="Maximize Info-Panel"
-                  :on_click="this.maximize">
+                  @click="this.maximize">
         </k-button>
         <k-button class='info-panel-btn close' icon="times"
                   tooltip="Close Info-Panel"
-                  :on_click="this.hide">
+                  @click="this.hide">
         </k-button>
       </div>
     </div>
@@ -20,8 +20,8 @@
         </h1>
       </div>
     </div>
-    <div class="k-info-wrapper">
-        <component v-bind:is="this.infoPanelView" v-bind:content="content"></component>
+    <div class="k-info-wrapper" id="k-info-wrapper-id">
+        <component :is="infoPanelView" :content="content"></component>
     </div>
   </section>
 </template>
@@ -48,7 +48,9 @@ export default {
   },
   data() {
     return {
-      infoPanelView: undefined,
+      keyContent: 1,
+      showContent: false,
+      infoPanelView: 'div',
       content: undefined,
       myIcon: 'cog',
       myTitle: '',
@@ -64,16 +66,18 @@ export default {
   },
   methods: {
     toggle() {
-      return
+      this.showContent = !this.showContent;
     },
     hide() {
-      this.infoPanelView = undefined
-      this.content = undefined
+      this.myIcon = 'cog';
+      this.content = undefined || {};
+      this.infoPanelView = "span";
+      this.showContent = false;
 
       if (this.hasContent) {
-        this.$kytos.$emit('toggleInfoPanelIcon', 'hide')
+        this.$kytos.eventBus.$emit('toggleInfoPanelIcon', 'hide')
       }
-          },
+    },
     /**
      * Show the Info Panel displayed in the right.
      *
@@ -95,18 +99,19 @@ export default {
       this.mySubtitle = content.subtitle
       this.myIcon = content.icon
       this.classObject['k-info-panel-max'] = content.maximized
-      
+      $('.k-info-panel').toggleClass('show')
+      $('.k-info-wrapper').scrollTop = 0
       this.hasContent = true
-      this.$kytos.$emit('toggleInfoPanelIcon', 'show')
+      this.showContent = true
+      this.$kytos.eventBus.$emit('toggleInfoPanelIcon', 'show')
     },
     latestContent() {
-if (this.hasContent) {
-        this.show(this.lastContent)
-      } else {
         let standard_infoPanel = {
           component: 'search-hosts',
-                    title: '',
-                    icon: 'cog'
+          content: {'id':''},
+          title: '',
+          subtitle: '',
+          icon: 'cog'
         }
         this.show(standard_infoPanel)
 }
@@ -125,7 +130,7 @@ if (this.hasContent) {
        * @event hideInfoPanel
        * @type {NULL}
        */
-      this.$kytos.$on('hideInfoPanel', this.hide)
+      this.$kytos.eventBus.$on('hideInfoPanel', this.hide)
 
       /**
        * Show the info panel in the right.
@@ -133,7 +138,7 @@ if (this.hasContent) {
        * @event showInfoPanel
        * @type {Object} An content to be displayed by InfoPanel.
        */
-      this.$kytos.$on('showInfoPanel', this.show)
+      this.$kytos.eventBus.$on('showInfoPanel', this.show)
 
       /**
        * Show the latest info panel called in the right,
@@ -142,7 +147,7 @@ if (this.hasContent) {
        * @event showLatestInfoPanel
        * @type {NULL}
        */
-      this.$kytos.$on('showLatestInfoPanel', this.latestContent)
+      this.$kytos.eventBus.$on('showLatestInfoPanel', this.latestContent)
     }
   },
   computed: {
@@ -186,6 +191,10 @@ if (this.hasContent) {
   width: 420px
   z-index: 999
   box-shadow: 10px 0px 20px 5px rgba(0, 0, 0, 0.4)
+.k-info-panel.hide
+  display: none
+.k-info-panel.show
+  display: flex
 
 .k-info-wrapper
   -webkit-flex: 1 1 auto
