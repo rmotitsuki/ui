@@ -51,12 +51,12 @@
           </template>
           <template v-else>
             <ul v-bind="resultListProps" v-on="resultListListeners">
-              <li v-for="(result, index) in results"
-                :key="resultProps[index].id"
-                v-bind="resultProps[index]">
+              <template v-for="(result, index) in results" :key="resultProps[index].id">
+                <li v-bind="resultProps[index]">
                   {{ result }}
                 </li>
-                          </ul>
+              </template>
+            </ul>
           </template>
         </div>
       </template>
