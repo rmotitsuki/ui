@@ -4,6 +4,8 @@ import VueHotkey from 'v-hotkey3'
 import App from './App.vue'
 import * as packageInfo from '../package.json';
 import eventBus from './event-bus'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 const {version} = packageInfo;
 
@@ -117,7 +119,7 @@ kytos.component('k-chart-radar', KytosChartRadar)
 kytos.component('k-table', KytosTable)
 kytos.component('k-notification', KytosNotification)
 
-
+kytos.use(VueAxios, axios);
 
 kytos.config.globalProperties.$kytos = new Vue()
 kytos.config.globalProperties.$kytos_server = window.kytos_server
