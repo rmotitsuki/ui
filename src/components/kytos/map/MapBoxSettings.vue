@@ -12,9 +12,6 @@
               <k-button tooltip="Map Background" icon="desktop"></k-button>
               <k-button tooltip="Image Background (disabled)" icon="image" :is-disabled="true"></k-button>
               <k-button tooltip="No Background" icon="window-close"></k-button>
-              <k-button tooltip="No Background1" icon="rectangle-xmark"></k-button>
-              <k-button tooltip="No Background3" icon="fa-rectangle-xmark"></k-button>
-              <k-button tooltip="No Background4" icon="fa-solid fa-rectangle-xmark"></k-button>
             </k-button-group>
             <k-slider icon="adjust" :initial-value="mapOpacity" :action="emitMapOpacity"></k-slider>
           </k-accordion-item>

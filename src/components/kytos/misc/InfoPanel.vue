@@ -114,7 +114,6 @@ export default {
           icon: 'cog'
         }
         this.show(standard_infoPanel)
-}
     },
     maximize() {
       /**
