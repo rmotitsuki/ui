@@ -74,7 +74,7 @@ export default {
     this.updateChart()
     this.interval = setInterval(this.updateChart, 60000)
   },
-  beforeDestroy () {
+  beforeUnmount () {
     clearInterval(this.interval)
   },
   watch: {

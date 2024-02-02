@@ -541,7 +541,7 @@ export default {
       this.$kytos.eventBus.$emit("statusMessage", "Topology built. Have fun!")
     }
   },
-  beforeDestroy () {
+  beforeUnmount () {
     // Removing listeners
     this.$kytos.eventBus.$off("topology-highlightAll")
     this.$kytos.eventBus.$off("topology-toggle-label")
