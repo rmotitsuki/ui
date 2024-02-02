@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="k-info-title">
-      <icon v-if="myIcon" :icon="iconName"></icon>
+      <icon v-if="myIcon && iconName" :icon="iconName"></icon>
       <div v-if="myTitle" class="panel-title">
         <h1> {{ myTitle }}
           <small v-if="mySubtitle">{{ mySubtitle }}</small>

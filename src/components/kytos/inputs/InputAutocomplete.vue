@@ -18,7 +18,7 @@
           resultProps
         }"
       >
-        <icon v-if="icon" :icon="iconName"></icon>
+        <icon v-if="icon && iconName" :icon="iconName"></icon>
         <div v-bind="rootProps">
           <custom-input
             v-bind="inputProps"
@@ -128,7 +128,7 @@ var CustomInput = {
       type: String
    }
   }, 
-  template: '<input :id="id" class="k-input" :tooltip="tooltip" ref="inputValue" :placeholder="placeholder"  :value="value" v-on="$listeners" />'
+  template: '<input :id="id" class="k-input" :tooltip="tooltip" ref="inputValue" :placeholder="placeholder" :value="value" v-on="$listeners" />'
 }
 
 export default {

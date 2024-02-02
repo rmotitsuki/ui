@@ -1,7 +1,7 @@
 <template>
    <label class="k-dropdown" v-bind:class="{ 'no-title' : !title }">
     <div class="k-dropdown__title">
-      <icon v-if="icon" :icon="iconName"></icon>
+      <icon v-if="icon && iconName" :icon="iconName"></icon>
       {{title}}
     </div>
     <select class="k-dropdown__select" v-model="selected" @change.prevent="emitEvent">
@@ -179,7 +179,7 @@ export default {
 
  svg
   fill: $fill-icon
-  margin-bottom: -5px
+margin-bottom: -5px
   margin-right: 5px
 
 .k-dropdown__select

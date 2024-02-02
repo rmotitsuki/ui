@@ -38,8 +38,8 @@ export default {
   },
   data() {
     return {
-      old_icons: ['pencil', 'photo', 'photo-o', 'gear', 'gear-o'],
-      new_icons: ['pencil-alt', 'image', 'image-o', 'cog', 'cog'],
+      old_icons: ['none', 'pencil', 'photo', 'photo-o', 'gear', 'gear-o'],
+      new_icons: ['', 'pencil-alt', 'image', 'image-o', 'cog', 'cog'],
     }
   },
   computed: {

@@ -3,7 +3,7 @@
     @click="this.handleClick"
     v-bind:title="tooltip"
     v-bind:disabled="isDisabled">
-      <icon v-if="icon" :icon="iconName"></icon>
+      <icon v-if="icon && iconName" :icon="iconName"></icon>
 
       {{title}}
   </button>

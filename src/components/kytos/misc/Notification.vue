@@ -2,7 +2,7 @@
   <div v-if="showNotification" class="notification-container">
     <div class="k-notification">
       <div class="notification-body">
-        <icon v-if="icon != undefined" class="notification-icon" :icon= iconName></icon>
+        <icon v-if="icon != undefined && iconName" class="notification-icon" :icon= iconName></icon>
         <icon v-else class="notification-icon" icon="desktop"></icon>
         <div>
           <h4 v-if="title != undefined" class="notification-text notification-title">{{ title }}</h4>

@@ -1,7 +1,7 @@
 <template>
    <label class="k-select no-compact">
     <div class="k-select__title">
-      <icon v-if="icon"  :icon="iconName"></icon>
+      <icon v-if="icon && iconName"  :icon="iconName"></icon>
       {{title}}
     </div>
     <select class="k-select__select" v-model="selected" @change.prevent="emitEvent"  multiple>
@@ -121,7 +121,7 @@ export default {
  svg
   fill: $fill-icon
   color: $fill-icon
-  margin-bottom: -5px
+margin-bottom: -5px
   margin-right: 5px
 
 .k-select__select

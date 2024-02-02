@@ -1,6 +1,6 @@
 <template>
   <div class="k-slider">
-    <icon v-if="icon" :icon="iconName"></icon>
+    <icon v-if="icon && iconName" :icon="iconName"></icon>
     <span class="range-slider__value">{{value}}</span>
     <input @input="doRange" :id="id" class="k-slider__range" type="range" :value="value" v-bind:min="min" v-bind:max="max" v-bind:step="step">
   </div>
