@@ -121,6 +121,10 @@ kytos.component('k-notification', KytosNotification)
 
 kytos.use(VueAxios, axios);
 
+
+// Preserve extra whitespaces
+kytos.config.compilerOptions.whitespace = 'preserve';
+
 kytos.config.globalProperties.$kytos = new Vue()
 kytos.config.globalProperties.$kytos_server = window.kytos_server
 kytos.config.globalProperties.$kytos_server_api =  window.kytos_server_api
