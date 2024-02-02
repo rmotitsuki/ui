@@ -33,7 +33,7 @@ export default {
         async: true,
         cache: false,
         success: function(data) {
-          self.inner_components = self.inner_components.concat(data)
+          self.inner_components = self.inner_components.concat(data);
         }
       }).always(function(){
           self.load_components()

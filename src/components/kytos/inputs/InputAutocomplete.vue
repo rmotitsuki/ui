@@ -112,7 +112,8 @@ var CustomInput = {
     * Tooltip string for the input.
     */
    tooltip: {
-      type: String
+      type: String,
+      default: ""
    },
     /**
      * The id to input button.
@@ -125,7 +126,8 @@ var CustomInput = {
     * Placeholder string displayed in input field.
     */
    placeholder: {
-      type: String
+      type: String,
+      default: ""
    }
   }, 
   template: '<input :id="id" class="k-input" :tooltip="tooltip" ref="inputValue" :placeholder="placeholder" :value="value" v-on="$listeners" />'

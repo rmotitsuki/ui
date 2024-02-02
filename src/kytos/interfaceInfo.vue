@@ -143,7 +143,7 @@ export default {
     }
   },
   methods: {
-    update_interface_content () {
+    update_interface_content: function() {
       var self = this
       let filter = this.$filters.humanize_bytes      
       Object.keys(this.metadata).forEach(function (key) {
@@ -154,7 +154,7 @@ export default {
         self.metadata[key] = String(value)
       });
     },
-    parseInterfaceData (data) {
+    parseInterfaceData: function(data) {
       if (!data) {
         var msg = "Error while trying to fetch interface data."
         this.$kytos.eventBus.$emit('statusMessage', msg, true)
@@ -162,7 +162,7 @@ export default {
         this.chartJsonData = data["data"]
       }
     },
-    build_url() {
+    build_url: function() {
         var parameters_url = "";
         if (this.plotRange !== null) {
             var unix = Math.round(+new Date()/1000);
@@ -172,19 +172,19 @@ export default {
         var endpoint_url = this.endpoint + parameters_url;
         return endpoint_url;
     },
-    update_chart() {
+    update_chart: function() {
         // TODO: of_stats/kronos must implement the endpoint
         //json(this.build_url(), this.parseInterfaceData)
     },
-    change_plotRange(range) {
+    change_plotRange: function(range) {
         this.plotRange = range
         this.update_chart()
     },
-    update_content_switch(){
+    update_content_switch: function() {
       if(this.content === undefined) return
       this.content_switch = this.content["content_switch"]
     },
-    back_switch() {
+    back_switch: function() {
       let panel_content = {component: 'kytos-topology-k-info-panel-switch_info',
                            content: this.content_switch,
                            icon: "cog",
@@ -192,14 +192,14 @@ export default {
                            subtitle: this.content_switch.connection,}
       this.$kytos.eventBus.$emit("showInfoPanel", panel_content)
     },
-    get_metadata() {
+    get_metadata: function() {
       if(this.content === undefined) return
       this.metadata_items = this.content.metadata
     },
-    get_next_state() {
+    get_next_state: function() {
       this.next_state = this.metadata.enabled == 'true'? 'Disable' : 'Enable'
     },
-    bt_state_toggle(){
+    bt_state_toggle: function() {
       var _this = this
       let request = $.ajax({
                        type:"POST",
@@ -226,7 +226,7 @@ export default {
         _this.$kytos.eventBus.$emit("setNotification", notification)
       })
     },
-    bt_add_metadata() {
+    bt_add_metadata: function() {
       var _this = this
       let request = $.ajax({
                        type: "POST",
@@ -260,7 +260,7 @@ export default {
         _this.$kytos.eventBus.$emit("setNotification", notification)
       });
     },
-    bt_rmv_metadata() {
+    bt_rmv_metadata: function() {
       var _this = this
       let request = $.ajax({
                        type: "DELETE",
@@ -287,7 +287,7 @@ export default {
         _this.$kytos.eventBus.$emit("setNotification", notification)
       });
     },
-    set_tag_ranges() {
+    set_tag_ranges: function() {
       var _this = this
       let ranges_list = JSON.parse(this.new_tag_ranges)
       let payload = {tag_type: this.new_tag_type, tag_ranges: ranges_list}
@@ -341,7 +341,7 @@ export default {
         _this.$kytos.$emit("setNotification", notification)
       });
     },
-    get_tag_types() {
+    get_tag_types: function() {
       let _result = [
         {value: "vlan", description: "vlan", selected: true},
         {value: "vlan_qinq", description: "vlan_qinq"},
@@ -349,7 +349,7 @@ export default {
       ];
       return _result;
     },
-    get_tag_ranges_endpoint() {
+    get_tag_ranges_endpoint: function() {
       var _this = this
       if(this.content === undefined) return
       let request = $.ajax({
@@ -365,7 +365,7 @@ export default {
         _this.available_tags = _this.content.available_tags
       })
     },
-    get_tag_ranges_content() {
+    get_tag_ranges_content: function() {
       if(this.content === undefined) return
       this.tag_ranges = this.content.tag_ranges
       this.available_tags = this.content.available_tags
@@ -380,7 +380,7 @@ export default {
     this.get_next_state()
     this.get_tag_ranges_endpoint()
   },
-  beforeDestroy () {
+  beforeUnmount () {
     clearInterval(this.interval)
   },
   watch: {

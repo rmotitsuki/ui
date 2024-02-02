@@ -24,7 +24,9 @@ export default {
         async: true,
         cache: false,
         success: function(data) {
-          self.components = self.components.concat(data)
+          if(data) {
+            self.components = self.components.concat(data)
+          }
         }
       }).always(function(){
           self.load_components()
