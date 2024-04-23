@@ -8,6 +8,7 @@ UNRELEASED - Under development
 
 Added
 =====
+- Added new Status Menu
 
 Changed
 =======
