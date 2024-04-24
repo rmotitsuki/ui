@@ -55,7 +55,7 @@ export default {
       if(index >= 0) {
         temp = this.new_icons[index]
 
-        if(temp.endsWith("-o")) {
+        if(temp && temp.endsWith("-o")) {
           temp = temp.replace(/-o$/, '')
           temp = "regular/" + temp; 
         }
