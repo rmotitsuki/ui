@@ -179,7 +179,6 @@ export default {
 
  svg
   fill: $fill-icon
-margin-bottom: -5px
   margin-right: 5px
 
 .k-dropdown__select
