@@ -8,17 +8,22 @@ module.exports = merge(
   common,{
     mode: 'development',
     devtool: 'inline-source-map',
-    // http://vue-loader.vuejs.org/en/workflow/production.html
     plugins: [
       new webpack.DefinePlugin({
         'process.env': {
           NODE_ENV: '"development"'
-        }
+        },
+        // explicity vue3 options
+        // https://vuejs.org/api/compile-time-flags.html
+        __VUE_OPTIONS_API__: 'true',
+        __VUE_PROD_DEVTOOLS__: 'true',
+        __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'true'
       }),
       new webpack.LoaderOptionsPlugin({
         minimize: false,
         debug: true
       }),
       new CleanWebpackPlugin(),
-    ]
-  });
+    ],
+  },
+);
