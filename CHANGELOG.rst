@@ -8,7 +8,7 @@ UNRELEASED - Under development
 
 Added
 =====
-- Added new Status Menu
+- Added new Status Menu. This menu can be accessed with the ``ctrl + shift + s`` hotkeys.
 
 Changed
 =======
