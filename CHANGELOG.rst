@@ -8,7 +8,8 @@ UNRELEASED - Under development
 
 Added
 =====
-- Added new Status Menu. This menu can be accessed with the ``ctrl + shift + s`` hotkeys.
+- Added new Status Menu. This menu can be accessed with the ``ctrl + shift + 2`` hotkeys.
+- All Menu Bar items can now be quickly accessed with the ``ctrl + shift`` hotkeys and their corresponding number within the Menu Bar from top to bottom.
 
 Changed
 =======
