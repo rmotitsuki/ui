@@ -11,6 +11,7 @@ Added
 
 Changed
 =======
+- ``README.md`` now contains latest UI documentation link.
 
 Deprecated
 ==========
