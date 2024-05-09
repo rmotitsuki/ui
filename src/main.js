@@ -1,17 +1,16 @@
 import Vue from 'vue'
 import { createApp } from 'vue'
+import { configureCompat } from 'vue'
 import VueHotkey from 'v-hotkey3'
 import App from './App.vue'
 import * as packageInfo from '../package.json';
 import eventBus from './event-bus'
-import axios from 'axios'
-import VueAxios from 'vue-axios'
 
 const {version} = packageInfo;
 
 const kytos = createApp({
   el: '#app',
-  render: h => h(App),
+  render: () => Vue.h(App),
   data () {
     return {
         infoPanelView: undefined
@@ -69,14 +68,12 @@ import KytosTable from './components/kytos/table/Table.vue';
 import KytosNotification from "./components/kytos/misc/Notification.vue";
 
 import { library, dom } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 library.add(fas, far, fab)
 dom.watch();
 
-kytos.component('font-awesome-icon', FontAwesomeIcon);
 kytos.component('k-menubar', KytosMenubar);
 kytos.component('k-map', KytosMap);
 kytos.component('mapbox-settings', MapBoxSettings);
@@ -119,8 +116,6 @@ kytos.component('k-chart-radar', KytosChartRadar)
 kytos.component('k-table', KytosTable)
 kytos.component('k-notification', KytosNotification)
 
-kytos.use(VueAxios, axios);
-
 
 // Preserve extra whitespaces
 kytos.config.compilerOptions.whitespace = 'preserve';
@@ -156,4 +151,9 @@ kytos.config.globalProperties.$filters = {
     return (neg ? '-' : '') + num + ' ' + unit;
   }
 }
+
+configureCompat({
+  RENDER_FUNCTION: false
+})
+
 kytos.mount('#app')

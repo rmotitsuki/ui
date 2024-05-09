@@ -6,7 +6,6 @@
 module.exports = {
     // options...
     transpileDependencies: [
-        /\bvue-awesome\b/
     ]
     
 }

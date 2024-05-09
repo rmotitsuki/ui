@@ -1,7 +1,4 @@
 import KytosBase from './KytosBase';
-import 'vue-awesome/icons';
-import Icon from 'vue-awesome/components/Icon';
-
 
 /*
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
@@ -48,6 +45,7 @@ export default {
        * Translate old icons name for the vue-awesome lib.
        * The icons with the '-o' (outlined) suffix are located now
        * in the /regular folder.
+       * Replaced for FontAwesomeIcon lib.
        */
       let temp = this.icon || '';
 

@@ -443,8 +443,9 @@ export default {
         .attr("id", "click_background")
         .attr("width", this.map_width)
         .attr("height", this.map_height)
-        .on("click", function() {
-          var coords = d3.mouse(this)
+        .on("click", function(event) {
+          let coords = d3.pointer(event)
+
           coords = {x: coords[0], y: coords[1]}
           if (!self.check_switch_under_click(coords)) self.highlight_all_elements()
         })
@@ -478,7 +479,10 @@ export default {
                .classed("amlight", function(d) { return d.metadata && d.metadata.network && d.metadata.network.indexOf("Amlight") != -1 })
                .classed("fibre", function(d) { return d.metadata && d.metadata.network && d.metadata.network.indexOf("Fibre") != -1 })
                .attr("r", this.gnode_radius)
-               .on("click", self.highlight_switch)
+               .on("click", function(event, obj) {
+                  self.highlight_switch(obj);
+               })
+
 
       /*******************/
       /* SWITCH LABELING */

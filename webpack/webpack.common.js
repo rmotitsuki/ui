@@ -17,7 +17,7 @@ module.exports = {
         options: {
           compilerOptions: {
             compatConfig: {
-              MODE: 2
+              MODE: 2,
             }
           },
           loaders: {
@@ -45,8 +45,8 @@ module.exports = {
           loader: 'babel-loader'
         },
         include: [
-          path.resolve(__dirname, 'src'), 
-          path.resolve(__dirname, 'node_modules/vue-awesome')]
+          path.resolve(__dirname, 'src')
+        ]
       },
       {
         test: /\.(png|jpg|gif|svg)$/i,
