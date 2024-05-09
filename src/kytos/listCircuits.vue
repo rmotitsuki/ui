@@ -88,7 +88,6 @@ export default {
       var endpoint = "http://demo.kytos.io:8181/api/kytos/mef_eline/v1/circuits"
       var self = this
       d3.json(endpoint, function(error, result) {
-        console.log(result.circuits)
         for (var key in result.circuits) {
           self.circuits.push(result.circuits[key])
         }
@@ -118,6 +117,5 @@ export default {
       })
     }
   }
-
 }
 </script>
