@@ -1,7 +1,7 @@
 # Kytos/UI
 
 This is the web user interface for the Kytos project. For more information
-on how to use it, please refer to the [UI documentation](https://docs.kytos.io/developer/web-ui/).
+on how to use it, please refer to the [UI documentation](https://github.com/kytos-ng/kytos/blob/master/docs/developer/web-ui.rst).
 
 ## Build Setup
 
