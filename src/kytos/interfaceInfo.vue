@@ -218,7 +218,7 @@ export default {
       request.fail(function(data) {
         let notification = {
           title: 'Interface ' + _this.next_state + 'd: Failed',
-          description: data.status + ': ' + data.responseText + '. The interface ' + _this.metadata.interface_id + ' was not ' + _this.next_state.toLowerCase() + 'd.',
+          description: data.status + ': ' + ( data.responseJSON !== undefined ? data.responseJSON.description : data.responseText ) + '. The interface ' + _this.metadata.interface_id + ' was not ' + _this.next_state.toLowerCase() + 'd.',
           icon: 'cog',
         }
         _this.$kytos.$emit("setNotification", notification)
@@ -253,7 +253,7 @@ export default {
         let notification = {
              icon: 'cog',
              title: 'Add metadata: Failure',
-             description: data.status + ': ' + data.responseText + ' "' + _this.to_add + '" was not added to the metadata. Interface: ' + _this.metadata.interface_id,
+             description: data.status + ': ' + ( data.responseJSON !== undefined ? data.responseJSON.description : data.responseText ) + ' "' + _this.to_add + '" was not added to the metadata. Interface: ' + _this.metadata.interface_id,
         }
         _this.$kytos.$emit("setNotification", notification)
       });
@@ -280,7 +280,7 @@ export default {
         let notification = {
              icon: 'cog',
              title: 'Delete metadata: Failure',
-             description: data.status + ': ' + data.responseText + ' "' + _this.to_delete + '" was not deleted from the metadata. Interface: ' + _this.metadata.interface_id,
+             description: data.status + ': ' + ( data.responseJSON !== undefined ? data.responseJSON.description : data.responseText ) + ' "' + _this.to_delete + '" was not deleted from the metadata. Interface: ' + _this.metadata.interface_id,
         }
         _this.$kytos.$emit("setNotification", notification)
       });
@@ -323,7 +323,7 @@ export default {
         _request.fail(function(data) {
           let notification = {
             title: 'Set ' + intf_id + ' tag_range: Succeed',
-            description: data.status + ': ' + data.responseText + ' "tag_ranges" change was successful '
+            description: data.status + ': ' + ( data.responseJSON !== undefined ? data.responseJSON.description : data.responseText ) + ' "tag_ranges" change was successful '
                          + 'but there was an error obtaining the resized "available_tags". Try refreshing the page.',
             icon: 'cog',
           }
@@ -333,7 +333,7 @@ export default {
       request.fail(function(data) {
         let notification = {
           title: 'Set ' + intf_id + ' tag_range: Failed',
-          description: data.status + ': ' + data.responseText + ' "tag_ranges" was not set.',
+          description: data.status + ': ' + ( data.responseJSON !== undefined ? data.responseJSON.description : data.responseText ) + ' "tag_ranges" was not set.',
           icon: 'cog',
         }
         _this.$kytos.$emit("setNotification", notification)
