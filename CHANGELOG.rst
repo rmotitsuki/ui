@@ -21,6 +21,7 @@ Removed
 
 Fixed
 =====
+- Error handler properly showing the error message as text (Issue #60)
 
 Security
 ========
