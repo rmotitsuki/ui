@@ -6,6 +6,9 @@ All notable changes to the Kytos-NG UI project will be documented in this file.
 UNRELEASED - Under development
 ******************************
 
+[2023.2.1] - 2024-06-04
+***********************
+
 Added
 =====
 - Added new Status Menu. This menu can be accessed with the ``ctrl + shift + 2`` hotkeys.
@@ -15,18 +18,9 @@ Changed
 =======
 - ``README.md`` now contains latest UI documentation link.
 
-Deprecated
-==========
-
-Removed
-=======
-
 Fixed
 =====
 - Error handler properly showing the error message as text (Issue #60)
-
-Security
-========
 
 [2023.2.0] - 2024-02-16
 ***********************
