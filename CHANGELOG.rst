@@ -8,9 +8,12 @@ UNRELEASED - Under development
 
 Added
 =====
+- Added new Status Menu. This menu can be accessed with the ``ctrl + shift + 2`` hotkeys.
+- All Menu Bar items can now be quickly accessed with the ``ctrl + shift`` hotkeys and their corresponding number within the Menu Bar from top to bottom.
 
 Changed
 =======
+- ``README.md`` now contains latest UI documentation link.
 
 Deprecated
 ==========
@@ -20,6 +23,7 @@ Removed
 
 Fixed
 =====
+- Error handler properly showing the error message as text (Issue #60)
 
 Security
 ========

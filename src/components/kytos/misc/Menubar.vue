@@ -1,6 +1,7 @@
 <template>
  <div class="container">
    <section class="k-menu-bar">
+     <span  v-for="item in keymap"  v-hotkey="item" v-show="false"></span>
      <div class="logo" @click="toggle" v-bind:class="{ compacted: compacted  }">
        <div class="logo-wrapper" v-show="!compacted">
          <img src="../../../assets/kytosng_logo_white.svg" class="logo-kytos" alt="Kytos">
@@ -30,7 +31,7 @@ export default {
   data() {
     return {
       version: this.$kytos_version,
-      components: [{'icon': 'desktop', 'name':'mapbox-settings'}],
+      components: [{'icon': 'desktop', 'name':'mapbox-settings'}, {'icon': 'signal', 'name': 'k-status-menu'}],
       activeItem: 1
     }
   },
@@ -52,10 +53,35 @@ export default {
             });
         });
       });
+    },
+  },
+  computed: {
+    keymap () {
+      var self = this
+      var keys = []
+      for (let component in self.components) {
+        let componentNumber = Number(component) + 1
+        let currentKey = 'ctrl+shift+' + componentNumber
+        let keyObject = {}
+        keyObject[currentKey] = function() {
+          self.activeItem = componentNumber
+          $(".k-toolbar").show();
+
+          self.$nextTick(function () {
+            $(".k-toolbar .k-menu-item").not(":hidden").each(function() {
+                $(self).each(function(){
+                    if ($(self).find(".compact").length == 0){
+                        $(".compacted .k-toolbar").css("display","none");
+                    }
+                });
+            });
+          });
+        }
+        keys.push(keyObject)
+      }
+      return keys
     }
   }
-
-
 }
 </script>
 
