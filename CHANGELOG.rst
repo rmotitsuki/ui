@@ -21,6 +21,7 @@ Removed
 
 Fixed
 =====
+- Fixed tooltip for inputs not displaying
 
 Security
 ========
