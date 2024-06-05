@@ -5,6 +5,7 @@ import VueHotkey from 'v-hotkey3'
 import App from './App.vue'
 import * as packageInfo from '../package.json';
 import eventBus from './event-bus'
+import { toRaw } from 'vue';
 
 const {version} = packageInfo;
 
@@ -127,6 +128,7 @@ kytos.config.globalProperties.$kytos_server = window.kytos_server
 kytos.config.globalProperties.$kytos_server_api =  window.kytos_server_api
 kytos.config.globalProperties.$kytos_version = version
 kytos.config.globalProperties.$kytos.eventBus = eventBus;
+kytos.config.globalProperties.$kytos.toRaw = toRaw;
 
 kytos.config.globalProperties.$filters = {
   humanize_bytes(num, precision = 0, suffix = 'bps') {
