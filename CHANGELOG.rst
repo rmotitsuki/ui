@@ -21,6 +21,7 @@ Changed
 
 Fixed
 =====
+- Fixed tooltip for inputs not displaying
 - Error handler properly showing the error message as text (Issue #60)
 
 [2023.2.0] - 2024-02-16
