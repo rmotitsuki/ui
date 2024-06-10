@@ -2,7 +2,7 @@
  <div class="container">
    <section class="k-menu-bar">
      <span  v-for="item in keymap"  v-hotkey="item" v-show="false"></span>
-     <div class="logo" v-on:click="toggle" v-bind:class="{ compacted: compacted  }">
+     <div class="logo" @click="toggle" v-bind:class="{ compacted: compacted  }">
        <div class="logo-wrapper" v-show="!compacted">
          <img src="../../../assets/kytosng_logo_white.svg" class="logo-kytos" alt="Kytos">
          <div id="kytos-version">v{{version}}</div>
@@ -10,13 +10,13 @@
        <img v-show="compacted" src="../../../assets/kytosng_icon_white.svg" class="icon-kytos" alt="Kytos">
      </div>
      <k-button v-for="(component, index) in components"
-               v-bind:class="{ active: activeItem==(index+1) }"
+               :class="{ active: activeItem==(index+1) }"
                :key="component.name"
                :icon="component.icon"
                :tooltip="component.tooltip"
-               @click.native="setItem(index+1)"/>
+               @click="setItem(index+1)"/>
    </section>
-   <k-toolbar :active="activeItem" :components.sync="components" :compacted="compacted"></k-toolbar>
+   <k-toolbar :active="activeItem" v-model:components="components" :compacted="compacted"></k-toolbar>
  </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
   },
   methods: {
     toggleLabel (type, label) {
-      this.$kytos.$emit('topology-toggle-label', type, label)
+      this.$kytos.eventBus.$emit('topology-toggle-label', type, label)
     },
     setItem (item) {
       this.activeItem = item
@@ -143,10 +143,12 @@ export default {
    padding: 10px 9px 10px 5px
    cursor: pointer
    fill: $fill-icon
+   color: $fill-icon
    border-left: 3px solid transparent
 
   &:hover
    fill: $fill-icon-h
+   color: $fill-icon-h
    border-color: $fill-menubar-b
    background: $fill-menubar-b
 

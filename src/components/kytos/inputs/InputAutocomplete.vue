@@ -18,7 +18,7 @@
           resultProps
         }"
       >
-        <icon v-if="icon" v-bind:name="iconName"></icon>
+        <icon v-if="icon && iconName" :icon="iconName"></icon>
         <div v-bind="rootProps">
           <custom-input
             v-bind="inputProps"
@@ -51,11 +51,11 @@
           </template>
           <template v-else>
             <ul v-bind="resultListProps" v-on="resultListListeners">
-              <li v-for="(result, index) in results"
-                :key="resultProps[index].id"
-                v-bind="resultProps[index]">
-                {{ result }}
-              </li>
+              <template v-for="(result, index) in results" :key="resultProps[index].id">
+                <li v-bind="resultProps[index]">
+                  {{ result }}
+                </li>
+              </template>
             </ul>
           </template>
         </div>
@@ -68,7 +68,7 @@
 /*
 Autocomplete usage example.
 In your template:
-  <k-input-auto title="Switch Labels:" placeholder="Search DPID" icon="regular/circle" :candidates="dpids" ></k-input-auto>
+  <k-input-auto title="Switch Labels:" placeholder="Search DPID" icon="circle" :candidates="dpids" ></k-input-auto>
 
 In your script component:
 
@@ -112,7 +112,8 @@ var CustomInput = {
     * Tooltip string for the input.
     */
    tooltip: {
-      type: String
+      type: String,
+      default: ""
    },
     /**
      * The id to input button.
@@ -125,10 +126,11 @@ var CustomInput = {
     * Placeholder string displayed in input field.
     */
    placeholder: {
-      type: String
+      type: String,
+      default: ""
    }
   }, 
-  template: '<input :id="id" class="k-input" :tooltip="tooltip" ref="inputValue" :placeholder="placeholder"  :value="value" v-on="$listeners" />'
+  template: '<input :id="id" class="k-input" :tooltip="tooltip" ref="inputValue" :placeholder="placeholder" :value="value" v-on="$listeners" />'
 }
 
 export default {
@@ -250,9 +252,11 @@ export default {
   input, svg
    background: $fill-input-content
    fill: $fill-icon-h
+   color: $fill-icon-h
 
  svg
   fill: $fill-icon
+  color: $fill-icon
   padding: 0.3em 0.5em
 
 .k-input-auto

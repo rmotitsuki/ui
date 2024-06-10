@@ -1,24 +1,26 @@
 <template>
     <k-accordion>
       <div class="button_container">
-        <k-button tooltip="Go back to switch info" title="< Back to switch" :on_click="back_switch"></k-button>
-        <k-button :on_click="bt_state_toggle" :title="next_state"></k-button>
+        <k-button tooltip="Go back to switch info" title="< Back to switch" @click="back_switch"></k-button>
+        <k-button @click="bt_state_toggle" :title="next_state"></k-button>
       </div>
       <k-accordion-item title="Interface Plot" v-if="chartJsonData">
         <k-button-group>
             <!-- input type="text" class="k-input" placeholder="Zoom" disabled -->
-            <k-button title="5" tooltip="5 minutes" v-on:click.native="change_plotRange(5)"></k-button>
-            <k-button title="10" tooltip="10 minutes" v-on:click.native="change_plotRange(10)"></k-button>
-            <k-button title="15" tooltip="15 minutes" v-on:click.native="change_plotRange(15)"></k-button>
-            <k-button title="60" tooltip="60 minutes" v-on:click.native="change_plotRange(60)"></k-button>
-            <k-button title="120" tooltip="120 minutes" v-on:click.native="change_plotRange(120)"></k-button>
+            <k-button title="5" tooltip="5 minutes" @click="change_plotRange(5)"></k-button>
+            <k-button title="10" tooltip="10 minutes" @click="change_plotRange(10)"></k-button>
+            <k-button title="15" tooltip="15 minutes" @click="change_plotRange(15)"></k-button>
+            <k-button title="60" tooltip="60 minutes" @click="change_plotRange(60)"></k-button>
+            <k-button title="120" tooltip="120 minutes" @click="change_plotRange(120)"></k-button>
           </k-button-group>
         <k-chart-timeseries :interface_id="metadata.interface_id" :jsonData="chartJsonData" :display_legend="true" :chartHeight="200" ></k-chart-timeseries>
       </k-accordion-item>
 
       <k-accordion-item title="Basic Details">
           <k-property-panel>
-              <k-property-panel-item :name="key" :value="value" :key="key" v-if="content" v-for="(value, key) in this.metadata"></k-property-panel-item>
+            <template v-if="content"> 
+              <k-property-panel-item :name="key" :value="value" :key="key" v-for="(value, key) in this.metadata"></k-property-panel-item>
+            </template>
           </k-property-panel>
       </k-accordion-item>
       <k-accordion-item title="Available Tags">
@@ -58,9 +60,9 @@
         </div>
         <div style="color:#ccc;text-align: center;"> Set tag_ranges </div>
         <div class="metric">
-          <k-dropdown title="Tag type" :options="get_tag_types()" :value.sync ="new_tag_type"></k-dropdown>
+          <k-dropdown title="Tag type" :options="get_tag_types()" v-model:value ="new_tag_type"></k-dropdown>
         </div>
-        <k-textarea title="Set tag_ranges" icon="arrow-right" placeholder="Eg. [[100, 200], [400, 4095]]" :value.sync="new_tag_ranges"></k-textarea>
+        <k-textarea title="Set tag_ranges" icon="arrow-right" placeholder="Eg. [[100, 200], [400, 4095]]" v-model:value="new_tag_ranges"></k-textarea>
         <div class="metadata_container">
           <k-button title="Set tag_ranges" :on_click="set_tag_ranges"></k-button>
         </div>
@@ -84,13 +86,13 @@
          </div>
       </k-accordion-item>
       <k-accordion-item title="Metadata actions"> 
-         <k-textarea title="Add metadata" icon="arrow-right" placeholder='Eg. {"node_name": "some_name", "address": "some_address"}' :value.sync="to_add"></k-textarea>
+         <k-textarea title="Add metadata" icon="arrow-right" placeholder='Eg. {"node_name": "some_name", "address": "some_address"}' v-model:value="to_add"></k-textarea>
          <div class="metadata_container">
-              <k-button title="Add metadata" :on_click="bt_add_metadata"></k-button>
+              <k-button title="Add metadata" @click="bt_add_metadata"></k-button>
          </div>
-         <k-input title="Delete metadata" icon="arrow-right" placeholder="Eg. node_name" :value.sync="to_delete"></k-input>
+         <k-input title="Delete metadata" icon="arrow-right" placeholder="Eg. node_name" v-model:value="to_delete"></k-input>
          <div class="metadata_container">
-              <k-button title="Remove metadata" :on_click="bt_rmv_metadata"></k-button>
+              <k-button title="Remove metadata" @click="bt_rmv_metadata"></k-button>
          </div>
       </k-accordion-item>
 
@@ -141,9 +143,9 @@ export default {
     }
   },
   methods: {
-    update_interface_content () {
+    update_interface_content: function() {
       var self = this
-      let filter = this.$root.$options.filters.humanize_bytes      
+      let filter = this.$filters.humanize_bytes      
       Object.keys(this.metadata).forEach(function (key) {
         let value = self.content[key]
         if (key == 'speed') {
@@ -152,15 +154,15 @@ export default {
         self.metadata[key] = String(value)
       });
     },
-    parseInterfaceData (data) {
+    parseInterfaceData: function(data) {
       if (!data) {
         var msg = "Error while trying to fetch interface data."
-        this.$kytos.$emit('statusMessage', msg, true)
+        this.$kytos.eventBus.$emit('statusMessage', msg, true)
       } else {
         this.chartJsonData = data["data"]
       }
     },
-    build_url() {
+    build_url: function() {
         var parameters_url = "";
         if (this.plotRange !== null) {
             var unix = Math.round(+new Date()/1000);
@@ -170,34 +172,34 @@ export default {
         var endpoint_url = this.endpoint + parameters_url;
         return endpoint_url;
     },
-    update_chart() {
+    update_chart: function() {
         // TODO: of_stats/kronos must implement the endpoint
         //json(this.build_url(), this.parseInterfaceData)
     },
-    change_plotRange(range) {
+    change_plotRange: function(range) {
         this.plotRange = range
         this.update_chart()
     },
-    update_content_switch(){
+    update_content_switch: function() {
       if(this.content === undefined) return
       this.content_switch = this.content["content_switch"]
     },
-    back_switch() {
+    back_switch: function() {
       let panel_content = {component: 'kytos-topology-k-info-panel-switch_info',
                            content: this.content_switch,
                            icon: "cog",
                            title: "Switch Details",
                            subtitle: this.content_switch.connection,}
-      this.$kytos.$emit("showInfoPanel", panel_content)
+      this.$kytos.eventBus.$emit("showInfoPanel", panel_content)
     },
-    get_metadata() {
+    get_metadata: function() {
       if(this.content === undefined) return
       this.metadata_items = this.content.metadata
     },
-    get_next_state() {
+    get_next_state: function() {
       this.next_state = this.metadata.enabled == 'true'? 'Disable' : 'Enable'
     },
-    bt_state_toggle(){
+    bt_state_toggle: function() {
       var _this = this
       let request = $.ajax({
                        type:"POST",
@@ -213,7 +215,7 @@ export default {
         _this.next_state = _this.next_state == 'Enable'? 'Disable' : 'Enable'
         _this.content['enabled'] = _this.next_state == 'Enable'? 'false' : 'true'
         _this.metadata['enabled'] = _this.content['enabled']
-        _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.eventBus.$emit("setNotification", notification)
       });
       request.fail(function(data) {
         let notification = {
@@ -221,10 +223,10 @@ export default {
           description: data.status + ': ' + ( data.responseJSON !== undefined ? data.responseJSON.description : data.responseText ) + '. The interface ' + _this.metadata.interface_id + ' was not ' + _this.next_state.toLowerCase() + 'd.',
           icon: 'cog',
         }
-        _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.eventBus.$emit("setNotification", notification)
       })
     },
-    bt_add_metadata() {
+    bt_add_metadata: function() {
       var _this = this
       let request = $.ajax({
                        type: "POST",
@@ -241,7 +243,7 @@ export default {
              title: 'Add metadata: Success',
              description: '"' + _this.to_add + '" was added to the metadata. Interface: ' + _this.metadata.interface_id,
         }
-        _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.eventBus.$emit("setNotification", notification)
         let temp = JSON.parse(_this.to_add)
         var item = ""
         for (item in temp){
@@ -255,10 +257,10 @@ export default {
              title: 'Add metadata: Failure',
              description: data.status + ': ' + ( data.responseJSON !== undefined ? data.responseJSON.description : data.responseText ) + ' "' + _this.to_add + '" was not added to the metadata. Interface: ' + _this.metadata.interface_id,
         }
-        _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.eventBus.$emit("setNotification", notification)
       });
     },
-    bt_rmv_metadata() {
+    bt_rmv_metadata: function() {
       var _this = this
       let request = $.ajax({
                        type: "DELETE",
@@ -272,7 +274,7 @@ export default {
              title: 'Delete metadata: Success',
              description: '"' + _this.to_delete + '" was deleted from the metadata. Interface: ' + _this.metadata.interface_id,
         }
-        _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.eventBus.$emit("setNotification", notification)
         delete _this.content.metadata[_this.to_delete]
         _this.to_delete = ''
       });
@@ -282,10 +284,10 @@ export default {
              title: 'Delete metadata: Failure',
              description: data.status + ': ' + ( data.responseJSON !== undefined ? data.responseJSON.description : data.responseText ) + ' "' + _this.to_delete + '" was not deleted from the metadata. Interface: ' + _this.metadata.interface_id,
         }
-        _this.$kytos.$emit("setNotification", notification)
+        _this.$kytos.eventBus.$emit("setNotification", notification)
       });
     },
-    set_tag_ranges() {
+    set_tag_ranges: function() {
       var _this = this
       let ranges_list = JSON.parse(this.new_tag_ranges)
       let payload = {tag_type: this.new_tag_type, tag_ranges: ranges_list}
@@ -339,7 +341,7 @@ export default {
         _this.$kytos.$emit("setNotification", notification)
       });
     },
-    get_tag_types() {
+    get_tag_types: function() {
       let _result = [
         {value: "vlan", description: "vlan", selected: true},
         {value: "vlan_qinq", description: "vlan_qinq"},
@@ -347,7 +349,7 @@ export default {
       ];
       return _result;
     },
-    get_tag_ranges_endpoint() {
+    get_tag_ranges_endpoint: function() {
       var _this = this
       if(this.content === undefined) return
       let request = $.ajax({
@@ -363,7 +365,7 @@ export default {
         _this.available_tags = _this.content.available_tags
       })
     },
-    get_tag_ranges_content() {
+    get_tag_ranges_content: function() {
       if(this.content === undefined) return
       this.tag_ranges = this.content.tag_ranges
       this.available_tags = this.content.available_tags
@@ -378,7 +380,7 @@ export default {
     this.get_next_state()
     this.get_tag_ranges_endpoint()
   },
-  beforeDestroy () {
+  beforeUnmount () {
     clearInterval(this.interval)
   },
   watch: {

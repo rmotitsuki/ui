@@ -2,19 +2,19 @@
   <div :id="id" class="k-logging">
     <div class="k-logging-toolbar">
         <k-button-group>
-          <k-button icon="trash" v-on:click.native="clear" tooltip="Clear Logging"></k-button>
-          <k-button v-if="false" v-bind:icon="playing" v-on:click.native="play_pause" tooltip="Pause/Play Logging" ></k-button>
-          <k-checkbox icon="paint-brush" v-on:change.native="change_colors" class="round"></k-checkbox>
+          <k-button icon="trash" @click="clear" tooltip="Clear Logging"></k-button>
+          <k-button v-if="false" v-bind:icon="playing" @click="play_pause" tooltip="Pause/Play Logging" ></k-button>
+          <k-checkbox icon="paint-brush" v-on:change="change_colors" class="round"></k-checkbox>
         </k-button-group>
         <k-button-group>
-          <k-button title="All" @click.native="select('all')" tooltip="All logs"></k-button>
-          <k-button title="Info" @click.native="select('info')" tooltip="Only info messages"></k-button>
-          <k-button title="Warn" @click.native="select('warn')"  tooltip="Only warning messages"></k-button>
-          <k-button title="Error" @click.native="select('error')"  tooltip="Only error messages"></k-button>
-          <k-button title="Debug" @click.native="select('debug')"  tooltip="Only debug messages"></k-button>
+          <k-button title="All" @click="select('all')" tooltip="All logs"></k-button>
+          <k-button title="Info" @click="select('info')" tooltip="Only info messages"></k-button>
+          <k-button title="Warn" @click="select('warn')"  tooltip="Only warning messages"></k-button>
+          <k-button title="Error" @click="select('error')"  tooltip="Only error messages"></k-button>
+          <k-button title="Debug" @click="select('debug')"  tooltip="Only debug messages"></k-button>
         </k-button-group>
         <k-button-group>
-          <k-input v-model="highlight_string" v-on:change.native='highlight' icon="regular/lightbulb" tooltip="Highlight string" placeholder="Highlight string"></k-input>
+          <k-input v-model="highlight_string" v-on:change='highlight' icon="lightbulb" tooltip="Highlight string" placeholder="Highlight string"></k-input>
         </k-button-group>
       </div>
 

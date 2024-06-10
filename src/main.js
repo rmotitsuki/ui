@@ -1,8 +1,23 @@
 import Vue from 'vue'
-import VueHotkey from 'v-hotkey'
+import { createApp } from 'vue'
+import { configureCompat } from 'vue'
+import VueHotkey from 'v-hotkey3'
 import App from './App.vue'
 import * as packageInfo from '../package.json';
+import eventBus from './event-bus'
+import { toRaw } from 'vue';
+
 const {version} = packageInfo;
+
+const kytos = createApp({
+  el: '#app',
+  render: () => Vue.h(App),
+  data () {
+    return {
+        infoPanelView: undefined
+    }
+  },
+})
 
 Vue.use(VueHotkey)
 
@@ -54,50 +69,69 @@ import KytosTable from './components/kytos/table/Table.vue';
 
 import KytosNotification from "./components/kytos/misc/Notification.vue";
 
-Vue.component('k-menubar', KytosMenubar);
-Vue.component('k-map', KytosMap);
-Vue.component('mapbox-settings', MapBoxSettings);
-Vue.component('k-topology', KytosTopology);
-Vue.component('k-context-panel', KytosContextPanel);
-Vue.component('k-tabs', KytosTabs);
-Vue.component('k-terminal', KytosTerminal);
-Vue.component('k-logging', KytosLogging);
-Vue.component('k-button', KytosButton);
-Vue.component('k-dropdown', KytosDropdown);
-Vue.component('k-button-group', KytosButtonGroup);
-Vue.component('k-action-menu', KytosActionMenu);
-Vue.component('k-input', KytosInput);
-Vue.component('k-input-auto', KytosInputAutocomplete);
-Vue.component('k-textarea', KytosTextarea);
-Vue.component('k-checkbox', KytosCheckbox);
-Vue.component('k-status-bar', KytosStatusBar);
-Vue.component('k-status-menu', KytosStatusMenu);
+import { library, dom } from "@fortawesome/fontawesome-svg-core";
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
+library.add(fas, far, fab)
+dom.watch();
 
-Vue.component('k-select', KytosSelect)
-Vue.component('k-slider', KytosSlider);
-Vue.component('k-accordion', KytosAccordion);
-Vue.component('k-accordion-item', KytosAccordionItem);
-Vue.component('k-property-panel', KytosPropertyPanel);
-Vue.component('k-property-panel-item', KytosPropertyPanelItem);
-Vue.component('k-info-panel', KytosInfoPanel);
-Vue.component('k-toolbar', KytosToolbar);
-Vue.component('k-toolbar-item', KytosToolbarItem);
-Vue.component('k-action-menu-item', KytosActionMenuItem);
-Vue.component('k-napps-info-panel', KytosNappsInfoPanel);
+kytos.component('k-menubar', KytosMenubar);
+kytos.component('k-map', KytosMap);
+kytos.component('mapbox-settings', MapBoxSettings);
+kytos.component('k-topology', KytosTopology);
+kytos.component('k-context-panel', KytosContextPanel);
+kytos.component('k-tabs', KytosTabs);
+kytos.component('k-terminal', KytosTerminal);
+kytos.component('k-logging', KytosLogging);
+kytos.component('k-button', KytosButton);
+kytos.component('k-dropdown', KytosDropdown);
+kytos.component('k-button-group', KytosButtonGroup);
+kytos.component('k-action-menu', KytosActionMenu);
+kytos.component('k-input', KytosInput);
+kytos.component('k-input-auto', KytosInputAutocomplete);
+kytos.component('k-textarea', KytosTextarea);
+kytos.component('k-checkbox', KytosCheckbox);
+kytos.component('k-status-bar', KytosStatusBar);
+kytos.component('k-status-menu', KytosStatusMenu);
 
-Vue.component('k-interface', KytosInterface);
-Vue.component('k-flow', KytosFlow);
+kytos.component('k-select', KytosSelect)
+kytos.component('k-slider', KytosSlider);
+kytos.component('k-accordion', KytosAccordion);
+kytos.component('k-accordion-item', KytosAccordionItem);
+kytos.component('k-property-panel', KytosPropertyPanel);
+kytos.component('k-property-panel-item', KytosPropertyPanelItem);
+kytos.component('k-info-panel', KytosInfoPanel);
+kytos.component('k-toolbar', KytosToolbar);
+kytos.component('k-toolbar-item', KytosToolbarItem);
+kytos.component('k-action-menu-item', KytosActionMenuItem);
+kytos.component('k-napps-info-panel', KytosNappsInfoPanel);
 
-Vue.component('k-switch-radar', KytosSwitchRadar);
-Vue.component('k-interface-info', KytosInterfaceInfo);
+kytos.component('k-interface', KytosInterface);
+kytos.component('k-flow', KytosFlow);
 
-Vue.component('k-chart-timeseries', KytosChartTimeseries)
-Vue.component('k-chart-radar', KytosChartRadar)
+kytos.component('k-switch-radar', KytosSwitchRadar);
+kytos.component('k-interface-info', KytosInterfaceInfo);
 
-Vue.component('k-table', KytosTable)
-Vue.component('k-notification', KytosNotification)
+kytos.component('k-chart-timeseries', KytosChartTimeseries)
+kytos.component('k-chart-radar', KytosChartRadar)
 
-Vue.filter('humanize_bytes', function (num, precision = 0, suffix = 'bps') {
+kytos.component('k-table', KytosTable)
+kytos.component('k-notification', KytosNotification)
+
+
+// Preserve extra whitespaces
+kytos.config.compilerOptions.whitespace = 'preserve';
+
+kytos.config.globalProperties.$kytos = new Vue()
+kytos.config.globalProperties.$kytos_server = window.kytos_server
+kytos.config.globalProperties.$kytos_server_api =  window.kytos_server_api
+kytos.config.globalProperties.$kytos_version = version
+kytos.config.globalProperties.$kytos.eventBus = eventBus;
+kytos.config.globalProperties.$kytos.toRaw = toRaw;
+
+kytos.config.globalProperties.$filters = {
+  humanize_bytes(num, precision = 0, suffix = 'bps') {
     num = Number(num);
     if (isNaN(num)) {
       throw new TypeError('Expected a number');
@@ -119,19 +153,11 @@ Vue.filter('humanize_bytes', function (num, precision = 0, suffix = 'bps') {
     var unit = units[exponent] + suffix;
 
     return (neg ? '-' : '') + num + ' ' + unit;
-});
+  }
+}
 
-Vue.prototype.$kytos = new Vue()
-Vue.prototype.$kytos_server = window.kytos_server
-Vue.prototype.$kytos_server_api =  window.kytos_server_api
-Vue.prototype.$kytos_version = version
-
-var kytos = new Vue({
-  el: '#app',
-  render: h => h(App),
-  data () {
-    return {
-        infoPanelView: undefined
-    }
-  },
+configureCompat({
+  RENDER_FUNCTION: false
 })
+
+kytos.mount('#app')

@@ -33,7 +33,7 @@ export default {
        * @event change-map-opacity
        * @type {Number} The Opacity number
        */
-      this.$kytos.$on("change-map-opacity", this.changeMapOpacity);
+      this.$kytos.eventBus.$on("change-map-opacity", this.changeMapOpacity);
     },
     changeMapOpacity (value) {
       value = parseInt(value, 10)
@@ -85,7 +85,7 @@ export default {
       json(this.topology.url, (error, graph) => {
         if (error) {
           var msg = "Error while trying to load the topology"
-          this.$kytos.$emit("statusMessage", msg, true)
+          this.$kytos.eventBus.$emit("statusMessage", msg, true)
           throw error
         } else {
           this.topology.graph = graph.topology

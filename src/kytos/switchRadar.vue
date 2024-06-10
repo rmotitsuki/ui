@@ -52,7 +52,7 @@ export default {
     parseData (data) {
       if (!data) {
         var msg = "Error while fetching switch data."
-        this.$kytos.$emit("statusMessage", msg, true)
+        this.$kytos.eventBus.$emit("statusMessage", msg, true)
       } else {
         let rx = {key: "rx", values: []}
         let tx = {key: "tx", values: []}
@@ -74,7 +74,7 @@ export default {
     this.updateChart()
     this.interval = setInterval(this.updateChart, 60000)
   },
-  beforeDestroy () {
+  beforeUnmount () {
     clearInterval(this.interval)
   },
   watch: {

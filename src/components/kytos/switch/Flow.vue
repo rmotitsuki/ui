@@ -1,30 +1,30 @@
 <template>
   <div :id="id" v-bind:class="{ 'k-flow': true, 'k-flow-active': isOwner }">
       <div class="info">
-        <div class="info-item" title="Priority"><icon name="level-up-alt"></icon> {{content.priority}}</div>
-        <div class="info-item" title="Hard/Idle Timeouts"><icon name="regular/clock"></icon> {{content.hard_timeout}} / {{content.idle_timeout}}</div>
-        <div class="info-item" title="Cookie"><icon name="regular/bookmark"></icon> {{content.cookie}}</div>
+        <div class="info-item" title="Priority"><icon icon="level-up-alt"></icon> {{content.priority}}</div>
+        <div class="info-item" title="Hard/Idle Timeouts"><icon icon="clock"></icon> {{content.hard_timeout}} / {{content.idle_timeout}}</div>
+        <div class="info-item" title="Cookie"><icon icon="bookmark"></icon> {{content.cookie}}</div>
       </div>
 
       <div class="match">
         <div class="match-l2">
          <!-- L2 match -->
-         <div class="match-item"><span>In:</span> {{content.match.in_port | orNone}}</div>
-         <div class="match-item"><span>Src:</span> {{content.match.dl_src | orNone}}</div>
-         <div class="match-item"><span>Dst:</span> {{content.match.dl_dst | orNone}}</div>
-         <div class="match-item"><span>Type:</span> {{content.match.dl_type | orNone}}</div>
-         <div class="match-item"><span>Vlan:</span> {{content.match.dl_vlan | orNone}}</div>
+         <div class="match-item"><span>In:</span> {{ orNone(content.match.in_port) }}</div>
+         <div class="match-item"><span>Src:</span> {{ orNone(content.match.dl_src) }}</div>
+         <div class="match-item"><span>Dst:</span> {{ orNone(content.match.dl_dst) }}</div>
+         <div class="match-item"><span>Type:</span> {{ orNone(content.match.dl_type) }}</div>
+         <div class="match-item"><span>Vlan:</span> {{ orNone(content.match.dl_vlan) }}</div>
         </div>
         <div class="match-l3">
          <!-- L3 match -->
-         <div class="match-item"><span>Src:</span> {{content.match.nw_src | orNone}}</div>
-         <div class="match-item"><span>Dst:</span> {{content.match.nw_dst | orNone}}</div>
-         <div class="match-item"><span>Proto:</span> {{content.match.nw_proto | orNone}}</div>
+         <div class="match-item"><span>Src:</span> {{ orNone(content.match.nw_src) }}</div>
+         <div class="match-item"><span>Dst:</span> {{ orNone(content.match.nw_dst) }}</div>
+         <div class="match-item"><span>Proto:</span> {{ orNone(content.match.nw_proto) }}</div>
         </div>
       </div>
 
       <div class="actions">
-        <div class="action-item" v-for="action in content.actions">{{action | formatAction}}</div>
+        <div class="action-item" v-for="action in content.actions">{{formatAction(action)}}</div>
       </div>
 
   </div>
@@ -52,7 +52,14 @@ export default {
     isOwner: false,
     }
   },
-  filters: {
+  computed: {
+    accountInUSD() {
+      return '$' + this.accountBalance
+    }
+
+    
+  },
+  methods: {
     orNone: function (value) {
       if (!value) return '*'
       if (value == "00:00:00:00:00:00") return '*'
@@ -64,9 +71,7 @@ export default {
         return action.action_type + "(" + action.port + ")"
       else
         return action
-    }
-  },
-  methods: {
+    },
     get_plot_selector() {
       return "plot-" + this.content.id
     },
@@ -221,10 +226,12 @@ export default {
       stroke: #00FFFF
       stroke-width: 1
       fill: none
+      color: none
 
     .axis path,
     .axis rx
       fill: none
+      color: none
       stroke: grey
       stroke-width: 1
       shape-rendering: crispEdges

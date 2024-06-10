@@ -17,6 +17,7 @@ Added
 Changed
 =======
 - ``README.md`` now contains latest UI documentation link.
+- Upgraded Vue framework to Vue3 in compatibility mode.
 
 Fixed
 =====
