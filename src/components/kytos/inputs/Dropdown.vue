@@ -1,7 +1,7 @@
 <template>
    <label class="k-dropdown" v-bind:class="{ 'no-title' : !title }">
     <div class="k-dropdown__title">
-      <icon v-if="icon" v-bind:name="iconName"></icon>
+      <icon v-if="icon && iconName" :icon="iconName"></icon>
       {{title}}
     </div>
     <select class="k-dropdown__select" v-model="selected" @change.prevent="emitEvent">
@@ -18,7 +18,7 @@ import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
 /**
  * A toggleable menu that allows the user to choose one value from a predefined list.
  *
- * @example k-dropdown title="Switch Labels:" icon="regular/circle" :options="switchLabels" :event="{name: 'topology-toggle-label', content: {node_type: 'switch'}}"></k-dropdown>
+ * @example k-dropdown title="Switch Labels:" icon="circle" :options="switchLabels" :event="{name: 'topology-toggle-label', content: {node_type: 'switch'}}"></k-dropdown>
  * @example /_static/imgs/components/input/k-dropdown.png
  */
 
@@ -30,7 +30,7 @@ export default {
      * Property with the selected option.
      */
     value:{
-      type: String,
+      type: [String, Boolean],
       default: ""
     },
     /**
@@ -66,7 +66,7 @@ export default {
       if (this.event !== undefined){
         let content = this.event.content
         content.value = this.selected
-        this.$kytos.$emit(this.event.name, content)
+        this.$kytos.eventBus.$emit(this.event.name, content)
       }
       this.$emit('update:value', this.selected)
       this.action(this.selected)
@@ -179,7 +179,6 @@ export default {
 
  svg
   fill: $fill-icon
-  margin-bottom: -5px
   margin-right: 5px
 
 .k-dropdown__select

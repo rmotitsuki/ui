@@ -50,15 +50,15 @@ export default {
   },
   methods: {
     setListeners () {
-      this.$kytos.$on('changeLinksColor', this.change_links_color)
-      this.$kytos.$on('clearLinksColor', this.clear_links_color)
+      this.$kytos.eventBus.$on('changeLinksColor', this.change_links_color)
+      this.$kytos.eventBus.$on('clearLinksColor', this.clear_links_color)
       /**
        * Highlight all switches of topology.
        *
        * @event topology-highlightAll
        * @type {object} Pointer that was cliced with p.x and p.y attributes
        */
-      this.$kytos.$on("topology-highlightAll", (p) => {
+      this.$kytos.eventBus.$on("topology-highlightAll", (p) => {
         if (!this.check_switch_under_click(p)) this.highlight_all_elements()
       })
       /**
@@ -67,7 +67,7 @@ export default {
        * @event topology-toggle-label
        * @type {object} A content with label and node-type
        */
-      this.$kytos.$on("topology-toggle-label", this.toggle_labels)
+      this.$kytos.eventBus.$on("topology-toggle-label", this.toggle_labels)
     },
     clear_links_color(){
       $.each(this.graph.links, function(index, link){
@@ -325,7 +325,7 @@ export default {
     highlight_all_elements () {
       d3.selectAll('[id^="node-"]').classed("downlight", false)
       d3.selectAll('line').classed("downlight", false)
-      this.$kytos.$emit("hideInfoPanel")
+      this.$kytos.eventBus.$emit("hideInfoPanel")
     },
     downlight_all_elements () {
       d3.selectAll('[id^="node-"]').classed("downlight", true)
@@ -347,7 +347,8 @@ export default {
                      icon: "cog",
                      title: "Switch Details",
                      subtitle: obj.connection}
-      this.$kytos.$emit("showInfoPanel", content)
+
+      this.$kytos.eventBus.$emit("showInfoPanel", content)
     },
     toggle_labels (content) {
       let label_type = content.value
@@ -408,7 +409,7 @@ export default {
       let arg = {value: attribute,
                  description: attribute[0].toUpperCase() + attribute.slice(1),
                  selected: this.labels_display[name] == attribute}
-      this.$kytos.$emit(eventName, arg)
+      this.$kytos.eventBus.$emit(eventName, arg)
     },
     set_switch_position (s) {
       let ll = this.project(s.lat, s.lng)
@@ -427,7 +428,7 @@ export default {
     gnode_id (d) { return "node-" + d.type + "-" + this.fix_name(d.id) },
     link_id (l) { return "link-" + l.id },
     draw_topology() {
-      this.$kytos.$emit('statusMessage', "Building topology ... ")
+      this.$kytos.eventBus.$emit('statusMessage', "Building topology ... ")
 
       var self = this
       var links, gnodes, node, switch_labeled_items
@@ -442,8 +443,9 @@ export default {
         .attr("id", "click_background")
         .attr("width", this.map_width)
         .attr("height", this.map_height)
-        .on("click", function() {
-          var coords = d3.mouse(this)
+        .on("click", function(event) {
+          let coords = d3.pointer(event)
+
           coords = {x: coords[0], y: coords[1]}
           if (!self.check_switch_under_click(coords)) self.highlight_all_elements()
         })
@@ -477,7 +479,10 @@ export default {
                .classed("amlight", function(d) { return d.metadata && d.metadata.network && d.metadata.network.indexOf("Amlight") != -1 })
                .classed("fibre", function(d) { return d.metadata && d.metadata.network && d.metadata.network.indexOf("Fibre") != -1 })
                .attr("r", this.gnode_radius)
-               .on("click", this.highlight_switch)
+               .on("click", function(event, obj) {
+                  self.highlight_switch(obj);
+               })
+
 
       /*******************/
       /* SWITCH LABELING */
@@ -537,13 +542,13 @@ export default {
           .attr("x2", function(d) { return d.target.x; })
           .attr("y2", function(d) { return d.target.y; })
       }
-      this.$kytos.$emit("statusMessage", "Topology built. Have fun!")
+      this.$kytos.eventBus.$emit("statusMessage", "Topology built. Have fun!")
     }
   },
-  beforeDestroy () {
+  beforeUnmount () {
     // Removing listeners
-    this.$kytos.$off("topology-highlightAll")
-    this.$kytos.$off("topology-toggle-label")
+    this.$kytos.eventBus.$off("topology-highlightAll")
+    this.$kytos.eventBus.$off("topology-toggle-label")
 
     // Remove SVG
     d3.select(this.map_container).select("svg").remove()
@@ -566,6 +571,7 @@ export default {
 
     rect#click_background
       fill: none
+      color: none
       pointer-events: all
 
     .label
@@ -595,15 +601,18 @@ export default {
 
       &.switch
         fill: rgba(85, 64, 199, 0.8)
+        color: rgba(85, 64, 199, 0.8)
 
       &.iep
         fill: rgba(236, 236, 31, 0.5)
+        color: rgba(236, 236, 31, 0.5)
         stroke: rgba(236, 236, 31, 0.5)
         cursor: grab
         cursor: -webkit-grab
 
       &.interface
         fill: rgba(255, 255, 255, 0.5)
+        color: rgba(255, 255, 255, 0.5)
         stroke: rgba(255, 255, 255, 0.5)
         stroke-width: 1
         cursor: grab
@@ -611,6 +620,7 @@ export default {
 
       &.host
         fill: rgba(255,0,0,1)
+        color: rgba(255,0,0,1)
         stroke: rgba(255,255,255,0.5)
       
       &.amlight,

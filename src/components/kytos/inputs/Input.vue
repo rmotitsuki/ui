@@ -5,7 +5,6 @@
       @input="updateText"
       ref="inputValue"
       v-bind:disabled="isDisabled" onshow="this.focus()" autofocus>
-    </input>
   </div>
 </template>
 
@@ -78,9 +77,11 @@ export default {
   input, svg
    background: $fill-input-content
    fill: $fill-icon-h
+   color: $fill-icon-h
 
  svg
   fill: $fill-icon
+  color: $fill-icon
   padding: 0.3em 0.5em
 
 .k-input

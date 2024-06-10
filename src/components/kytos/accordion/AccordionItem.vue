@@ -1,6 +1,8 @@
 <template>
   <div class="tab">
-    <input class="k-accordion-input" :id="id" type="checkbox" name="tabs" v-model="checked">
+    <input class="k-accordion-input" :id="id" type="checkbox" name="tabs" 
+      :checked="checked"
+      @input="checked = $event.target.checked" />
     <label class="k-accordion-label" :for="id">{{title}}</label>
     <div class="tab-content">
      <!-- @slot Empty Pannel, please define some items inside. -->
@@ -22,8 +24,8 @@ import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
  *    <k-accordion-item title="Background">
  *        <k-button-group>
  *          <k-button tooltip="Map Background" icon="globe"></k-button>
- *          <k-button tooltip="Image Background (disabled)" icon="regular/image" :is-disabled="true"></k-button>
- *          <k-button tooltip="No Background" icon="regular/window-close"></k-button>
+ *          <k-button tooltip="Image Background (disabled)" icon="image" :is-disabled="true"></k-button>
+ *          <k-button tooltip="No Background" icon="window-close"></k-button>
  *        </k-button-group>
  *        <k-slider icon="adjust" :initial-value="mapOpacity" :action="emitMapOpacity"></k-slider>
  *    </k-accordion-item>

@@ -15,6 +15,11 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
+          compilerOptions: {
+            compatConfig: {
+              MODE: 2,
+            }
+          },
           loaders: {
               sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax' // <style lang="sass">
           }
@@ -40,8 +45,8 @@ module.exports = {
           loader: 'babel-loader'
         },
         include: [
-          path.resolve(__dirname, 'src'), 
-          path.resolve(__dirname, 'node_modules/vue-awesome')]
+          path.resolve(__dirname, 'src')
+        ]
       },
       {
         test: /\.(png|jpg|gif|svg)$/i,
@@ -62,7 +67,10 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
+      'vue': '@vue/compat',
+      //'vue$': 'vue/dist/vue.esm.js',
+      'vue$': "@vue/compat/dist/vue.esm-bundler.js",
+      'vue': "@vue/compat/dist/vue.esm-bundler.js",
       'src': path.resolve(__dirname, '../src'),
       'components': path.resolve(__dirname, './src/components')
     }

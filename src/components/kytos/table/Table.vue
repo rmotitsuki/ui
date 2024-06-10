@@ -23,9 +23,9 @@
       </table>
     </div>
     <div class="row next-previous" v-if="needPagination">
-      <k-button icon="arrow-left" :on_click="this.previousPage"></k-button>
+      <k-button icon="arrow-left" @click="this.previousPage"></k-button>
       <p class="page-number" v-for="number in numberOfPages" :id="pageId(number)">{{ number }}</p>
-      <k-button icon="arrow-right" :on_click="this.nextPage"></k-button>
+      <k-button icon="arrow-right" @click="this.nextPage"></k-button>
     </div>
   </div>
 

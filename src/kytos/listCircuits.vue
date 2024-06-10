@@ -3,12 +3,12 @@
 <div id="k-circuit-search">
 
   <div id="k-input-search" class="k-input-wrap">
-   <icon name="search"></icon>
+   <icon v-if="icon" icon="search"></icon>
    <input type="text" v-model="search" class="k-input" placeholder="Search for circuit" onshow="this.focus()" autofocus id="k-circuits-search-input">
   </div>
 
   <div id="search-result">
-    <div class="item-search" :title="c.name" v-for="c in circuitsFiltered" v-on:click="open_circuit(c)">
+    <div class="item-search" :title="c.name" v-for="c in circuitsFiltered" @click="open_circuit(c)">
           <div class="item-content"><span>{{c.id}}</span></div>
           <div class="item-switch"><span>{{c.name}} </span><br /><b>Hops:</b> {{c.path | length}}</div>
           <div class="item-content"><b>Bandwidth:</b> {{c.bandwidth | humanize_bytes}}</div>
@@ -88,7 +88,6 @@ export default {
       var endpoint = "http://demo.kytos.io:8181/api/kytos/mef_eline/v1/circuits"
       var self = this
       d3.json(endpoint, function(error, result) {
-        console.log(result.circuits)
         for (var key in result.circuits) {
           self.circuits.push(result.circuits[key])
         }
@@ -100,7 +99,7 @@ export default {
                      "icon": "cog",
                      "title": "Switch Details",
                      "subtitle": s.connection}
-      this.$kytos.$emit("showInfoPanel", content)
+      this.$kytos.eventBus.$emit("showInfoPanel", content)
     }
   },
   mounted () {
@@ -118,6 +117,5 @@ export default {
       })
     }
   }
-
 }
 </script>

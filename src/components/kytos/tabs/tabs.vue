@@ -2,23 +2,23 @@
   <div id="tabs-panel" class="k-tabs" v-bind:class="{ hiddenTabs: hiddenTabs }">
     <div class="k-tabs-nav">
 
-      <k-button class="tab-nav terminal" title="Terminal" icon="terminal" @click.native="openTab('terminal')"></k-button>
-      <k-button class="tab-nav switches" title="Switches" icon="regular/circle" @click.native="openTab('switches')"></k-button>
-      <k-button class="tab-nav logging" title="Logging" icon="heartbeat" @click.native="openTab('logging')"></k-button>
-      <k-button class="tab-nav notifications" title="Notifications" icon="regular/bell" @click.native="openTab('notifications')"></k-button>
+      <k-button class="tab-nav terminal" title="Terminal" icon="terminal" @click="openTab('terminal')"></k-button>
+      <k-button class="tab-nav switches" title="Switches" icon="circle" @click="openTab('switches')"></k-button>
+      <k-button class="tab-nav logging" title="Logging" icon="heartbeat" @click="openTab('logging')"></k-button>
+      <k-button class="tab-nav notifications" title="Notifications" icon="bell" @click="openTab('notifications')"></k-button>
       <k-status-bar></k-status-bar>
 
       <div class="k-tabs-control">
-        <a class="k-hidden-tab" v-on:click="this.toggleTerminal">
-          <icon v-if="!hiddenTabs" name="chevron-down"></icon>
-          <icon v-else name="chevron-up"></icon>
+        <a class="k-hidden-tab" @click="this.toggleTerminal">
+          <icon v-if="!hiddenTabs" icon="chevron-down"></icon>
+          <icon v-else icon="chevron-up"></icon>
         </a>
-        <a class="k-hidden-tab k-toggle-info-panel" v-on:click="this.latestInfoPanel">
-          <icon v-if="!hiddenPanel" name="chevron-left"></icon>
-          <icon v-else name="chevron-right"></icon>
+        <a class="k-hidden-tab k-toggle-info-panel" @click="this.latestInfoPanel">
+          <icon v-if="!hiddenPanel" icon="chevron-left"></icon>
+          <icon v-else icon="chevron-right"></icon>
         </a>
-        <a v-on:click="this.fullTerminal">
-          <icon name="arrows-alt"></icon>
+        <a @click="this.fullTerminal">
+          <icon v-if="icon" icon="arrows-alt"></icon>
         </a>
       </div><!-- .k-tabs-control -->
 
@@ -84,12 +84,12 @@ export default {
       this.hiddenTabs = !this.hiddenTabs
     },
     toggleInfoPanelIcon(action) {
-      this.hiddenPanel = (action !== 'show')
+     this.hiddenPanel = (action !== 'show')
     },
     latestInfoPanel() {
       let infoPanelEvent
       (this.hiddenPanel) ? infoPanelEvent = 'showLatestInfoPanel' : infoPanelEvent = 'hideInfoPanel'
-      this.$kytos.$emit(infoPanelEvent)
+      this.$kytos.eventBus.$emit(infoPanelEvent)
     },
     setNotification(notification) {
       this.openTab('notifications')
@@ -178,7 +178,7 @@ export default {
        *         **icon**: "desktop" //fa-icon name as the main icon of the notification
        *       }
        */
-      this.$kytos.$on('setNotification', this.setNotification)
+      this.$kytos.eventBus.$on('setNotification', this.setNotification)
 
       /**
        * Toggle the InfoPanel icon
@@ -186,7 +186,7 @@ export default {
        * @event toggleInfoPanelIcon
        * @type {NULL}
        */
-      this.$kytos.$on('toggleInfoPanelIcon', this.toggleInfoPanelIcon)
+      this.$kytos.eventBus.$on('toggleInfoPanelIcon', this.toggleInfoPanelIcon)
     }
   },
   mounted() {
@@ -258,9 +258,11 @@ export default {
 
 .k-tabs-nav button:hover svg
   fill: $fill-icon-h
+  color: $fill-icon-h
 
 .k-tabs-nav .active svg
   fill: $fill-icon
+  color: $fill-icon
 
 .k-tabs-nav svg
   width: 13px
@@ -282,6 +284,7 @@ export default {
   svg
     width: 8px
     fill: $fill-icon
+    color: $fill-icon
 
   a
     display: block
@@ -290,6 +293,7 @@ export default {
 
   a:hover svg
     fill: $fill-icon-h
+    color: $fill-icon-h
 
 .k-tabs:-moz-full-screen .tabcontent
   height: auto

@@ -1,6 +1,6 @@
 <template>
   <div class="k-textarea-wrap no-compact">
-    <icon v-if="icon" v-bind:name="iconName"></icon>
+    <icon v-if="icon && iconName" :icon="iconName"></icon>
     <textarea ref="textarea" @input="updateText" type="text" :id="id" class="k-textarea" :value="value" :tooltip="tooltip" :placeholder="placeholder"
       v-bind:disabled="isDisabled" onshow="this.focus()" autofocus>
     </textarea>
@@ -77,9 +77,11 @@ export default {
   textarea, svg
    background: $fill-input-hover
    fill: $fill-icon-h
+   color: $fill-icon-h
 
  svg
   fill: $fill-icon
+  color: $fill-icon
   padding: 0.3em 0.5em
 
 .k-textarea

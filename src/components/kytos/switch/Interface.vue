@@ -1,19 +1,19 @@
 <template>
-  <div :id="id" class="k-interface" v-on:click="open_interface">
+  <div :id="id" class="k-interface" @click="open_interface">
       <div class="usage" :class="utilization_color_class"></div>
       <div class="details" :title="mac">
         <div class="name">{{name}} ({{port_number}})</div>
         <div class="x_bytes">
           <div class="padding-top-bottom"></div>
-          <div class="tx_bytes">{{ tx_bytes * 8 | humanize_bytes }} T&nbsp;</div>
+          <div class="tx_bytes">{{ $filters.humanize_bytes(tx_bytes * 8) }} T&nbsp;</div>
           <div class="padding-middle"></div>
-          <div class="rx_bytes">{{ rx_bytes * 8 | humanize_bytes }} R&nbsp;</div>
+          <div class="rx_bytes">{{ $filters.humanize_bytes(rx_bytes * 8) }} R&nbsp;</div>
           <div class="padding-top-bottom"></div>
         </div>
       </div>
 
-      <k-chart-timeseries v-if="chartJsonData" :interface_id="interface_id" :jsonData="chartJsonData" :showGrid="false" :showAxis="false" :plotArea="false" :chartHeight="45"></k-chart-timeseries>
-      <div class="warn" v-else=>&nbsp;Interface speed is unavailable</div>
+<k-chart-timeseries v-if="chartJsonData" :interface_id="interface_id" :jsonData="chartJsonData" :showGrid="false" :showAxis="false" :plotArea="false" :chartHeight="45"></k-chart-timeseries>
+      <div class="warn" v-else>&nbsp;Interface speed is unavailable</div>
 
   </div>
 </template>
@@ -116,13 +116,13 @@ export default {
                      "icon": "cog",
                      "title": "Interface Details",
                      "subtitle": this.name}
-      this.$kytos.$emit("showInfoPanel", content)
+      this.$kytos.eventBus.$emit("showInfoPanel", content)
 
     },
     parseInterfaceData (data) {
       if (!data) {
         var msg = "Error while trying to fetch interface data."
-        this.$kytos.$emit('statusMessage', msg, true)
+        this.$kytos.eventBus.$emit('statusMessage', msg, true)
       } else {
         this.chartJsonData = data['data']
       }
@@ -136,7 +136,7 @@ export default {
     this.update_chart()
     this.interval = setInterval(this.update_chart, 60000)
   },
-  beforeDestroy () {
+  beforeUnmount () {
     clearInterval(this.interval)
   },
 

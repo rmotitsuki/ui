@@ -1,11 +1,11 @@
 <template>
    <label class="k-select no-compact">
     <div class="k-select__title">
-      <icon v-if="icon" v-bind:name="iconName"></icon>
+      <icon v-if="icon && iconName"  :icon="iconName"></icon>
       {{title}}
     </div>
     <select class="k-select__select" v-model="selected" @change.prevent="emitEvent"  multiple>
-      <option v-for="item in options":value="item.value">
+      <option v-for="item in options" :value="item.value">
         {{item.description}} 
       </option>
     </select>
@@ -55,7 +55,7 @@ export default {
       if (this.event !== undefined){
         let content = this.event.content
         content.value = this.selected
-        this.$kytos.$emit(this.event.name, content)
+        this.$kytos.eventBus.$emit(this.event.name, content)
       }
       this.$emit('update:value', this.selected)
       this.action(this.selected)
@@ -99,6 +99,7 @@ export default {
 
  &:hover svg
   fill: $fill-icon-h
+  color: $fill-icon-h
 
   .k-select__title
    padding-bottom: 2px
@@ -119,7 +120,7 @@ export default {
 
  svg
   fill: $fill-icon
-  margin-bottom: -5px
+  color: $fill-icon
   margin-right: 5px
 
 .k-select__select
