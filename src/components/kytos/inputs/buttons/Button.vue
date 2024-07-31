@@ -1,10 +1,9 @@
 <template>
   <button :id="id" class="k-button compact"
-    @click="this.handleClick"
+    @click="handleClick"
     v-bind:title="tooltip"
     v-bind:disabled="isDisabled">
       <icon v-if="icon && iconName" :icon="iconName"></icon>
-
       {{title}}
   </button>
 </template>
@@ -24,6 +23,7 @@ import KytosBaseWithIcon from '../../base/KytosBaseWithIcon';
 export default {
   name: 'k-button',
   mixins: [KytosBaseWithIcon],
+  emits: ['click'],
   methods: {
      /**
      * Call click event.
