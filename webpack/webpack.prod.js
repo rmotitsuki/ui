@@ -12,10 +12,16 @@ module.exports = merge(common,{
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '"production"'
-      }
+      },
+      // explicity vue3 options
+      // https://vuejs.org/api/compile-time-flags.html
+      __VUE_OPTIONS_API__: 'true',
+      __VUE_PROD_DEVTOOLS__: 'false',
+      __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false'
     }),
     new webpack.LoaderOptionsPlugin({
-      minimize: true
+      minimize: true,
+      debug: false
     }),
     new CleanWebpackPlugin(),
   ]
