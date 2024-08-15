@@ -13,7 +13,12 @@
     <script>
       window.kytos_server = location.protocol + "//" + location.host + "/";
       window.kytos_server_api = location.protocol + "//" + location.host + "/api/";
+
+      // Load build.js with cachebuster parameter for 12 hours
+      const cachebuster = Math.round(new Date().getTime() / 43200000);
+      var el = document.createElement('script');
+      el.src = "/dist/build.js?v=" + cachebuster;
+      document.getElementsByTagName('head')[0].appendChild(el);
     </script>
-    <script src="/dist/build.js"></script>
   </body>
 </html>
