@@ -35,7 +35,7 @@ import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
  * 
  * @example
  * //generates modal
- * <k-modal message="There has been a grave mistake" header="Error" buttonTitle="Ok" action="Func"></k-modal>
+ * <k-modal message="There has been a grave mistake" header="Error" buttonTitle="Ok" action="Func" v-model:show-modal="condition"></k-modal>
  */
 
 export default {
