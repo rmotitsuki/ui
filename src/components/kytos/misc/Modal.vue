@@ -41,11 +41,7 @@ import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
 export default {
     name: 'k-modal',
     mixins: [KytosBaseWithIcon],
-    data() {
-        return {
-            showModal: true
-        }
-    },
+    emits: ['update:showModal'],
     props: {
         /**
          * String used in modal body
@@ -77,6 +73,13 @@ export default {
         action: {
             type: Function,
             required: false
+        },
+        /**
+         * Hides or displays modal
+         */
+        showModal: {
+            type: Boolean,
+            required: true
         }
     },
     methods: {
@@ -84,7 +87,7 @@ export default {
             /**
             * Modal window - Close (X) buttom
             */
-           this.showModal = false;
+           this.$emit('update:showModal', false)
         },
         invokeAction() {
             /**
