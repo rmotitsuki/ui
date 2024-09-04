@@ -78,7 +78,7 @@ library.add(fas, far, fab)
 dom.watch();
 
 kytos.component('k-menubar', KytosMenubar);
-Vue.component('k-modal', KytosModal);
+kytos.component('k-modal', KytosModal);
 kytos.component('k-map', KytosMap);
 kytos.component('mapbox-settings', MapBoxSettings);
 kytos.component('k-topology', KytosTopology);

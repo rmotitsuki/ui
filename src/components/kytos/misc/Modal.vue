@@ -14,9 +14,9 @@
                 </div>
                 <div class="modal-footer">
                     <slot name="footer">
-                        <k-button tooltip="Cancel" title="Cancel" @click.native="modalClose">
+                        <k-button tooltip="Cancel" title="Cancel" @click="modalClose">
                         </k-button>
-                        <k-button id="modalOK" :tooltip="buttonTitle" :title="buttonTitle" @click.native="invokeAction">
+                        <k-button id="modalOK" :tooltip="buttonTitle" :title="buttonTitle" @click="invokeAction">
                         </k-button>
                     </slot>
                 </div>
