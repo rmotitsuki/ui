@@ -14,6 +14,7 @@
     <k-info-panel></k-info-panel>
     <k-action-menu></k-action-menu>
     <k-napps-info-panel></k-napps-info-panel>
+    <k-modal message="There has been a grave mistake" header="Error" buttonTitle="Ok"></k-modal>
   </div>
 </template>
 
