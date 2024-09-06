@@ -135,6 +135,8 @@ export default {
 
     .modal-body
         margin: 20px 0
+        word-wrap: break-word
+        overflow-wrap: break-word
 
     .modal-default-button
         float: right
