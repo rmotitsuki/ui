@@ -11,7 +11,7 @@ UNRELEASED - Under development
 
 Fixed
 =======
-- Upgraded Vue framework to Vue3 in compatibility mode.
+- Fixed buttons within ``interfaceInfo.vue`` that were using old ``on_click``.
 
 [2024.1.0-b1] - 2024-08-05
 ***********************
