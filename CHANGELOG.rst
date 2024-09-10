@@ -6,6 +6,13 @@ All notable changes to the Kytos-NG UI project will be documented in this file.
 UNRELEASED - Under development
 ******************************
 
+[2024.1.0-b2] - 2024-09-10
+***********************
+
+Fixed
+=======
+- Upgraded Vue framework to Vue3 in compatibility mode.
+
 [2024.1.0-b1] - 2024-08-05
 ***********************
 
