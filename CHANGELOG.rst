@@ -6,6 +6,13 @@ All notable changes to the Kytos-NG UI project will be documented in this file.
 UNRELEASED - Under development
 ******************************
 
+[2024.1.0-b2] - 2024-09-10
+***********************
+
+Fixed
+=======
+- Fixed buttons within ``interfaceInfo.vue`` that were using old ``on_click``.
+
 [2024.1.0-b1] - 2024-08-05
 ***********************
 
