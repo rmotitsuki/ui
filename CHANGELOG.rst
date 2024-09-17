@@ -9,7 +9,7 @@ UNRELEASED - Under development
 [2024.1.0] - 2024-08-16
 ***********************
 
-No major changes since the last 2024.1.0-b1 beta release.
+No major changes since the last 2024.1.0-b2 beta release.
 
 [2024.1.0-b2] - 2024-09-10
 ***********************
