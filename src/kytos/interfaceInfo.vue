@@ -64,7 +64,7 @@
         </div>
         <k-textarea title="Set tag_ranges" icon="arrow-right" placeholder="Eg. [[100, 200], [400, 4095]]" v-model:value="new_tag_ranges"></k-textarea>
         <div class="metadata_container">
-          <k-button title="Set tag_ranges" :on_click="set_tag_ranges"></k-button>
+          <k-button title="Set tag_ranges" @click="set_tag_ranges"></k-button>
         </div>
       </k-accordion-item>
       <k-accordion-item title="Metadata" v-if="Object.keys(this.metadata_items).length !== 0">

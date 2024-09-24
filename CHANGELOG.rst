@@ -10,6 +10,18 @@ Added
 =====
 - Added new "k-modal" component.
 
+[2024.1.0] - 2024-08-16
+***********************
+
+No major changes since the last 2024.1.0-b2 beta release.
+
+[2024.1.0-b2] - 2024-09-10
+***********************
+
+Fixed
+=======
+- Fixed buttons within ``interfaceInfo.vue`` that were using old ``on_click``.
+
 [2024.1.0-b1] - 2024-08-05
 ***********************
 
@@ -28,7 +40,6 @@ Added
 Changed
 =======
 - ``README.md`` now contains latest UI documentation link.
-- Upgraded Vue framework to Vue3 in compatibility mode.
 
 Fixed
 =====
