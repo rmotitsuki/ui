@@ -6,6 +6,10 @@ All notable changes to the Kytos-NG UI project will be documented in this file.
 UNRELEASED - Under development
 ******************************
 
+Added
+=====
+- Added new "k-modal" component.
+
 [2024.1.0] - 2024-08-16
 ***********************
 
