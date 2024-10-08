@@ -10,6 +10,10 @@ Added
 =====
 - Added new "k-modal" component.
 
+Changed
+=======
+- Fixed Enter key handler on InputAutocomplete (k-input-auto)
+
 [2024.1.0] - 2024-08-16
 ***********************
 
