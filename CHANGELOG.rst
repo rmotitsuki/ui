@@ -9,6 +9,7 @@ UNRELEASED - Under development
 Added
 =====
 - Added new "k-modal" component.
+- Added confirmation modal when enabling/disabling interfaces
 
 Changed
 =======

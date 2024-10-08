@@ -4,6 +4,12 @@
         <k-button tooltip="Go back to switch info" title="< Back to switch" @click="back_switch"></k-button>
         <k-button @click="bt_state_toggle" :title="next_state"></k-button>
       </div>
+      <k-modal
+        :message="modal_state_toggle_message"
+        :button-title="next_state"
+        :action="state_toggle_interface"
+        v-model:show-modal="show_modal_state_toggle">
+      </k-modal>
       <k-accordion-item title="Interface Plot" v-if="chartJsonData">
         <k-button-group>
             <!-- input type="text" class="k-input" placeholder="Zoom" disabled -->
@@ -132,6 +138,7 @@ export default {
       new_tag_type: "",
       tag_ranges: {},
       available_tags: {},
+      show_modal_state_toggle: false,
       content_switch: []
     }
   },
@@ -140,7 +147,10 @@ export default {
       // TODO: of_stats/kronos must implement the endpoint
       //let url = this.$kytos_server_api + "kytos/of_stats/v1/"
       //return url + this.metadata.dpid + "/ports/" + this.metadata.port_number
-    }
+    },
+    modal_state_toggle_message() {
+       return `${this.next_state} Interface ${this.metadata_items.port_name !== undefined && this.metadata_items.port_name.length !== 0 ? '"' + this.metadata_items.port_name + '"' : this.metadata.interface_id}?`
+    },
   },
   methods: {
     update_interface_content: function() {
@@ -200,6 +210,9 @@ export default {
       this.next_state = this.metadata.enabled == 'true'? 'Disable' : 'Enable'
     },
     bt_state_toggle: function() {
+      this.show_modal_state_toggle = true;
+    },
+    state_toggle_interface(){
       var _this = this
       let request = $.ajax({
                        type:"POST",
@@ -213,8 +226,7 @@ export default {
           icon: 'cog',
         }
         _this.next_state = _this.next_state == 'Enable'? 'Disable' : 'Enable'
-        _this.content['enabled'] = _this.next_state == 'Enable'? 'false' : 'true'
-        _this.metadata['enabled'] = _this.content['enabled']
+        _this.metadata['enabled'] = _this.next_state == 'Enable'? 'false' : 'true'
         _this.$kytos.eventBus.$emit("setNotification", notification)
       });
       request.fail(function(data) {
