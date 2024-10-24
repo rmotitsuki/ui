@@ -14,7 +14,7 @@ Added
 Changed
 =======
 - Fixed Enter key handler on InputAutocomplete (k-input-auto)
-- StatusMenu now clears Infopanels before use so that it displays properly.
+- MenuBar now clears Infopanels before switching to a new item for better visibility.
 
 [2024.1.0] - 2024-08-16
 ***********************
