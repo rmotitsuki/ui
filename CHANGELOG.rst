@@ -14,6 +14,7 @@ Added
 Changed
 =======
 - Fixed Enter key handler on InputAutocomplete (k-input-auto)
+- MenuBar now clears Infopanels before switching to a new item for better visibility.
 
 [2024.1.0] - 2024-08-16
 ***********************
