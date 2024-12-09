@@ -90,7 +90,6 @@ export default {
  font-size: 0.8em
  min-height: 30px
  color: $fill-text
- background: $fill-button-bg
 
  &:hover svg
   fill: $fill-icon-h
