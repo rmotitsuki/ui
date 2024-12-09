@@ -15,6 +15,13 @@ Changed
 =======
 - Fixed Enter key handler on InputAutocomplete (k-input-auto)
 - MenuBar now clears Infopanels before switching to a new item for better visibility.
+- Replaced listeners with attrs
+- Replaced value with modelValue
+- Replaced the use of Vue and new Vue with the app instace
+
+Fixed
+=======
+- Fixed icon v-bind within StatusMenu
 
 [2024.1.0] - 2024-08-16
 ***********************
