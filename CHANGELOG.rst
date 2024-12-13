@@ -10,6 +10,7 @@ Added
 =====
 - Added new "k-modal" component.
 - Added confirmation modal when enabling/disabling interfaces
+- Added a prop called customClass, so that NApps can implement classes with the new vue3-sfc-loader
 
 Changed
 =======
