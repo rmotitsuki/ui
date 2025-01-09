@@ -381,7 +381,7 @@
         if (this.selectedSwitches[index]?.dpid == item.dpid) {
           delete this.selectedSwitches[index]
         } else {
-          this.$set(this.selectedSwitches, index, item);
+          this.selectedSwitches[index] = item;
         }
         this.change = this.change * -1
         this.$forceUpdate();
@@ -390,7 +390,7 @@
         if (this.selectedLinks[index]?.id == item.id) {
           delete this.selectedLinks[index]
         } else {
-          this.$set(this.selectedLinks, index, item);
+          this.selectedLinks[index] = item;
         }
         this.change = this.change * -1
         this.$forceUpdate();
@@ -399,7 +399,7 @@
         if (this.selectedInterfaces[index]?.id == item.id) {
           delete this.selectedInterfaces[index]
         } else {
-          this.$set(this.selectedInterfaces, index, item);
+          this.selectedInterfaces[index] = item;
         }
         this.change = this.change * -1
         this.$forceUpdate();

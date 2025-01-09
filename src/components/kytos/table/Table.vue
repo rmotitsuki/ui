@@ -134,7 +134,7 @@ export default {
       if(newSort === this.currentSort) {
         let sortDir = (this.currentSortDir[newSort] === 'asc') ? 'desc' : 'asc'
 
-        this.$set(this.currentSortDir, newSort, sortDir)
+        this.currentSortDir[newSort] = sortDir;
         /**
         * It is necessary to use a different syntax to replace arrays values
         * by index because Vue cannot detect when directly set an item with
