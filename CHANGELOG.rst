@@ -19,6 +19,7 @@ Changed
 - Replaced listeners with attrs
 - Replaced value with modelValue
 - Replaced the use of Vue and new Vue with the app instace
+- Removed the use of this.$set() since it was deprecated
 
 Fixed
 =======
