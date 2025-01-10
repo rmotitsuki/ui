@@ -135,12 +135,6 @@ export default {
         let sortDir = (this.currentSortDir[newSort] === 'asc') ? 'desc' : 'asc'
 
         this.currentSortDir[newSort] = sortDir;
-        /**
-        * It is necessary to use a different syntax to replace arrays values
-        * by index because Vue cannot detect when directly set an item with
-        * the index like it is usually done. In this case should've been:
-        * this.currentSortDir[newSort] = sortDir
-        */
       }
       this.currentSort = newSort;
     },
