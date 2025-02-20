@@ -25,9 +25,6 @@ export default {
      */
     icon: {
       type: String,
-    },
-    class: {
-      type: String,
     }
   },
   components: {
