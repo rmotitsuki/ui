@@ -1,5 +1,5 @@
 <template>
-  <button :id="id" :class="{[customClass]: true, 'k-button': true, 'compact': true}"
+  <button :id="id" class="k-button compact"
     @click="handleClick"
     v-bind:title="tooltip"
     v-bind:disabled="isDisabled">

@@ -1,5 +1,5 @@
 <template>
-  <div :class="{[customClass]: true, 'k-input-auto-wrap': true}" id="app">
+  <div class="k-input-auto-wrap" id="app">
     <autocomplete
       :search="search"
       :placeholder="placeholder"

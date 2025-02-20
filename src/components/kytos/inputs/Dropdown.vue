@@ -1,5 +1,5 @@
 <template>
-   <label class="k-dropdown" v-bind:class="{ [customClass]: true, 'no-title' : !title  }">
+   <label class="k-dropdown" v-bind:class="{'no-title' : !title  }">
     <div class="k-dropdown__title">
       <icon v-if="icon && iconName" :icon="iconName"></icon>
       {{title}}

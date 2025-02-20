@@ -1,5 +1,5 @@
 <template>
-   <label :class="{[customClass]: true, 'k-select': true, 'no-compact': true}">
+   <label class="k-select no-compact">
     <div class="k-select__title">
       <icon v-if="icon && iconName"  :icon="iconName"></icon>
       {{title}}
