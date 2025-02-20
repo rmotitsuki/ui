@@ -20,6 +20,7 @@ Changed
 - Replaced value with modelValue
 - Replaced the use of Vue and new Vue with the app instace
 - Removed the use of this.$set() since it was deprecated
+- Removed customClass
 
 Fixed
 =======
