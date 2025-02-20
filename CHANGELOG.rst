@@ -24,6 +24,7 @@ Changed
 Fixed
 =======
 - Fixed icon v-bind within StatusMenu
+- Fixed CSS issue with ``KytosBaseWithIcon`` class prop
 
 [2024.1.0] - 2024-08-16
 ***********************
