@@ -43,13 +43,6 @@ export default {
     action: {
       type: Function,
       default: function (value) { return }
-    },
-    /**
-    * Custom CSS Classes
-    */
-    customClass: {
-      type: String,
-      default: ""
     }
   },
   data () {

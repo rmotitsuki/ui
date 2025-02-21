@@ -189,13 +189,6 @@ export default {
    },
    candidates: {
      type: Array
-   },
-   /**
-   * Custom CSS Classes
-   */
-   customClass: {
-     type: String,
-     default: ""
    }
   },
   methods: {

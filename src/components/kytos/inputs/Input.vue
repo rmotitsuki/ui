@@ -50,13 +50,6 @@ export default {
    action: {
       type: Function,
       default: function(val) {return}
-   },
-   /**
-   * Custom CSS Classes
-   */
-   customClass: {
-      type: String,
-      default: ""
    }
   },
   emits: ['update:value'],

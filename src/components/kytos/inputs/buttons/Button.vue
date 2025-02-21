@@ -24,15 +24,6 @@ export default {
   name: 'k-button',
   mixins: [KytosBaseWithIcon],
   emits: ['click'],
-  props: {
-    /**
-     * Custom CSS Classes
-     */
-    customClass: {
-      type: String,
-      default: ""
-    }
-  },
   methods: {
      /**
      * Call click event.

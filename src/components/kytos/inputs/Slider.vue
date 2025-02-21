@@ -55,13 +55,6 @@ export default {
     step: {
       type: Number,
       default: 1
-    },
-    /**
-     * Custom CSS Classes
-     */
-    customClass: {
-      type: String,
-      default: ""
     }
   },
   data () {
