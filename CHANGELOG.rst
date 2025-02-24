@@ -10,7 +10,6 @@ Added
 =====
 - Added new "k-modal" component.
 - Added confirmation modal when enabling/disabling interfaces
-- Added a prop called customClass, so that NApps can implement classes with the new vue3-sfc-loader
 
 Changed
 =======
@@ -20,7 +19,6 @@ Changed
 - Replaced value with modelValue
 - Replaced the use of Vue and new Vue with the app instace
 - Removed the use of this.$set() since it was deprecated
-- Removed customClass
 
 Fixed
 =======
