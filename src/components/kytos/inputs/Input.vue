@@ -1,5 +1,5 @@
 <template>
-  <div :class="{[customClass]: true, 'k-input-wrap': true}">
+  <div class="k-input-wrap">
     <icon v-if="icon && iconName" :icon="iconName"></icon>
     <input :value="value" :id="id" class="k-input" :title="tooltip" :placeholder="placeholder"
       @input="updateText"
@@ -56,13 +56,6 @@ export default {
    action: {
       type: Function,
       default: function(val) {return}
-   },
-   /**
-   * Custom CSS Classes
-   */
-   customClass: {
-      type: String,
-      default: ""
    }
   },
   emits: ['update:value'],

@@ -1,5 +1,5 @@
 <template>
-   <label class="k-dropdown" v-bind:class="{ [customClass]: true, 'no-title' : !title  }">
+   <label class="k-dropdown" v-bind:class="{'no-title' : !title  }">
     <div class="k-dropdown__title">
       <icon v-if="icon && iconName" :icon="iconName"></icon>
       {{title}}
@@ -16,95 +16,88 @@ import KytosBase from '../base/KytosBase';
 import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
 
 /**
- * A toggleable menu that allows the user to choose one value from a predefined list.
- *
- * @example k-dropdown title="Switch Labels:" icon="circle" :options="switchLabels" :event="{name: 'topology-toggle-label', content: {node_type: 'switch'}}"></k-dropdown>
- * @example /_static/imgs/components/input/k-dropdown.png
- */
+* A toggleable menu that allows the user to choose one value from a predefined list.
+*
+* @example k-dropdown title="Switch Labels:" icon="circle" :options="switchLabels" :event="{name: 'topology-toggle-label', content: {node_type: 'switch'}}"></k-dropdown>
+* @example /_static/imgs/components/input/k-dropdown.png
+*/
 
 export default {
-  name: 'k-dropdown',
-  mixins: [KytosBaseWithIcon],
-  props: {
-    /**
-     * Property with the selected option.
-     */
-    value:{
-      type: [String, Boolean],
-      default: ""
-    },
-    /**
-     * A collection with all options that could be selected.
-     */
-    options: {
-      type: Array,
-      required: true
-    },
-    /**
-     * An event triggered when the dropdown change, this event should have the
-     * following content: {**name**: 'event_name', **content**: {} }
-     */
-    event: {
-      type: Object,
-      default: undefined
-    },
-    /**
-     * Optinal action called after select a dropdown option.
-     */
-    action: {
-      type: Function,
-      default: function (value) { return }
-    },
-    /**
-     * Custom CSS Classes
-     */
-    customClass: {
-      type: String,
-      default: ""
-    }
-  },
-  data () {
-    return {
-      selected: ''
-    }
-  },
-  methods: {
-    emitEvent () {
-      if (this.event !== undefined){
-        let content = this.event.content
-        content.value = this.selected
-        this.$kytos.eventBus.$emit(this.event.name, content)
-      }
-      this.$emit('update:value', this.selected)
-      this.action(this.selected)
-    },
-    clear () {
-      this.selected = '';
-    },
-    reset () {
-      this.selected = '';
-      if(this.options && this.options.length > 0) {
-        this.options.forEach((item) => {
-          if (this.selected == '' && item.selected) {this.selected = item.value}
-        })
-      }
-    }
-  },
-  mounted () {
-    this.options.forEach((item) => {
-      if (this.selected == '' && item.selected) {this.selected = item.value}
-    })
-  },
-  watch: {
-    selected () {
-      this.emitEvent()
-    },
-    options () {
-      this.options.forEach((item) => {
-        if (this.selected == '' && item.selected) {this.selected = item.value }
-      })
-    }
-  }
+ name: 'k-dropdown',
+ mixins: [KytosBaseWithIcon],
+ props: {
+   /**
+    * Property with the selected option.
+    */
+   value:{
+     type: [String, Boolean],
+     default: ""
+   },
+   /**
+    * A collection with all options that could be selected.
+    */
+   options: {
+     type: Array,
+     required: true
+   },
+   /**
+    * An event triggered when the dropdown change, this event should have the
+    * following content: {**name**: 'event_name', **content**: {} }
+    */
+   event: {
+     type: Object,
+     default: undefined
+   },
+   /**
+    * Optinal action called after select a dropdown option.
+    */
+   action: {
+     type: Function,
+     default: function (value) { return }
+   }
+ },
+ data () {
+   return {
+     selected: ''
+   }
+ },
+ methods: {
+   emitEvent () {
+     if (this.event !== undefined){
+       let content = this.event.content
+       content.value = this.selected
+       this.$kytos.eventBus.$emit(this.event.name, content)
+     }
+     this.$emit('update:value', this.selected)
+     this.action(this.selected)
+   },
+   clear () {
+     this.selected = '';
+   },
+   reset () {
+     this.selected = '';
+     if(this.options && this.options.length > 0) {
+       this.options.forEach((item) => {
+         if (this.selected == '' && item.selected) {this.selected = item.value}
+       })
+     }
+   }
+ },
+ mounted () {
+   this.options.forEach((item) => {
+     if (this.selected == '' && item.selected) {this.selected = item.value}
+   })
+ },
+ watch: {
+   selected () {
+     this.emitEvent()
+   },
+   options () {
+     this.options.forEach((item) => {
+       if (this.selected == '' && item.selected) {this.selected = item.value }
+     })
+   }
+ }
 }
 </script>
 

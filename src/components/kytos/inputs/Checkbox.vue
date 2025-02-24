@@ -1,5 +1,5 @@
 <template>
-  <div :class="{[customClass]: true, 'k-checkbox-wrap': true}">
+  <div class="k-checkbox-wrap">
   <icon v-if="icon && iconName" :icon="iconName"></icon>
   <label class="checkbox">
     <input type="checkbox" id="checkbox" v-model="enabled" @change="update_check()">
@@ -48,13 +48,6 @@ export default {
       action: {
         type: Function,
         default: function(value) { return }
-      },
-      /**
-       * Custom CSS Classes
-       */
-      customClass: {
-        type: String,
-        default: ""
       }
   },
   methods: {
