@@ -9,6 +9,7 @@
     "dev": "vite serve",
     "build": "vite build --emptyOutDir",
     "preprod": "vite build --emptyOutDir --mode preprod",
+    "zip": "vite build --emptyOutDir > /dev/null && zip -r latest.zip web-ui/index.html web-ui/dist",
     "preview": "vite preview"
   },
   "dependencies": {
