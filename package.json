@@ -7,7 +7,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite serve",
-    "build": "vite build --config vite.config.js --emptyOutDir",
+    "build": "vite build --emptyOutDir",
+    "preprod": "vite build --emptyOutDir --mode preprod",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -18,7 +19,6 @@
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/vue-fontawesome": "^3.0.6",
     "@trevoreyre/autocomplete-vue": "^3.0.3",
-    "@vue/compat": "^3.1.0",
     "d3": "^7.9.0",
     "d3-request": "^1.0.6",
     "glob": "^7.2.0",
