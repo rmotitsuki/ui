@@ -6,7 +6,7 @@
  
  <script>
  import { defineAsyncComponent } from 'vue'
-  import { loadModule } from 'https://cdn.jsdelivr.net/npm/vue3-sfc-loader@0.9.5/dist/vue3-sfc-loader.esm.js' //'vue3-sfc-loader'
+  import { loadModule } from 'vue3-sfc-loader'
   import * as Vue from 'vue'
   
  const options = {
