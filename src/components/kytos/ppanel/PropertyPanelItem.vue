@@ -54,7 +54,7 @@ export default {
    font-size: 0.8em
    border-right: 1px solid dark-theme-variables.$fill-input-content
    border-bottom: 1px solid dark-theme-variables.$fill-input-content
-   color: $fill-text
+   color: dark-theme-variables.$fill-text
    text-align: right
    padding: 0.5em
    min-width: 50%
