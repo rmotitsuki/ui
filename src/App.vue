@@ -63,8 +63,8 @@ export default {
 
 <style lang="sass">
 
-@import './assets/styles/variables'
-@import './assets/styles/reset'
+@use './assets/styles/dark-theme-variables'
+@use './assets/styles/reset'
 
 /* BODY */
 body

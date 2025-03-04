@@ -678,7 +678,7 @@
   
   <style lang="sass">
   
-  @import '../../../assets/styles/variables'
+  @use '../../../assets/styles/dark-theme-variables'
   
   .k-status-menu
     -webkit-order: 4
@@ -691,7 +691,7 @@
     position: fixed
     right: 0
     top: 0
-    background-color: $fill-panel
+    background-color: dark-theme-variables.$fill-panel
     width: calc(100% - 300px)
     z-index: 998
     box-shadow: 10px 0px 20px 5px rgba(0, 0, 0, 0.4)
@@ -702,7 +702,7 @@
     align-items: center
   
     svg
-      fill: $fill-icon
+      fill: dark-theme-variables.$fill-icon
       width: 50px
       height: 50px
       padding: 10px
@@ -711,12 +711,12 @@
   .panel-title
     padding: 0
     margin: 0
-    color: $fill-text
+    color: dark-theme-variables.$fill-text
   
     & > h1
       font-size: 1.2em
       font-weight: bold
-      color: $fill-text
+      color: dark-theme-variables.$fill-text
   
   .k-status-wrapper
     -webkit-flex: 1 1 auto
@@ -774,8 +774,8 @@
     color: #222
   
   .selectedButton
-    color: $fill-button-hover
-    background: $fill-button-bg-h
+    color: dark-theme-variables.$fill-button-hover
+    background: dark-theme-variables.$fill-button-bg-h
   
   .statusTableButton
     margin: auto

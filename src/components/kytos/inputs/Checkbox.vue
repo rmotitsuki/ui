@@ -74,7 +74,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-checkbox-wrap
  display: inline-flex
@@ -82,14 +82,14 @@ export default {
  vertical-align: middle
  font-size: 0.8em
  min-height: 30px
- color: $fill-text
+ color: dark-theme-variables.$fill-text
 
  &:hover svg
-  fill: $fill-icon-h
+  fill: dark-theme-variables.$fill-icon-h
 
  svg
   padding: 0.3em 0.5em
-  fill: $fill-icon
+  fill: dark-theme-variables.$fill-icon
 
  .checkbox
   position: relative
@@ -108,7 +108,7 @@ export default {
   left: 0
   right: 0
   bottom: 0
-  background-color: $fill-button-bg-h
+  background-color: dark-theme-variables.$fill-button-bg-h
   -webkit-transition: 0.2s
   transition: 0.2s
 
@@ -125,14 +125,14 @@ export default {
  input
   &:focus
    + .slider
-      box-shadow: 0 0 1px $fill-icon
+      box-shadow: 0 0 1px dark-theme-variables.$fill-icon
 
   &:checked
     + .slider
-      background-color: $fill-icon-h
+      background-color: dark-theme-variables.$fill-icon-h
 
       &:before
-        color: $fill-icon
+        color: dark-theme-variables.$fill-icon
         font-size: 1.7em
 
  &.round
@@ -151,7 +151,7 @@ export default {
     width: 10px
     left: 2px
     bottom: 2px
-    background-color: $fill-icon
+    background-color: dark-theme-variables.$fill-icon
     -webkit-transition: 0.4s
     transition: 0.4s
     border-radius: 50%

@@ -98,7 +98,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-action-menu
  position: fixed
@@ -108,12 +108,12 @@ export default {
  width: 350px
  max-height: 400px
  overflow: auto
- background: $fill-actionm-bg
- border: 1px solid $fill-menubar
+ background: dark-theme-variables.$fill-actionm-bg
+ border: 1px solid dark-theme-variables.$fill-menubar
  border-radius: 0.5em
  text-align: center
  padding: 0.3em
- box-shadow: 0px 0px 10px 0px $fill-actionm-bg
+ box-shadow: 0px 0px 10px 0px dark-theme-variables.$fill-actionm-bg
  transition: 0.3s
  z-index: 900
 
@@ -128,14 +128,14 @@ export default {
  flex-direction: column
  font-size: 0.8em
  padding: 0.4em 0.4em
- border-top: 1px solid $fill-input-bg
- color: $fill-text
- background: $fill-actionm-bg
+ border-top: 1px solid dark-theme-variables.$fill-input-bg
+ color: dark-theme-variables.$fill-text
+ background: dark-theme-variables.$fill-actionm-bg
  cursor: Pointer
 
  &:hover
-  color: $fill-link-h
-  background: $fill-input-bg
+  color: dark-theme-variables.$fill-link-h
+  background: dark-theme-variables.$fill-input-bg
 
 .k-action-extras
  display: flex
@@ -146,14 +146,14 @@ export default {
   text-align: left
   font-size: 0.9em
   padding: 0.2em 0em
-  color: $fill-text
+  color: dark-theme-variables.$fill-text
   opacity: 0.5
   width: 100%
 
  .shortkey
   text-align: right
   font-size: 0.8em
-  color: $fill-shortkey
+  color: dark-theme-variables.$fill-shortkey
 
 #k-action-menu-input
  width: 100vh

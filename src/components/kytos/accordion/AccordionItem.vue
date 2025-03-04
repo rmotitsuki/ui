@@ -45,7 +45,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-accordion-input
   position: absolute
@@ -53,7 +53,7 @@ export default {
   z-index: 99
 
 .tab:hover .k-accordion-label
- color: $fill-icon-h
+ color: dark-theme-variables.$fill-icon-h
 
 .k-accordion-label
   position: relative
@@ -62,8 +62,8 @@ export default {
   margin-top: 5px
   cursor: pointer
   font-size: 0.7em
-  color: $fill-icon
-  border-bottom: 1px solid $fill-bar
+  color: dark-theme-variables.$fill-icon
+  border-bottom: 1px solid dark-theme-variables.$fill-bar
 
   &:after
     position: absolute
@@ -81,7 +81,7 @@ export default {
     position: relative
     margin-bottom: 1px
     width: 100%
-    color: $fill-bar
+    color: dark-theme-variables.$fill-bar
     overflow: hidden
 
   .tab-content
@@ -91,7 +91,7 @@ export default {
     -webkit-transition: max-height .35s
     -o-transition: max-height .35s
     transition: max-height .35s
-    border-top: 1px solid $fill-panel-dark
+    border-top: 1px solid dark-theme-variables.$fill-panel-dark
 
     p
       margin: 1em
@@ -147,14 +147,14 @@ export default {
       content: ';;;;;;;'
       font: 8px monospace
       line-height: 5px
-      color: $fill-bar
+      color: dark-theme-variables.$fill-bar
       filter: invert(50%)
       opacity: 0.2
       -webkit-transform: rotate(90deg)
       -moz-transform: rotate(90deg)
       -ms-transform: rotate(90deg)
       transform: rotate(90deg)
-      border-bottom: 1px solid $fill-bar
+      border-bottom: 1px solid dark-theme-variables.$fill-bar
       pointer-events: none
       width: 35px
       height: 10px

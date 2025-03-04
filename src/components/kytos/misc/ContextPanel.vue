@@ -61,18 +61,18 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-context-panel
   -webkit-order: 2
   -ms-flex-order: 2
   order: 2
-  background: $fill-panel
+  background: dark-theme-variables.$fill-panel
   max-height: 100vh
   width: 220px
   margin-bottom: 10px
   z-index: 99
-  box-shadow: 10px 0px 20px -10px $fill-panel
+  box-shadow: 10px 0px 20px -10px dark-theme-variables.$fill-panel
 
   .pannel-title
     background: inherit
@@ -86,8 +86,8 @@ export default {
 
     > svg
       vertical-align: middle
-      color: $fill-icon
-      fill: $fill-icon
+      color: dark-theme-variables.$fill-icon
+      fill: dark-theme-variables.$fill-icon
       width: 20px
       height: 20px
       margin-right: 5px
@@ -100,7 +100,7 @@ export default {
     small
       font-size: 0.65em
       font-weight: bold
-      color: $fill-text
+      color: dark-theme-variables.$fill-text
       display: block
 
 

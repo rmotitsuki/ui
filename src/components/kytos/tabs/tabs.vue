@@ -197,14 +197,14 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-tabs
   height: 350px
   margin-top: -350px
   z-index: 1000
   position: relative
-  background: $fill-panel-dark
+  background: dark-theme-variables.$fill-panel-dark
   margin-left: 280px
 
 .k-tabs.hiddenTabs
@@ -231,12 +231,12 @@ export default {
 .k-tabs-nav
   overflow: hidden
   height: 25px
-  background-color: $fill-panel-dark
-  box-shadow: 0 -5px 5px -5px $fill-bar
+  background-color: dark-theme-variables.$fill-panel-dark
+  box-shadow: 0 -5px 5px -5px dark-theme-variables.$fill-bar
 
 .k-tabs-nav button
   float: left
-  color: $fill-icon
+  color: dark-theme-variables.$fill-icon
   border: none
   outline: none
   cursor: pointer
@@ -245,24 +245,24 @@ export default {
   height: 25px
   margin: 0
   transition: 0.3s
-  background-color: $fill-panel-dark
-  border-right: 1px solid $fill-panel
+  background-color: dark-theme-variables.$fill-panel-dark
+  border-right: 1px solid dark-theme-variables.$fill-panel
 
 .k-tabs-nav button:hover
-  color: $fill-icon-h
-  background-color: $fill-panel
+  color: dark-theme-variables.$fill-icon-h
+  background-color: dark-theme-variables.$fill-panel
 
 .k-tabs-nav .active
-  color: $fill-panel-h
-  background-color: $fill-bar
+  color: dark-theme-variables.$fill-panel-h
+  background-color: dark-theme-variables.$fill-bar
 
 .k-tabs-nav button:hover svg
-  fill: $fill-icon-h
-  color: $fill-icon-h
+  fill: dark-theme-variables.$fill-icon-h
+  color: dark-theme-variables.$fill-icon-h
 
 .k-tabs-nav .active svg
-  fill: $fill-icon
-  color: $fill-icon
+  fill: dark-theme-variables.$fill-icon
+  color: dark-theme-variables.$fill-icon
 
 .k-tabs-nav svg
   width: 13px
@@ -270,7 +270,7 @@ export default {
 
 .tabcontent
   display: none
-  background: $fill-bar
+  background: dark-theme-variables.$fill-bar
   position: relative
   min-height: 325px
   max-height: 325px
@@ -283,8 +283,8 @@ export default {
 
   svg
     width: 8px
-    fill: $fill-icon
-    color: $fill-icon
+    fill: dark-theme-variables.$fill-icon
+    color: dark-theme-variables.$fill-icon
 
   a
     display: block
@@ -292,8 +292,8 @@ export default {
     padding: 5px
 
   a:hover svg
-    fill: $fill-icon-h
-    color: $fill-icon-h
+    fill: dark-theme-variables.$fill-icon-h
+    color: dark-theme-variables.$fill-icon-h
 
 .k-tabs:-moz-full-screen .tabcontent
   height: auto

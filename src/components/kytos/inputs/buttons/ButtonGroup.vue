@@ -32,7 +32,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../../assets/styles/variables'
+@use '../../../../assets/styles/dark-theme-variables'
 
 .k-button-wrapper
  position: relative

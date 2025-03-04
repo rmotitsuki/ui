@@ -88,7 +88,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-menu-bar
  -webkit-order: 1
@@ -97,8 +97,8 @@ export default {
  z-index: 998
  width: 40px
  height: 100vh
- background: $fill-menubar
- box-shadow: 0px 0px 10px $fill-panel
+ background: dark-theme-variables.$fill-menubar
+ box-shadow: 0px 0px 10px dark-theme-variables.$fill-panel
 
  .logo
     padding: 0
@@ -108,7 +108,7 @@ export default {
     width: 280px
     vertical-align: middle
     padding: 3px 0px 7px 0px
-    background: $kytos-gradient
+    background: dark-theme-variables.$kytos-gradient
     cursor: pointer
     text-align: center
  
@@ -135,7 +135,7 @@ export default {
   height: 40px
   margin: 0px
   padding: 0px
-  background: $fill-menubar
+  background: dark-theme-variables.$fill-menubar
 
   > svg
    vertical-align: middle
@@ -143,25 +143,25 @@ export default {
    width: 23px
    padding: 10px 9px 10px 5px
    cursor: pointer
-   fill: $fill-icon
-   color: $fill-icon
+   fill: dark-theme-variables.$fill-icon
+   color: dark-theme-variables.$fill-icon
    border-left: 3px solid transparent
 
   &:hover
-   fill: $fill-icon-h
-   color: $fill-icon-h
-   border-color: $fill-menubar-b
-   background: $fill-menubar-b
+   fill: dark-theme-variables.$fill-icon-h
+   color: dark-theme-variables.$fill-icon-h
+   border-color: dark-theme-variables.$fill-menubar-b
+   background: dark-theme-variables.$fill-menubar-b
 
   &::-moz-focus-inner
    border: 0
 
   &.active
-   background: $fill-panel
-   border-color: $fill-menubar-b
+   background: dark-theme-variables.$fill-panel
+   border-color: dark-theme-variables.$fill-menubar-b
 
    > svg
-    border-left: 3px solid $fill-link-h
+    border-left: 3px solid dark-theme-variables.$fill-link-h
 
 .compacted
  .k-menu-bar
@@ -170,7 +170,7 @@ export default {
 
 #kytos-version
  font-size: 0.5em
- color: $kytos-dark-white
+ color: dark-theme-variables.$kytos-dark-white
  margin: 0 auto
  position: absolute
  top: 25px

@@ -86,7 +86,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-select
  position: relative
@@ -95,11 +95,11 @@ export default {
  padding: 0px
  margin: 5px 0px
  font-size: 0.8em
- color: $fill-text
+ color: dark-theme-variables.$fill-text
 
  &:hover svg
-  fill: $fill-icon-h
-  color: $fill-icon-h
+  fill: dark-theme-variables.$fill-icon-h
+  color: dark-theme-variables.$fill-icon-h
 
   .k-select__title
    padding-bottom: 2px
@@ -119,14 +119,14 @@ export default {
  position: relative
 
  svg
-  fill: $fill-icon
-  color: $fill-icon
+  fill: dark-theme-variables.$fill-icon
+  color: dark-theme-variables.$fill-icon
   margin-right: 5px
 
 .k-select__select
  font-size: 1em
- background: $fill-input-bg
- color: $fill-text
+ background: dark-theme-variables.$fill-input-bg
+ color: dark-theme-variables.$fill-text
  border: none
  outline: 0
  display: block
@@ -140,12 +140,12 @@ export default {
  padding: 0px
 
  &:nth-child(odd)
-  background-color: $fill-button-bg
+  background-color: dark-theme-variables.$fill-button-bg
 
  &:nth-child(even)
-  background-color: $fill-button-bg
+  background-color: dark-theme-variables.$fill-button-bg
 
  &:hover *
-  color: $fill-shortkey
-  background-color: $fill-button-bg-h
+  color: dark-theme-variables.$fill-shortkey
+  background-color: dark-theme-variables.$fill-button-bg-h
 </style>

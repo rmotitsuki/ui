@@ -76,7 +76,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-slider
   width: 100%
@@ -85,18 +85,18 @@ export default {
   overflow: hidden
   display: inline-flex
   cursor: default
-  color: $fill-text
+  color: dark-theme-variables.$fill-text
 
   svg
    margin-right: 7px
    margin-top: 3px
    width: 20px
-   fill: $fill-icon
-   color: $fill-icon
+   fill: dark-theme-variables.$fill-icon
+   color: dark-theme-variables.$fill-icon
 
   &:hover svg
-    fill: $fill-icon-h
-    color: $fill-icon-h
+    fill: dark-theme-variables.$fill-icon-h
+    color: dark-theme-variables.$fill-icon-h
 
 .range-slider__value
   font-size: 10px
@@ -124,11 +124,11 @@ export default {
     width: 100%
     height: 5px
     border-radius: 3px
-    background: $fill-input-bg
+    background: dark-theme-variables.$fill-input-bg
 
    &::-moz-range-progress
-    background-color: $fill-link-h
-    border: 1px solid $fill-link-h
+    background-color: dark-theme-variables.$fill-link-h
+    border: 1px solid dark-theme-variables.$fill-link-h
     border-radius: 5px
 
    &::-moz-range-thumb
@@ -136,17 +136,17 @@ export default {
     width: 10px
     border-radius: 50%
     border: none
-    background: $fill-icon
+    background: dark-theme-variables.$fill-icon
 
    &:hover::-moz-range-thumb
-    background: $fill-icon-h
+    background: dark-theme-variables.$fill-icon-h
 
    &::-webkit-slider-runnable-track
     height: 5px
     width: 100%
     border: none
     border-radius: 3px
-    background: $fill-input-bg
+    background: dark-theme-variables.$fill-input-bg
 
    &::-webkit-slider-thumb
     -webkit-appearance: none
@@ -154,11 +154,11 @@ export default {
     width: 12px
     margin-top: -3px
     border-radius: 50%
-    background: $fill-icon
+    background: dark-theme-variables.$fill-icon
 
    &:hover::-webkit-slider-thumb
-    background: $fill-icon-h
-    border: 1px solid $fill-input-bg
+    background: dark-theme-variables.$fill-icon-h
+    border: 1px solid dark-theme-variables.$fill-input-bg
 
    &:focus
     outline: 0

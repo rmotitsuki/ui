@@ -32,10 +32,10 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-property-panel
- color: $fill-text
+ color: dark-theme-variables.$fill-text
  overflow: auto
  max-height: 250px
  text-align: left

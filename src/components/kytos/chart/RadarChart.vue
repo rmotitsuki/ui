@@ -148,12 +148,12 @@ export default {
 
 <style lang="sass">
 
-@import "../../../assets/styles/variables"
+@use "../../../assets/styles/dark-theme-variables"
 
 .chart-radar
   width: 100%
   //float: left
-  background-color: $fill-button-bg-h
+  background-color: dark-theme-variables.$fill-button-bg-h
 
   svg
     display: block

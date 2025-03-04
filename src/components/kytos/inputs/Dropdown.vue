@@ -103,7 +103,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-dropdown
  position: relative
@@ -112,16 +112,16 @@ export default {
  padding: 0px
  margin: 5px 0px
  font-size: 0.8em
- color: $fill-text
+ color: dark-theme-variables.$fill-text
 
  &:hover svg
-  fill: $fill-icon-h
+  fill: dark-theme-variables.$fill-icon-h
 
  &:before
   content: '◂▸'
   font: 11px monospace
   line-height: 18px
-  color: $fill-icon
+  color: dark-theme-variables.$fill-icon
   -webkit-transform: rotate(90deg)
   -moz-transform: rotate(90deg)
   -ms-transform: rotate(90deg)
@@ -132,7 +132,7 @@ export default {
   padding: 0px
   margin: 0px
   -webkit-margin-end: 3px
-  border-bottom: 1px solid $fill-icon
+  border-bottom: 1px solid dark-theme-variables.$fill-icon
   position: absolute
   pointer-events: none
   display: block
@@ -158,7 +158,7 @@ export default {
    max-width: 130px
 
   &:before
-   background: $fill-input-bg
+   background: dark-theme-variables.$fill-input-bg
    width: 20px
    height: 20px
    text-align: center
@@ -178,7 +178,7 @@ export default {
  position: relative
 
  svg
-  fill: $fill-icon
+  fill: dark-theme-variables.$fill-icon
   margin-right: 5px
 
 .k-dropdown__select
@@ -194,8 +194,8 @@ export default {
  -webkit-border-radius: 3px
  -moz-border-radius: 3px
  border-radius: 3px
- background: $fill-input-bg
- color: $fill-text
+ background: dark-theme-variables.$fill-input-bg
+ color: dark-theme-variables.$fill-text
  border: none
  outline: 0
  display: inline-block
@@ -208,7 +208,7 @@ export default {
  &:hover
   box-shadow: 0 0 10px 10px rgba(0,0,0,0.2) inset
   outline: 0
-  color: $fill-text-h
+  color: dark-theme-variables.$fill-text-h
 
  option:focus,
  option:hover

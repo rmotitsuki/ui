@@ -218,10 +218,10 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-table
-  color: $fill-text
+  color: dark-theme-variables.$fill-text
   // overflow: auto
   max-height: 250px
   text-align: center
@@ -237,16 +237,16 @@ export default {
 
   thead
     font-weight: bold
-    background: $kytos-purple
+    background: dark-theme-variables.$kytos-purple
 
   th
     padding: 10px 0
   tbody
     tr:nth-child(even)
-      background: $kytos-medium-gray
+      background: dark-theme-variables.$kytos-medium-gray
 
     tr:hover
-      color: $fill-text-h
+      color: dark-theme-variables.$fill-text-h
       background-color: rgba(0, 0, 0, 0.15)
   .header
     cursor: pointer
