@@ -25,6 +25,7 @@ Changed
 - Replaced the use of Vue and new Vue with the app instace
 - Removed the use of this.$set() since it was deprecated
 - Replaced Webpack with Vite
+- Changed all SASS @imports to conform with ``Dart Sass 3.0.0``
 
 Fixed
 =======
