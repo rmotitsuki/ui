@@ -25,7 +25,6 @@ export default {
     }
   },
   mounted (){
-    //require('typeit')
     this.register_listeners()
     setInterval(this.display_messages, 3000)
   },
@@ -33,11 +32,11 @@ export default {
     display_messages(){
       var message= this.messages.shift()
       if (message !== undefined){
-        //this.get_terminal().type(message).pause(1500).delete().go();
+        this.get_terminal().type(message).pause(1500).delete().go();
       }
     },
     get_terminal (){
-      //return new TypeIt('.k-status-bar span', this.options);
+      return new TypeIt('.k-status-bar span', this.options);
     },
     /**
      * Display a message inside the k-status-bar.
@@ -67,20 +66,20 @@ export default {
 
 <style lang='sass'>
 
-@use '../../../assets/styles/dark-theme-variables'
+@import '../../../assets/styles/variables'
 
 .k-status-bar
   display: inline-flex
-  background: dark-theme-variables.$fill-panel-dark
+  background: $fill-panel-dark
   padding: 6px 0
   font-family: monospace
-  color: dark-theme-variables.$kytos-blue
+  color: $kytos-blue
   font-size: 12px
 
 .k-status-bar:before
   content: '|'
 
 .k-status-bar .status-error
-  color: dark-theme-variables.$kytos-red
+  color: $kytos-red
 
 </style>
