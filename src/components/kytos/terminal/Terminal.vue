@@ -58,7 +58,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-terminal
  position: relative
@@ -70,7 +70,7 @@ export default {
 
 .k-terminal-toolbar
  width: 100%
- background-color: $fill-menubar-b
+ background-color: dark-theme-variables.$fill-menubar-b
  min-height: 30px
  overflow: hidden
 

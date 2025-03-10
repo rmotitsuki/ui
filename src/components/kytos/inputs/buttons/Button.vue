@@ -40,7 +40,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../../assets/styles/variables'
+@use '../../../../assets/styles/dark-theme-variables'
 
 .k-button
   display: block
@@ -54,32 +54,32 @@ export default {
   cursor: Pointer
   padding: 2px 5px
   transition: 0.3s
-  color: $fill-button
-  background: $fill-button-bg
+  color: dark-theme-variables.$fill-button
+  background: dark-theme-variables.$fill-button-bg
 
   svg
    padding: 0 2px
    margin-top: -1px
 
   &:hover
-   color: $fill-button-hover
-   background: $fill-button-bg-h
+   color: dark-theme-variables.$fill-button-hover
+   background: dark-theme-variables.$fill-button-bg-h
 
    &> svg
-    fill: $fill-icon-h
-    color: $fill-icon-h
+    fill: dark-theme-variables.$fill-icon-h
+    color: dark-theme-variables.$fill-icon-h
     outline: 0
 
   &.active
    & > svg
-     fill: $fill-icon-h
-     color: $fill-icon-h
+     fill: dark-theme-variables.$fill-icon-h
+     color: dark-theme-variables.$fill-icon-h
      outline: 0
 
   & > svg
    vertical-align: middle
-   fill: $fill-icon
-   color: $fill-icon
+   fill: dark-theme-variables.$fill-icon
+   color: dark-theme-variables.$fill-icon
    outline: 0
 
 .k-toolbar
@@ -89,7 +89,7 @@ export default {
    font-size: 0.9em
 
    &:hover
-    box-shadow: 0 0 2px $fill-bar
+    box-shadow: 0 0 2px dark-theme-variables.$fill-bar
 
    &:disabled
     opacity: 0.5

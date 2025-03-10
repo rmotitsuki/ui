@@ -121,7 +121,7 @@
  
  <style lang="sass">
  
- @import '../../../assets/styles/variables'
+ @use '../../../assets/styles/dark-theme-variables'
  
  .k-toolbar
    -webkit-order: 2
@@ -129,7 +129,7 @@
    z-index: 999
    margin-top: 40px
    padding: 5px 10px
-   background: $fill-panel
+   background: dark-theme-variables.$fill-panel
    width: 220px
    display: block
  
@@ -138,7 +138,7 @@
    width: 100vw
    height: 40px
    margin-top: 0px
-   box-shadow: 5px 2px 10px $kytos-black
+   box-shadow: 5px 2px 10px dark-theme-variables.$kytos-black
    overflow: hidden
    padding: 0px
  

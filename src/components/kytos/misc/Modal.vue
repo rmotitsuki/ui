@@ -106,7 +106,7 @@ export default {
 
 <style lang="sass">
 
-    @import '../../../assets/styles/variables'
+    @use '../../../assets/styles/dark-theme-variables'
 
     .modal-mask
         position: fixed

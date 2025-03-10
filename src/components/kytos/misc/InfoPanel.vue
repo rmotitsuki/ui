@@ -169,7 +169,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-info-panel-max
   width: 900px !important
@@ -186,7 +186,7 @@ export default {
   position: fixed
   right: 0
   top: 0
-  background-color: $fill-panel
+  background-color: dark-theme-variables.$fill-panel
   width: 420px
   z-index: 999
   box-shadow: 10px 0px 20px 5px rgba(0, 0, 0, 0.4)
@@ -206,8 +206,8 @@ export default {
   align-items: center
 
   svg
-    fill: $fill-icon
-    color: $fill-icon
+    fill: dark-theme-variables.$fill-icon
+    color: dark-theme-variables.$fill-icon
     width: 50px
     height: 50px
     padding: 10px
@@ -216,16 +216,16 @@ export default {
   .panel-title
     padding: 0
     margin: 0
-    color: $fill-text
+    color: dark-theme-variables.$fill-text
 
     & > h1
       font-size: 1.2em
       font-weight: bold
-      color: $fill-text
+      color: dark-theme-variables.$fill-text
 
     small
       font-size: 0.7em
-      color: $fill-text
+      color: dark-theme-variables.$fill-text
       display: block
 
 .actions-btn

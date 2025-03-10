@@ -318,12 +318,12 @@ export default {
 
 <style lang="sass">
 
-@import "../../../assets/styles/variables"
+@use "../../../assets/styles/dark-theme-variables"
 
 .chart-timeseries
   width: 100%
   float: left
-  background-color: $fill-bar
+  background-color: dark-theme-variables.$fill-bar
 
   text
     fill: grey

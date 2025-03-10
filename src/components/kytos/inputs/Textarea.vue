@@ -61,27 +61,27 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-textarea-wrap
- border: 1px solid $fill-input-bg
+ border: 1px solid dark-theme-variables.$fill-input-bg
  border-radius: 0.2em
- background: $fill-input-bg
+ background: dark-theme-variables.$fill-input-bg
  display: flex
  flex-direction: row
 
  &:hover
-  border-color: $fill-input-hover
-  background: $fill-input-hover
+  border-color: dark-theme-variables.$fill-input-hover
+  background: dark-theme-variables.$fill-input-hover
 
   textarea, svg
-   background: $fill-input-hover
-   fill: $fill-icon-h
-   color: $fill-icon-h
+   background: dark-theme-variables.$fill-input-hover
+   fill: dark-theme-variables.$fill-icon-h
+   color: dark-theme-variables.$fill-icon-h
 
  svg
-  fill: $fill-icon
-  color: $fill-icon
+  fill: dark-theme-variables.$fill-icon
+  color: dark-theme-variables.$fill-icon
   padding: 0.3em 0.5em
 
 .k-textarea
@@ -89,17 +89,17 @@ export default {
  border: none
  border-radius: 0.2em
  outline: none
- background: $fill-input-bg
- color: $fill-input
+ background: dark-theme-variables.$fill-input-bg
+ color: dark-theme-variables.$fill-input
  font-size: 0.8em
  flex: 1
 
  &:focus
-  border-color: $fill-input-hover
+  border-color: dark-theme-variables.$fill-input-hover
 
  &:hover
-  border-color: $fill-input-hover
-  color: $fill-text
-  background: $fill-input-hover
+  border-color: dark-theme-variables.$fill-input-hover
+  color: dark-theme-variables.$fill-text
+  background: dark-theme-variables.$fill-input-hover
 
 </style>

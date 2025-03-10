@@ -153,33 +153,33 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-interface
   display: flex
   cursor: pointer
   padding-top: 0.3em
   width: 100%
-  color: $fill-text
-  background-color: $fill-panel
+  color: dark-theme-variables.$fill-text
+  background-color: dark-theme-variables.$fill-panel
 
   &:hover *
-   color: $fill-link-h
-   background: $fill-bar
+   color: dark-theme-variables.$fill-link-h
+   background: dark-theme-variables.$fill-bar
 
   .usage
     min-width: 4px
 
     &.high
-      background-color: $kytos-red
+      background-color: dark-theme-variables.$kytos-red
     &.medium
-      background-color: $kytos-yellow
+      background-color: dark-theme-variables.$kytos-yellow
     &.low
-      background-color: $kytos-green
+      background-color: dark-theme-variables.$kytos-green
 
   .details
     min-width: 90px
-    background-color: $fill-input-bg
+    background-color: dark-theme-variables.$fill-input-bg
     display: flex
     flex-direction: column
 
@@ -220,7 +220,7 @@ export default {
         flex: 1
 
   .warn
-    color: $kytos-yellow
+    color: dark-theme-variables.$kytos-yellow
     flex: 1 0 auto
     width: 100%
     align-self: center

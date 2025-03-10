@@ -410,7 +410,7 @@ export default {
 }
 </script>
 <style lang="sass">
-@import '../assets/styles/variables'
+@use '../assets/styles/dark-theme-variables'
 
 .metadata_table 
   color: #ccc

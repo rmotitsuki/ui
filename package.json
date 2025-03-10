@@ -38,7 +38,7 @@
     "cross-env": "^7.0.3",
     "jquery": "^3.6.0",
     "jquery-slider": "^0.0.1",
-    "sass": "^1.47.0",
+    "sass": "^1.85.1",
     "vite": "^6.0.7",
     "vue3-sfc-loader": "^0.9.5",
     "yargs": "^17.3.1"

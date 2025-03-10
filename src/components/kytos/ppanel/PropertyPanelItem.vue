@@ -43,7 +43,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-property-panel-item
   cursor: pointer
@@ -52,29 +52,29 @@ export default {
   th
    display: table-cell
    font-size: 0.8em
-   border-right: 1px solid $fill-input-content
-   border-bottom: 1px solid $fill-input-content
-   color: $fill-text
+   border-right: 1px solid dark-theme-variables.$fill-input-content
+   border-bottom: 1px solid dark-theme-variables.$fill-input-content
+   color: dark-theme-variables.$fill-text
    text-align: right
    padding: 0.5em
    min-width: 50%
 
   td
    display: table-cell
-   color: $fill-text
+   color: dark-theme-variables.$fill-text
    text-align: left
-   border-bottom: 1px solid $fill-input-content
+   border-bottom: 1px solid dark-theme-variables.$fill-input-content
    font-size: 0.8em
    padding: 0.5em
 
   &:nth-child(odd)
-   background-color: $fill-menubar
+   background-color: dark-theme-variables.$fill-menubar
 
   &:nth-child(even)
-   background-color: $fill-panel
+   background-color: dark-theme-variables.$fill-panel
 
   &:hover *
-   color: $fill-text-h
-   background-color: $fill-bar
+   color: dark-theme-variables.$fill-text-h
+   background-color: dark-theme-variables.$fill-bar
 
 </style>

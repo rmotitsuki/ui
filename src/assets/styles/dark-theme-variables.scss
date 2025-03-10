@@ -30,5 +30,33 @@ $gradient-dark-gray: $kytos-dark-gray linear-gradient(-45deg, $kytos-dark-purple
 
 /* Theme Choice */
 
-@import 'dark-theme';
+$fill-bar: $kytos-black;
+$fill-panel: $kytos-extra-dark;
+$fill-panel-h: $kytos-dark-white;
+$fill-panel-dark: $kytos-dark-gray;
 
+$fill-link: $kytos-dark-blue;
+$fill-link-h: $kytos-blue;
+
+$fill-icon: $kytos-light-gray;
+$fill-icon-h: $kytos-white;
+
+$fill-text: $kytos-dark-white;
+$fill-text-h: $kytos-white;
+
+$fill-menubar: $kytos-medium-gray;
+$fill-menubar-h: $kytos-purple;
+$fill-menubar-b: $fill-menubar;
+
+$fill-button: $kytos-light-gray;
+$fill-button-bg: $kytos-medium-gray;
+$fill-button-hover: $kytos-white;
+$fill-button-bg-h: $kytos-gray;
+
+$fill-input: $kytos-dark-white;
+$fill-input-bg: $kytos-gray;
+$fill-input-hover: $kytos-light-gray;
+$fill-input-content: $kytos-extra-dark;
+
+$fill-actionm-bg: $kytos-medium-gray;
+$fill-shortkey: $kytos-blue;

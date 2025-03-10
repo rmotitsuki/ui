@@ -50,7 +50,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .notification-container
   margin: 10px
@@ -63,11 +63,11 @@ export default {
   margin-left: 10px
   margin-top: 10px
   margin-right: 20px
-  color: $kytos-light-gray
+  color: dark-theme-variables.$kytos-light-gray
 
 .notification-icon
-  fill: $kytos-light-gray
-  color: $kytos-light-gray
+  fill: dark-theme-variables.$kytos-light-gray
+  color: dark-theme-variables.$kytos-light-gray
   width: 25px
   height: 25px
   padding: 10px

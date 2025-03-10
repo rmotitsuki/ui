@@ -102,7 +102,7 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-logging
  position: relative
@@ -110,7 +110,7 @@ export default {
 
 .k-logging-toolbar
  width: 100%
- background-color: $fill-menubar-b
+ background-color: dark-theme-variables.$fill-menubar-b
  height: 30px
  overflow: hidden
 
@@ -122,7 +122,7 @@ export default {
   border-color: transparent
 
   :hover
-   background: $fill-panel
+   background: dark-theme-variables.$fill-panel
 
  .k-button
   font-size: 0.7em
@@ -140,26 +140,26 @@ export default {
  font-size: 0.8em
  line-height: 1.3em
  padding: 0.5em 1em
- background: $kytos-black
- color: $fill-input
+ background: dark-theme-variables.$kytos-black
+ color: dark-theme-variables.$fill-input
 
  .highlight
   font-weight: bold
-  background-color: $kytos-yellow
+  background-color: dark-theme-variables.$kytos-yellow
   color: #000
 
  &.colors
   .error
-   color: $kytos-red
+   color: dark-theme-variables.$kytos-red
 
   .warn
-   color: $kytos-yellow
+   color: dark-theme-variables.$kytos-yellow
 
   .info
-   color: $kytos-green
+   color: dark-theme-variables.$kytos-green
 
  *:hover
-   color: $kytos-blue
+   color: dark-theme-variables.$kytos-blue
    cursor: pointer
 
 *:-moz-full-screen

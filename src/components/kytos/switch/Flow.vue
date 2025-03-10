@@ -147,17 +147,17 @@ export default {
 
 <style lang="sass">
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 .k-flow
   cursor: pointer
   margin-bottom: 5px
   width: 100%
   font-size: 0.8em
-  color: $fill-text
-  background: $fill-input-bg
+  color: dark-theme-variables.$fill-text
+  background: dark-theme-variables.$fill-input-bg
 
   &:hover
-   color: $fill-text-h
+   color: dark-theme-variables.$fill-text-h
 
   span
    font-weight: bold
@@ -165,7 +165,7 @@ export default {
 
   .info
     display: flex
-    background: $fill-button-bg-h
+    background: dark-theme-variables.$fill-button-bg-h
     padding: 3px
 
     svg
@@ -185,7 +185,7 @@ export default {
     flex-direction: column
     position: relative
     display: table
-    background: $fill-menubar
+    background: dark-theme-variables.$fill-menubar
 
     .match-l2, .match-l3
      display: flex
@@ -198,13 +198,13 @@ export default {
      padding-left: 3px
 
   .actions
-    background: $fill-button-bg-h
+    background: dark-theme-variables.$fill-button-bg-h
     padding: 5px
     text-align: center
 
   .details
     width: 130px
-    background-color: $fill-input-bg
+    background-color: dark-theme-variables.$fill-input-bg
 
     .name
       font-size: 0.7em
@@ -220,7 +220,7 @@ export default {
   .chart
     width: 100%
     float: left
-    background-color: $fill-button-bg-h
+    background-color: dark-theme-variables.$fill-button-bg-h
 
     path
       stroke: #00FFFF
@@ -241,12 +241,12 @@ export default {
 
 .k-flow-active
   .info
-    border-left: 3px solid $kytos-purple
+    border-left: 3px solid dark-theme-variables.$kytos-purple
 
   .match
-    border-left: 3px solid $kytos-purple
+    border-left: 3px solid dark-theme-variables.$kytos-purple
 
   .actions
-    border-left: 3px solid $kytos-purple
+    border-left: 3px solid dark-theme-variables.$kytos-purple
 
 </style>
