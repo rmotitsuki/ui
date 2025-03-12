@@ -66,20 +66,20 @@ export default {
 
 <style lang='sass'>
 
-@import '../../../assets/styles/variables'
+@use '../../../assets/styles/dark-theme-variables'
 
 .k-status-bar
   display: inline-flex
-  background: $fill-panel-dark
+  background: dark-theme-variables.$fill-panel-dark
   padding: 6px 0
   font-family: monospace
-  color: $kytos-blue
+  color: dark-theme-variables.$kytos-blue
   font-size: 12px
 
 .k-status-bar:before
   content: '|'
 
 .k-status-bar .status-error
-  color: $kytos-red
+  color: dark-theme-variables.$kytos-red
 
 </style>
