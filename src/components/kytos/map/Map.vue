@@ -123,4 +123,7 @@ export default {
 
 .mapboxgl-ctrl-attrib
   top: -25px
+
+.mapboxgl-control-container
+  display: none
 </style>
