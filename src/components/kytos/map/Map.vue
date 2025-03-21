@@ -5,10 +5,11 @@
 </template>
 
 <script>
-import KytosBase from '../base/KytosBase'
-import KytosBaseWithIcon from '../base/KytosBaseWithIcon'
-import KytosTopology from '../topology/Topology.vue'
-import {json} from "d3-request"
+import KytosBase from '../base/KytosBase';
+import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
+import KytosTopology from '../topology/Topology.vue';
+import {json} from "d3-request";
+import mapboxgl from 'mapbox-gl';
 
 export default {
   name: 'k-map',

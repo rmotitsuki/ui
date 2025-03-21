@@ -3,6 +3,7 @@
 
 <script>
 import * as d3 from "d3";
+import mapboxgl from 'mapbox-gl';
 import KytosBase from '../base/KytosBase';
 import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
 

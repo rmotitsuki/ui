@@ -30,7 +30,8 @@
     "v-hotkey3": "^0.1.4",
     "vue": "^3.1.0",
     "vue-docgen-api": "^4.43.2",
-    "write-file": "^1.0.0"
+    "write-file": "^1.0.0",
+    "mapbox-gl": "^0.41.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
