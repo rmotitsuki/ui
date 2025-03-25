@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import { configDefaults } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
 import { resolve } from 'path';
 
@@ -21,6 +22,9 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
         environment: "happy-dom",
         coverage: {
           reporter: ['text', 'html'],
+          exclude:[
+            ...configDefaults.exclude
+          ]
         }
       },
       css: {
@@ -44,6 +48,9 @@ export default defineConfig(({ command, mode, isSsrBuild, isPreview }) => {
         environment: "happy-dom",
         coverage: {
           reporter: ['text', 'html'],
+          exclude:[
+            ...configDefaults.exclude
+          ]
         }
       }
     }
