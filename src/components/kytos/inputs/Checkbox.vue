@@ -50,6 +50,16 @@ export default {
         default: function(value) { return }
       }
   },
+  emits: {
+    'update:model': (checked_items) => {
+      if (Array.isArray(checked_items)) {
+        return true
+      } else {
+        console.warn('Invalid update:model event payload!')
+        return false
+      }
+    }
+  },
   methods: {
     update_check(){
       if(this.enabled){
@@ -57,6 +67,7 @@ export default {
       }else{
         this.list_of_checked.splice(this.list_of_checked.indexOf(this.value),1);
       }
+      this.$emit('update:model', this.list_of_checked)
       this.action(this.value)
     }
   },
