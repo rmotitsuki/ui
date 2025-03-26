@@ -149,3 +149,24 @@ describe("Emits", () => {
         expect(wrapper.emitted('update:value')[0]).toEqual([text]);
     });
 });
+
+//V-Model
+
+describe("V-Models", () => {
+    beforeAll(() => {
+        expect(Input).toBeTruthy();
+    });
+
+    test("V-Model Value", async () => {
+        const text = 'test';
+        const wrapper = mount(Input, {
+            props: {
+              value: 'initialText',
+              'onUpdate:value': (e) => wrapper.setProps({ value: e })
+            }
+          })
+        
+          await wrapper.get('[data-test="main-input"]').setValue(text)
+          expect(wrapper.props('value')).toBe(text)
+        });
+});

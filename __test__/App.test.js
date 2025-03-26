@@ -1,6 +1,6 @@
 import { mount, shallowMount } from '@vue/test-utils';
 import App from '@/App.vue';
-import Menubar from '@/components/kytos/misc/Menubar.vue'
+import Menubar from '@/components/kytos/misc/Menubar.vue';
 import { describe, test, expect, beforeAll } from "vitest";
 
 describe("App", () => {
