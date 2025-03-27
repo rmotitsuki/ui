@@ -63,19 +63,20 @@ export default {
   },
   methods: {
     update_check(){
-      const list_of_checked = this.model;
+      this.list_of_checked = this.model;
       if(this.enabled){
-        list_of_checked.push(this.value)
+        this.list_of_checked.push(this.value)
       }else{
-        list_of_checked.splice(list_of_checked.indexOf(this.value), 1);
+        this.list_of_checked.splice(this.list_of_checked.indexOf(this.value), 1);
       }
-      this.$emit('update:model', list_of_checked)
+      this.$emit('update:model', this.list_of_checked)
       this.action(this.value)
     }
   },
   data () {
     return {
-      enabled: this.checked
+      enabled: this.checked,
+      list_of_checked: this.model
     }
   }
 }
