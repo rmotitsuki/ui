@@ -53,32 +53,29 @@ export default {
   emits: {
     'update:model': (checked_items) => {
       if (Array.isArray(checked_items)) {
-        return true
+        return true;
       } else {
-        console.warn('Invalid update:model event payload!')
-        return false
+        console.warn('Invalid update:model event payload!');
+        return false;
       }
     }
   },
   methods: {
     update_check(){
+      const list_of_checked = this.model;
       if(this.enabled){
-        this.list_of_checked.push(this.value)
+        list_of_checked.push(this.value)
       }else{
-        this.list_of_checked.splice(this.list_of_checked.indexOf(this.value),1);
+        list_of_checked.splice(list_of_checked.indexOf(this.value), 1);
       }
-      this.$emit('update:model', this.list_of_checked)
+      this.$emit('update:model', list_of_checked)
       this.action(this.value)
     }
   },
   data () {
     return {
-      enabled: this.checked,
-      list_of_checked: this.model || []
+      enabled: this.checked
     }
-  },
-  mounted () {
-    $(document).ready(this.update_check)
   }
 }
 </script>
