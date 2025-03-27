@@ -28,6 +28,7 @@ export default {
        */
       model: {
         type: Array,
+        default: []
       },
       /**
        * The value to checkbox button.
