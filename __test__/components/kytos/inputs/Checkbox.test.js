@@ -4,7 +4,7 @@ import { describe, test, expect, beforeAll, afterEach, vi } from "vitest";
 
 //Inputs
 
-describe.sequential("Props", () => {
+describe("Props", () => {
     beforeAll(() => {
         expect(Checkbox).toBeTruthy();
     });
