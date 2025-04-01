@@ -11,7 +11,6 @@ describe("Checkbox.vue", () => {
 
     afterEach(() => {
         wrapper.unmount();
-        wrapper = null;
         vi.restoreAllMocks();
     });
 
@@ -95,11 +94,6 @@ describe("Checkbox.vue", () => {
 
             expect(fn).toHaveBeenCalledTimes(1);
             expect(fn).toHaveBeenCalledWith(text);
-
-            //Hack to avoid state from crossing over to other unit tests
-            //Just undo the changes made and everything works fine
-            //Unchecking luckily also resets data
-            await mainCheckbox.setChecked(false);
         });
     });
 
