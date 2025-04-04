@@ -1,12 +1,12 @@
 <template>
    <label class="k-dropdown" v-bind:class="{'no-title' : !title  }">
     <div class="k-dropdown__title">
-      <icon v-if="icon && iconName" :icon="iconName"></icon>
+      <icon v-if="icon && iconName" :icon="iconName" data-test="main-icon"></icon>
       {{title}}
     </div>
-    <select class="k-dropdown__select" v-model="selected" @change.prevent="emitEvent">
+    <select class="k-dropdown__select" v-model="selected" @change.prevent="emitEvent" data-test="main-dropdown">
       <option v-for="item in options"
-              :value="item.value">{{item.description}}</option>
+              :value="item.value" :key="item.value">{{item.description}}</option>
     </select>
    </label>
 </template>
@@ -25,6 +25,16 @@ import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
 export default {
  name: 'k-dropdown',
  mixins: [KytosBaseWithIcon],
+ emits: {
+  'update:value': (value) => {
+      if (typeof value === 'string' || value instanceof String || typeof value === 'boolean' || value instanceof Boolean ) {
+        return true
+      } else {
+        console.warn('Invalid update:value event payload!')
+        return false
+      }
+    }
+  },
  props: {
    /**
     * Property with the selected option.
