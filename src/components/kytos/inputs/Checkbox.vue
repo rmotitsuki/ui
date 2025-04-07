@@ -1,8 +1,8 @@
 <template>
   <div class="k-checkbox-wrap">
-  <icon v-if="icon && iconName" :icon="iconName"></icon>
+  <icon v-if="icon && iconName" :icon="iconName" data-test="main-icon"></icon>
   <label class="checkbox">
-    <input type="checkbox" id="checkbox" v-model="enabled" @change="update_check()">
+    <input type="checkbox" id="checkbox" v-model="enabled" @change="update_check()" data-test="main-checkbox">
     <span class="slider"></span>
   </label>
   {{title}}
@@ -28,7 +28,7 @@ export default {
        */
       model: {
         type: Array,
-        default: []
+        default: () => []
       },
       /**
        * The value to checkbox button.
