@@ -12,6 +12,7 @@
     "zip": "vite build --emptyOutDir > /dev/null && zip -r latest.zip web-ui/index.html web-ui/dist",
     "preview": "vite preview",
     "test": "vitest",
+    "test-run": "vitest run",
     "coverage": "vitest run --coverage"
   },
   "dependencies": {
