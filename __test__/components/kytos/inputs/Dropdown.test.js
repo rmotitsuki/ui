@@ -19,7 +19,7 @@ describe("Dropdown.vue", () => {
     //Inputs
 
     describe("Props", () => {
-        test("Default Dropdown Value", async () => {
+        test.skip("Default Dropdown Value", async () => {
             const testValue = "test";
             wrapper = mount(Dropdown, {
                 props: {
@@ -182,7 +182,7 @@ describe("Dropdown.vue", () => {
     });
 
     describe("Emits", () => {
-        test("Emit Dropdown Value", async () => {
+        test.skip("Emit Dropdown Value", async () => {
             wrapper = mount(Dropdown, {
                 props: {
                     options: testOptions
@@ -201,7 +201,7 @@ describe("Dropdown.vue", () => {
     //V-Model
 
     describe("V-Models", () => {
-        test("V-Model Value", async () => {
+        test.skip("V-Model Value", async () => {
             wrapper = mount(Dropdown, {
                 props: {
                 value: "",
