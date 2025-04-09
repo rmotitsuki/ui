@@ -37,13 +37,6 @@ export default {
   },
  props: {
    /**
-    * Property with the selected option.
-    */
-   value:{
-     type: [String, Boolean],
-     default: ""
-   },
-   /**
     * A collection with all options that could be selected.
     */
    options: {
@@ -78,7 +71,6 @@ export default {
        content.value = this.selected
        this.$kytos.eventBus.$emit(this.event.name, content)
      }
-     this.$emit('update:value', this.selected)
      this.action(this.selected)
    },
    clear () {
