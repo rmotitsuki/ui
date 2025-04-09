@@ -37,7 +37,18 @@ export default {
   },
  props: {
    /**
+    * Property with the selected option.
+    */
+   value:{
+     type: [String, Boolean],
+     default: ""
+   },
+   /**
     * A collection with all options that could be selected.
+    * Within the array of options you can add a property to one of the objects called selected.
+    * If set to true, this will select the option by default.
+    * [{value: "testVal1", description: "testDesc1"},
+        {value: "testVal2", description: "testDesc2", selected: true}]
     */
    options: {
      type: Array,
@@ -71,6 +82,7 @@ export default {
        content.value = this.selected
        this.$kytos.eventBus.$emit(this.event.name, content)
      }
+     this.$emit('update:value', this.selected)
      this.action(this.selected)
    },
    clear () {
