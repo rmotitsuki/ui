@@ -21,25 +21,25 @@ describe("Button.vue", () => {
         test("Disabling Button", async () => {
             wrapper = mount(Button);
             expect(wrapper.exists()).toBe(true);
-            const mainInput = wrapper.get('[data-test="main-button"]');
-            expect(mainInput.element.hasAttribute('disabled')).toBe(false);
+            const mainButton = wrapper.get('[data-test="main-button"]');
+            expect(mainButton.element.hasAttribute('disabled')).toBe(false);
 
             await wrapper.setProps({ isDisabled: true });
 
-            expect(mainInput.element.hasAttribute('disabled')).toBe(true);
+            expect(mainButton.element.hasAttribute('disabled')).toBe(true);
         });
 
         test("Button Tooltip", async () => {
             const testValue = 'test';
             wrapper = mount(Button);
             expect(wrapper.exists()).toBe(true);
-            const mainInput = wrapper.get('[data-test="main-button"]');
+            const mainButton = wrapper.get('[data-test="main-button"]');
 
-            expect(mainInput.element.hasAttribute('title')).toBe(false);
+            expect(mainButton.element.hasAttribute('title')).toBe(false);
 
             await wrapper.setProps({ tooltip: testValue });
 
-            expect(mainInput.attributes('title')).toBe(testValue);
+            expect(mainButton.attributes('title')).toBe(testValue);
         });
     });
 
@@ -47,9 +47,9 @@ describe("Button.vue", () => {
         test("Button Data/Write/Use", async () => {
             wrapper = mount(Button);
             expect(wrapper.exists()).toBe(true);
-            const mainInput = wrapper.get('[data-test="main-button"]');
+            const mainButton = wrapper.get('[data-test="main-button"]');
 
-            await mainInput.trigger('click');
+            await mainButton.trigger('click');
 
             expect(wrapper.emitted('click')).toHaveLength(1);
         });
@@ -86,9 +86,9 @@ describe("Button.vue", () => {
         test("Emit Button Click", async () => {
             wrapper = mount(Button);
             expect(wrapper.exists()).toBe(true);
-            const mainInput = wrapper.get('[data-test="main-button"]');
+            const mainButton = wrapper.get('[data-test="main-button"]');
 
-            await mainInput.trigger('click');
+            await mainButton.trigger('click');
 
             expect(wrapper.emitted('click')).toHaveLength(1);
         });
