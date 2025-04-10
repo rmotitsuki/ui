@@ -72,18 +72,6 @@ describe("Dropdown.vue", () => {
             expect(wrapper.vm.selected).toBe(testOptions[2].value);
         });
 
-        test("Dropdown Default Option", () => {
-            testOptions[2].selected = true;
-            wrapper = mount(Dropdown, {
-                props: {
-                    options: testOptions
-                }
-            });
-            expect(wrapper.exists()).toBe(true);
-
-            expect(wrapper.vm.selected).toBe(testOptions[2].value);
-        });
-
         test("Dropdown Global Event", async () => {
             const fn = vi.fn();
             let testEvent = {name: 'testName', content: {testsubContent: 'testsubContent'}};
@@ -143,6 +131,12 @@ describe("Dropdown.vue", () => {
             await mainDropdown.setValue('testVal3');
 
             expect(wrapper.vm.selected).toEqual('testVal3');
+
+            await mainDropdown.setValue('testVal3');
+            await mainDropdown.setValue('testVal2');
+            await mainDropdown.setValue('testVal1');
+            
+            expect(wrapper.vm.selected).toEqual('testVal1');
         });
     });
 
