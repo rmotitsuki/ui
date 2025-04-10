@@ -21,51 +21,51 @@ describe("Textarea.vue", () => {
         test("Disabling Textarea", async () => {
             wrapper = mount(Textarea);
             expect(wrapper.exists()).toBe(true);
-            const mainInput = wrapper.get('[data-test="main-textarea"]');
-            expect(mainInput.element.hasAttribute('disabled')).toBe(false);
+            const mainTextarea = wrapper.get('[data-test="main-textarea"]');
+            expect(mainTextarea.element.hasAttribute('disabled')).toBe(false);
 
             await wrapper.setProps({ isDisabled: true });
 
-            expect(mainInput.element.hasAttribute('disabled')).toBe(true);
+            expect(mainTextarea.element.hasAttribute('disabled')).toBe(true);
         });
 
         test("Default Textarea Value", async () => {
             const testValue = 'test';
             wrapper = mount(Textarea);
             expect(wrapper.exists()).toBe(true);
-            const mainInput = wrapper.get('[data-test="main-textarea"]');
+            const mainTextarea = wrapper.get('[data-test="main-textarea"]');
 
-            expect(mainInput.element.hasAttribute('value')).toBe(false);
+            expect(mainTextarea.element.hasAttribute('value')).toBe(false);
 
             await wrapper.setProps({ value: testValue });
 
-            expect(mainInput.attributes('value')).toBe(testValue);
+            expect(mainTextarea.attributes('value')).toBe(testValue);
         });
 
         test("Textarea Tooltip", async () => {
             const testValue = 'test';
             wrapper = mount(Textarea);
             expect(wrapper.exists()).toBe(true);
-            const mainInput = wrapper.get('[data-test="main-textarea"]');
+            const mainTextarea = wrapper.get('[data-test="main-textarea"]');
 
-            expect(mainInput.element.hasAttribute('title')).toBe(false);
+            expect(mainTextarea.element.hasAttribute('title')).toBe(false);
 
             await wrapper.setProps({ tooltip: testValue });
 
-            expect(mainInput.attributes('title')).toBe(testValue);
+            expect(mainTextarea.attributes('title')).toBe(testValue);
         });
 
         test("Textarea Placeholder", async () => {
             const testValue = 'test';
             wrapper = mount(Textarea);
             expect(wrapper.exists()).toBe(true);
-            const mainInput = wrapper.get('[data-test="main-textarea"]');
+            const mainTextarea = wrapper.get('[data-test="main-textarea"]');
 
-            expect(mainInput.element.hasAttribute('placeholder')).toBe(false);
+            expect(mainTextarea.element.hasAttribute('placeholder')).toBe(false);
 
             await wrapper.setProps({ placeholder: testValue });
 
-            expect(mainInput.attributes('placeholder')).toBe(testValue);
+            expect(mainTextarea.attributes('placeholder')).toBe(testValue);
         });
 
         test("Textarea Action", async () => {
@@ -73,7 +73,7 @@ describe("Textarea.vue", () => {
             const text = 'test';
             wrapper = mount(Textarea);
             expect(wrapper.exists()).toBe(true);
-            const mainInput = wrapper.get('[data-test="main-textarea"]');
+            const mainTextarea = wrapper.get('[data-test="main-textarea"]');
 
             expect(wrapper.props().hasOwnProperty('action')).toBe(true);
 
@@ -81,7 +81,7 @@ describe("Textarea.vue", () => {
 
             expect(wrapper.props('action')).toBe(fn);
 
-            await mainInput.setValue(text);
+            await mainTextarea.setValue(text);
 
             expect(fn).toHaveBeenCalledTimes(2);
             expect(fn).toHaveBeenCalledWith(text);
@@ -93,11 +93,11 @@ describe("Textarea.vue", () => {
             const text = 'test';
             wrapper = mount(Textarea);
             expect(wrapper.exists()).toBe(true);
-            const mainInput = wrapper.get('[data-test="main-textarea"]');
+            const mainTextarea = wrapper.get('[data-test="main-textarea"]');
 
-            await mainInput.setValue(text);
+            await mainTextarea.setValue(text);
 
-            expect(mainInput.element.value).toContain(text);
+            expect(mainTextarea.element.value).toContain(text);
         });
     });
 
@@ -133,9 +133,9 @@ describe("Textarea.vue", () => {
             const text = 'test';
             wrapper = mount(Textarea);
             expect(wrapper.exists()).toBe(true);
-            const mainInput = wrapper.get('[data-test="main-textarea"]');
+            const mainTextarea = wrapper.get('[data-test="main-textarea"]');
 
-            await mainInput.setValue(text);
+            await mainTextarea.setValue(text);
 
             expect(wrapper.emitted('update:value')).toHaveLength(1);
             expect(wrapper.emitted('update:value')[0]).toEqual([text]);
@@ -145,9 +145,9 @@ describe("Textarea.vue", () => {
             const text = 'test';
             wrapper = mount(Textarea);
             expect(wrapper.exists()).toBe(true);
-            const mainInput = wrapper.get('[data-test="main-textarea"]');
+            const mainTextarea = wrapper.get('[data-test="main-textarea"]');
 
-            await mainInput.setValue(text);
+            await mainTextarea.setValue(text);
 
             expect(wrapper.emitted('textarea')).toHaveLength(1);
         });
