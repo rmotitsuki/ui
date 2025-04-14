@@ -6,6 +6,9 @@ All notable changes to the Kytos-NG UI project will be documented in this file.
 UNRELEASED - Under development
 ******************************
 
+[2025.1.0] - 2024-04-14
+***********************
+
 Added
 =====
 - Explicitly added emits and validated them.
