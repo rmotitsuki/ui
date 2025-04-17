@@ -6,6 +6,9 @@ import { describe, test, expect, beforeAll, afterEach, vi } from "vitest";
 
 describe("Select.vue", () => {
     let wrapper;
+    const testOptions = [{value: "testVal1", description: "testDesc1"},
+        {value: "testVal2", description: "testDesc2"},
+        {value: "testVal3", description: "testDesc3"}];
     beforeAll(() => {
         expect(Select).toBeTruthy();
     });
@@ -22,7 +25,8 @@ describe("Select.vue", () => {
             const testValue = ["test1", "test2", "test3"];
             wrapper = mount(Select, {
                 props: {
-                    value: testValue
+                    value: testValue,
+                    options: testOptions
                 }
             });
             expect(wrapper.exists()).toBe(true);
@@ -31,9 +35,6 @@ describe("Select.vue", () => {
         });
 
         test("Select Options", () => {
-            const testOptions = [{value: "testVal1", description: "testDesc1"},
-                {value: "testVal2", description: "testDesc2"},
-                {value: "testVal3", description: "testDesc3"}];
             wrapper = mount(Select, {
                 props: {
                     options: testOptions
@@ -59,9 +60,6 @@ describe("Select.vue", () => {
         });
 
         test("Select Action", async () => {
-            const testOptions = [{value: "testVal1", description: "testDesc1"},
-                {value: "testVal2", description: "testDesc2"},
-                {value: "testVal3", description: "testDesc3"}];
             const fn = vi.fn();
             wrapper = mount(Select, {
                 props: {
@@ -86,9 +84,6 @@ describe("Select.vue", () => {
 
     describe("User Interactions", () => {
         test("Select Data/Use Select", async () => {
-            const testOptions = [{value: "testVal1", description: "testDesc1"},
-                {value: "testVal2", description: "testDesc2"},
-                {value: "testVal3", description: "testDesc3"}];
             wrapper = mount(Select, {
                 props: {
                     options: testOptions
@@ -101,13 +96,46 @@ describe("Select.vue", () => {
 
             expect(wrapper.vm.selected).toEqual(['testVal1', 'testVal3']);
         });
+
+        test("Select and Deselect Data", async () => {
+            wrapper = mount(Select, {
+                props: {
+                    options: testOptions
+                }
+            });
+            expect(wrapper.exists()).toBe(true);
+            const mainSelect = wrapper.get('[data-test="main-select"]');
+
+            await mainSelect.setValue(['testVal1', 'testVal3']);
+
+            expect(wrapper.vm.selected).toEqual(['testVal1', 'testVal3']);
+
+            await mainSelect.setValue();
+
+            expect(wrapper.vm.selected).toEqual([]);
+        });
+
+        test("Select Empty Array", () => {
+            wrapper = mount(Select, {
+                props: {
+                    options: testOptions
+                }
+            });
+            expect(wrapper.exists()).toBe(true);
+
+            expect(wrapper.vm.selected).toEqual([]);
+        });
     });
 
     //Outputs
 
     describe("DOM Elements", () => {
         test("Select", () => {
-            wrapper = mount(Select);
+            wrapper = mount(Select, {
+                props: {
+                    options: testOptions
+                }
+            });
             expect(wrapper.exists()).toBe(true);
 
             expect(wrapper.find('[data-test="main-select"]').exists()).toBe(true);
@@ -115,7 +143,11 @@ describe("Select.vue", () => {
 
         test("Icon", async () => {
             const testIcon = "arrow-right";
-            wrapper = shallowMount(Select);
+            wrapper = shallowMount(Select, {
+                props: {
+                    options: testOptions
+                }
+            });
             expect(wrapper.exists()).toBe(true);
 
             expect(wrapper.find('[data-test="main-icon"]').exists()).toBe(false);
@@ -132,9 +164,6 @@ describe("Select.vue", () => {
 
     describe("Emits", () => {
         test("Emit Select Value", async () => {
-            const testOptions = [{value: "testVal1", description: "testDesc1"},
-                {value: "testVal2", description: "testDesc2"},
-                {value: "testVal3", description: "testDesc3"}];
             wrapper = mount(Select, {
                 props: {
                     options: testOptions
@@ -154,9 +183,6 @@ describe("Select.vue", () => {
 
     describe("V-Models", () => {
         test("V-Model Value", async () => {
-            const testOptions = [{value: "testVal1", description: "testDesc1"},
-                {value: "testVal2", description: "testDesc2"},
-                {value: "testVal3", description: "testDesc3"}];
             wrapper = mount(Select, {
                 props: {
                 value: [],
