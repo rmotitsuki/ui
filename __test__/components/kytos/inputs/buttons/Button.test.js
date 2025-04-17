@@ -53,6 +53,17 @@ describe("Button.vue", () => {
 
             expect(wrapper.emitted('click')).toHaveLength(1);
         });
+        
+        test("Click On Disabled Button", async () => {
+            wrapper = mount(Button);
+            expect(wrapper.exists()).toBe(true);
+            const mainButton = wrapper.get('[data-test="main-button"]');
+
+            await wrapper.setProps({ isDisabled: true });
+            await mainButton.trigger('click');
+
+            expect(wrapper.emitted('click')).toBeFalsy;
+        });
     });
 
     //Outputs
