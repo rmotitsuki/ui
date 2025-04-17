@@ -11,6 +11,7 @@
  <script type="module">
  import { defineAsyncComponent } from 'vue'
  import { loadModule } from 'vue3-sfc-loader'
+ import axios from 'axios'
  import * as Vue from 'vue'
  
  const options = {
@@ -82,21 +83,20 @@
      if (this.template) return this.template();
    },
    created() {
-       var self = this
-       $.get({
-         url: this.url,
-         datatype: 'json',
-         async: true,
-         cache: false,
-         success: function(data) {
-           self.inner_components = self.inner_components.concat(data);
-         }
-       }).always(function(){
-           self.load_components()
-           setTimeout(self.load_icons, 2000)
-       })
+      this.fetchData();
    },
    methods: {
+     async fetchData() {
+      try {
+        const response = await axios.get(this.url);
+        this.inner_components = this.inner_components.concat(response.data);
+      } catch (err) {
+        console.error(err)
+      } finally {
+        this.load_components()
+        setTimeout(this.load_icons, 2000)
+      }
+     },
      load_icons () {
        var self = this
        var components  = $('.k-toolbar .k-toolbar-item')
