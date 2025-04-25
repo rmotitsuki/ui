@@ -28,6 +28,7 @@
     "d3-request": "^1.0.6",
     "glob": "^7.2.0",
     "jsdocgen": "^0.2.4",
+    "pinia": "^3.0.2",
     "string-width-cjs": "^5.1.1",
     "tiny-emitter": "^2.1.0",
     "typeit": "^8.2.0",

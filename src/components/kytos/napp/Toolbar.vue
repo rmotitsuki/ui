@@ -1,7 +1,7 @@
 <template>
   <div class='k-toolbar'>
    <component v-show="active == (index+1)"
-              v-for="(component, index) in inner_components"
+              v-for="(component, index) in toolbarItems"
               :is='component.name'
               v-bind:key="component.name">
    </component>
@@ -13,6 +13,8 @@
  import { loadModule } from 'vue3-sfc-loader'
  import axios from 'axios'
  import * as Vue from 'vue'
+ import { mapState, mapActions } from 'pinia'
+ import { useToolbarStore } from '../../../stores/toolbarStore'
  
  const options = {
  
@@ -72,15 +74,8 @@
    props: ["active", "compacted", "components"],
    data () {
      return {
-      url: this.$kytos_server+ 'ui/k-toolbar',
-      template: null,
-      inner_components: this.components || [] ,
-      data: [],
-      parsed: ""
+      url: this.$kytos_server + 'ui/k-toolbar',
      }
-   },
-   render: function(createElement){
-     if (this.template) return this.template();
    },
    created() {
       this.fetchData();
@@ -89,32 +84,25 @@
      async fetchData() {
       try {
         const response = await axios.get(this.url);
-        this.inner_components = this.inner_components.concat(response.data);
+        this.toolbarItems.push(...response.data)
       } catch (err) {
         console.error(err)
       } finally {
         this.load_components()
-        setTimeout(this.load_icons, 2000)
       }
      },
-     load_icons () {
-       var self = this
-       var components  = $('.k-toolbar .k-toolbar-item')
-       $.each(components, function(index, component){
-           self.inner_components[index].icon = component.getAttribute('icon')
-           self.inner_components[index].tooltip = component.getAttribute('tooltip')
-       })
-       self.$emit('update:components', self.inner_components)
-     },
      load_components (){
-       var self = this
-       $.each(self.inner_components, function(index, component){
-         if('url' in component){
-           var url = self.$kytos_server+component.url
-           self.$kytos.component(component.name, defineAsyncComponent( () => loadModule(url, options) ))
-         }
-       })
-     }
+      this.toolbarItems.forEach(component => {
+            if ('url' in component) {
+                let url = this.$kytos_server+component.url
+                this.$kytos.component(component.name, defineAsyncComponent( () => loadModule(url, options) ))
+            }
+        });
+     },
+     ...mapActions(useToolbarStore, ['loadComponents']),
+  },
+  computed: {
+    ...mapState(useToolbarStore, ['toolbarItems'])
   }
  }
  </script>

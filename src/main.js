@@ -1,15 +1,10 @@
+import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import VueHotkey from 'v-hotkey3'
 import App from './App.vue'
 import * as packageInfo from '../package.json';
 import eventBus from './event-bus'
 import { toRaw } from 'vue';
-
-const {version} = packageInfo;
-
-const kytos = createApp(App)
-
-kytos.use(VueHotkey)
 
 import $ from 'jquery';
 window.$ = window.jQuery = $;
@@ -18,6 +13,14 @@ import * as d3 from 'd3';
 window.d3 = window.D3 = d3;
 window.kytos_server = location.protocol + "//" + location.host + "/";
 window.kytos_server_api = location.protocol + "//" + location.host + "/api/";
+
+const {version} = packageInfo;
+
+const kytos = createApp(App)
+const pinia = createPinia()
+
+kytos.use(VueHotkey)
+kytos.use(pinia)
 
 import KytosToolbarItem from './components/kytos/misc/ToolbarItem.vue';
 import KytosToolbar from './components/kytos/napp/Toolbar.vue';
