@@ -9,7 +9,7 @@ UNRELEASED - Under development
 Added
 =====
 - Added pinia for state management
-- Replace ``jquery ajax`` with axios
+- Replaced ``jquery ajax`` with axios
 
 [2025.1.0] - 2025-04-14
 ***********************
