@@ -21,11 +21,6 @@ export default {
   name: 'k-toolbar-item',
   mixins: [KytosBaseWithIcon],
   props: ["icon", "tooltip"],
-  data () {
-    return {
-      ID: null
-    }
-  },
   methods: {
     ...mapActions(useToolbarStore, ['addIconTooltip'])
   },
