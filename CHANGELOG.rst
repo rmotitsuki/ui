@@ -6,6 +6,10 @@ All notable changes to the Kytos-NG UI project will be documented in this file.
 UNRELEASED - Under development
 ******************************
 
+Added
+=====
+- Added pinia for state management
+
 [2025.1.0] - 2025-04-14
 ***********************
 
