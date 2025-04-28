@@ -13,7 +13,7 @@
  import { loadModule } from 'vue3-sfc-loader'
  import axios from 'axios'
  import * as Vue from 'vue'
- import { mapState, mapActions } from 'pinia'
+ import { mapState } from 'pinia'
  import { useToolbarStore } from '../../../stores/toolbarStore'
  
  const options = {
@@ -98,8 +98,7 @@
                 this.$kytos.component(component.name, defineAsyncComponent( () => loadModule(url, options) ))
             }
         });
-     },
-     ...mapActions(useToolbarStore, ['loadComponents']),
+     }
   },
   computed: {
     ...mapState(useToolbarStore, ['toolbarItems'])
