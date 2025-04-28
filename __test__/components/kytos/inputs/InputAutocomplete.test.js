@@ -180,15 +180,21 @@ describe("InputAutocomplete.vue", () => {
             const input = mainInputAutocomplete.get('[data-test="main-input"]');
             const resultsList = wrapper.find('#autocomplete-result-list-v-0');
 
+            //List should exist but not be visible since there is nothing within the input
+
             expect(resultsList.exists()).toBe(true);
             expect(resultsList.isVisible()).toBe(false);
 
             await input.setValue(text);
 
+             //List should now be visible since it was interacted with
+
             expect(resultsList.isVisible()).toBe(true);
 
             const [result1, result2, result3] = wrapper.findAll('.autocomplete-result');
             const [resultText1, resultText2, resultText3] = [result1.text(), result2.text(), result3.text()];
+
+            //Make sure every element in the list is correct
 
             expect(result1.exists()).toBe(true);
             expect(result2.exists()).toBe(true);
@@ -198,13 +204,19 @@ describe("InputAutocomplete.vue", () => {
             expect(resultText2).toEqual(testCandidates[1]);
             expect(resultText3).toEqual(testCandidates[2]);
 
+            //Change value in input
+
             await input.setValue(text.concat('2'));
 
             const results = wrapper.findAll('.autocomplete-result');
 
+            //Make sure new values are correct
+
             expect(results.length).toBe(1);
 
             expect(results[0].text()).toEqual(testCandidates[1]);
+
+            //Select one value from autocomplete list
 
             await mainInputAutocomplete.trigger('blur');
 
