@@ -11,7 +11,6 @@
  <script type="module">
  import { defineAsyncComponent } from 'vue'
  import { loadModule } from 'vue3-sfc-loader'
- import axios from 'axios'
  import { mapState } from 'pinia'
  import { useToolbarStore } from '../../../stores/toolbarStore'
  
@@ -29,7 +28,7 @@
    methods: {
      async fetchData() {
       try {
-        const response = await axios.get(this.url);
+        const response = await this.$http.get(this.url);
         this.toolbarItems.push(...response.data)
       } catch (err) {
         console.error(err)

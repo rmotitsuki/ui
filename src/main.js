@@ -16,6 +16,8 @@ kytos.use(VueHotkey)
 
 import $ from 'jquery';
 window.$ = window.jQuery = $;
+import axios from 'axios';
+kytos.config.globalProperties.$http = axios;
 
 import * as d3 from 'd3';
 window.d3 = window.D3 = d3;
