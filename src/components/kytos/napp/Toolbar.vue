@@ -14,7 +14,15 @@
  
  export default {
    name: 'k-toolbar',
-   props: ["active", "compacted", "components"],
+   props: {
+   /**
+    * A number representing the current active component
+    */
+   active: {
+      type: Number,
+      required: true
+   },
+  },
    data () {
      return {
       url: this.$kytos_server + 'ui/k-toolbar',
