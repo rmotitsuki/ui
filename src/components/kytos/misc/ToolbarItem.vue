@@ -24,8 +24,8 @@ export default {
   methods: {
     ...mapActions(useToolbarStore, ['addIconTooltip'])
   },
-  created() {
-    this.addIconTooltip(this.icon, this.tooltip);
+  mounted() {
+    this.addIconTooltip(this.name, this.icon, this.tooltip);
   }
 }
 </script>

@@ -4,8 +4,7 @@ import * as Vue from "vue";
 export const useToolbarStore = defineStore("toolbar", {
   state: () => {
     return {
-      toolbarItems: [],
-      current: 0,
+      toolbarItems: {},
       loaderOptions: {
         moduleCache: {
           vue: Vue,
@@ -57,10 +56,16 @@ export const useToolbarStore = defineStore("toolbar", {
     };
   },
   actions: {
-    addIconTooltip(icon, tooltip) {
-      this.toolbarItems[this.current].icon = icon;
-      this.toolbarItems[this.current].tooltip = tooltip;
-      this.current++;
+    addIconTooltip(name, icon, tooltip) {
+      this.toolbarItems[name].icon = icon;
+      this.toolbarItems[name].tooltip = tooltip;
+      console.log(this.toolbarItems);
     },
   },
+  getters: {
+    toolbarItemsList(state) {
+      console.log(Object.values(state.toolbarItems));
+      return Object.values(state.toolbarItems);
+    }
+  }
 });

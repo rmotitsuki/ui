@@ -1,5 +1,5 @@
 <template>
-    <k-toolbar-item icon="desktop" tooltip="MapBox Settings">
+    <k-toolbar-item name="mapbox-settings" icon="desktop" tooltip="MapBox Settings">
       <k-context-panel title_color="#554077" title="MapBox Settings" icon="cog">
         <k-accordion>
           <k-accordion-item title="Custom Labels">

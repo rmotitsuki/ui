@@ -9,7 +9,7 @@
        </div>
        <img v-show="compacted" src="../../../assets/kytosng_icon_white.svg" class="icon-kytos" alt="Kytos">
      </div>
-     <k-button v-for="(component, index) in toolbarItems"
+     <k-button v-for="(component, index) in toolbarItemsList"
                :class="{ active: activeItem==(index+1) }"
                :key="component.name"
                :icon="component.icon"
@@ -61,7 +61,7 @@ export default {
     keymap () {
       var self = this
       var keys = []
-      for (let component in this.toolbarItems) {
+      for (let component in this.toolbarItemsList) {
         let componentNumber = Number(component) + 1
         let currentKey = 'ctrl+shift+' + componentNumber
         let keyObject = {}
@@ -83,11 +83,12 @@ export default {
       }
       return keys
     },
-    ...mapState(useToolbarStore, ['toolbarItems'])
+    ...mapState(useToolbarStore, ['toolbarItems', 'toolbarItemsList'])
   },
   mounted() {
     //Register additional toolbarItems
-    this.toolbarItems.push({name:'mapbox-settings'}, {name: 'k-status-menu'})
+    this.toolbarItems['mapbox-settings'] = {name: 'mapbox-settings'};
+    this.toolbarItems['k-status-menu'] = {name: 'k-status-menu'};
   }
 }
 </script>

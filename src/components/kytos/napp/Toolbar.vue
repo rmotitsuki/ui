@@ -1,6 +1,6 @@
 <template>
   <div class='k-toolbar'>
-   <component v-for="(component, index) in toolbarItems"
+   <component v-for="(component, index) in toolbarItemsList"
               v-show="active == (index+1)"
               :is='component.name'
               :key="component.name">
@@ -29,7 +29,9 @@
      async fetchData() {
       try {
         const response = await this.$http.get(this.url);
-        this.toolbarItems.push(...response.data)
+        for (let i = 0; i < response.data.length; i++) {
+          this.toolbarItems[response.data[i].name] = response.data[i];
+        }
       } catch (err) {
         console.error(err)
       } finally {
@@ -37,7 +39,7 @@
       }
      },
      load_components (){
-      this.toolbarItems.forEach(component => {
+      this.toolbarItemsList.forEach(component => {
             if ('url' in component) {
                 let url = this.$kytos_server+component.url
                 this.$kytos.component(component.name, defineAsyncComponent( () => loadModule(url, this.loaderOptions) ))
@@ -46,7 +48,7 @@
      }
   },
   computed: {
-    ...mapState(useToolbarStore, ['toolbarItems', 'loaderOptions'])
+    ...mapState(useToolbarStore, ['toolbarItems', 'toolbarItemsList', 'loaderOptions'])
   }
  }
  </script>
