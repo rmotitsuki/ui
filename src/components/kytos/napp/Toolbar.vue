@@ -22,7 +22,7 @@
       url: this.$kytos_server + 'ui/k-toolbar',
      }
    },
-   mounted() {
+   created() {
       this.fetchData();
    },
    methods: {
