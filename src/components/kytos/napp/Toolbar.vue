@@ -1,9 +1,9 @@
 <template>
   <div class='k-toolbar'>
-   <component v-show="active == (index+1)"
-              v-for="(component, index) in toolbarItems"
+   <component v-for="(component, index) in toolbarItems"
+              v-show="active == (index+1)"
               :is='component.name'
-              v-bind:key="component.name">
+              :key="component.name">
    </component>
   </div>
  </template>
@@ -22,7 +22,7 @@
       url: this.$kytos_server + 'ui/k-toolbar',
      }
    },
-   created() {
+   mounted() {
       this.fetchData();
    },
    methods: {

@@ -20,11 +20,11 @@ import { useToolbarStore } from '../../../stores/toolbarStore'
 export default {
   name: 'k-toolbar-item',
   mixins: [KytosBaseWithIcon],
-  props: ["icon", "tooltip"],
+  props: ["icon", "tooltip", "name"],
   methods: {
     ...mapActions(useToolbarStore, ['addIconTooltip'])
   },
-  mounted() {
+  created() {
     this.addIconTooltip(this.icon, this.tooltip);
   }
 }
