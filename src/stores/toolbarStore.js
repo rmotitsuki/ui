@@ -59,12 +59,10 @@ export const useToolbarStore = defineStore("toolbar", {
     addIconTooltip(name, icon, tooltip) {
       this.toolbarItems[name].icon = icon;
       this.toolbarItems[name].tooltip = tooltip;
-      console.log(this.toolbarItems);
     },
   },
   getters: {
     toolbarItemsList(state) {
-      console.log(Object.values(state.toolbarItems));
       return Object.values(state.toolbarItems);
     }
   }
