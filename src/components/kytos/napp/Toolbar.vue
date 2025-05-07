@@ -11,7 +11,7 @@
  <script type="module">
  import { defineAsyncComponent } from 'vue'
  import { loadModule } from 'vue3-sfc-loader'
- import { mapState } from 'pinia'
+ import { mapState, mapActions } from 'pinia'
  import { useToolbarStore } from '../../../stores/toolbarStore'
  
  export default {
@@ -35,17 +35,10 @@
       } catch (err) {
         console.error(err)
       } finally {
-        this.load_components()
+        this.registerComponents(this);
       }
      },
-     load_components (){
-      this.toolbarItemsList.forEach(component => {
-            if ('url' in component) {
-                let url = this.$kytos_server+component.url
-                this.$kytos.component(component.name, defineAsyncComponent( () => loadModule(url, this.loaderOptions) ))
-            }
-        });
-     }
+     ...mapActions(useToolbarStore, ['registerComponents'])
   },
   computed: {
     ...mapState(useToolbarStore, ['toolbarItems', 'toolbarItemsList', 'loaderOptions'])

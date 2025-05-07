@@ -1,5 +1,7 @@
 import { defineStore } from "pinia";
 import * as Vue from "vue";
+import { defineAsyncComponent } from "vue";
+import { loadModule } from "vue3-sfc-loader";
 
 export const useToolbarStore = defineStore("toolbar", {
   state: () => {
@@ -60,10 +62,21 @@ export const useToolbarStore = defineStore("toolbar", {
       this.toolbarItems[name].icon = icon;
       this.toolbarItems[name].tooltip = tooltip;
     },
+    registerComponents(_this) {
+      this.toolbarItemsList.forEach((component) => {
+        if ("url" in component) {
+          let url = _this.$kytos_server + component.url;
+          _this.$kytos.component(
+            component.name,
+            defineAsyncComponent(() => loadModule(url, this.loaderOptions))
+          );
+        }
+      });
+    },
   },
   getters: {
     toolbarItemsList(state) {
       return Object.values(state.toolbarItems);
-    }
-  }
+    },
+  },
 });
