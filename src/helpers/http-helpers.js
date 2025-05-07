@@ -2,9 +2,9 @@ function format_error(str, error) {
   //Regular expression matches strings with {s} or {d}
   return str.replace(/{([sd])}/g, function (match) {
     switch (match) {
-      case "d":
+      case "{d}":
         return error.response.data.description;
-      case "s":
+      case "{s}":
         return error.response.status;
       default:
         return match;
