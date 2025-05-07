@@ -3,7 +3,7 @@ import * as Vue from "vue";
 import { defineAsyncComponent } from "vue";
 import { loadModule } from "vue3-sfc-loader";
 
-export const useToolbarStore = defineStore("toolbar", {
+export const useNappStore = defineStore("toolbar", {
   state: () => {
     return {
       toolbarItems: {},
@@ -62,8 +62,8 @@ export const useToolbarStore = defineStore("toolbar", {
       this.toolbarItems[name].icon = icon;
       this.toolbarItems[name].tooltip = tooltip;
     },
-    registerComponents(_this) {
-      this.toolbarItemsList.forEach((component) => {
+    registerComponents(_this, componentList) {
+      componentList.forEach((component) => {
         if ("url" in component) {
           let url = _this.$kytos_server + component.url;
           _this.$kytos.component(

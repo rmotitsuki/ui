@@ -23,7 +23,7 @@
 <script>
 import KytosBase from '../base/KytosBase'
 import KytosBaseWithIcon from '../base/KytosBaseWithIcon'
-import { useToolbarStore } from '../../../stores/toolbarStore'
+import { useNappStore } from '../../../stores/nappStore'
 import { mapState } from 'pinia'
 
 export default {
@@ -83,7 +83,7 @@ export default {
       }
       return keys
     },
-    ...mapState(useToolbarStore, ['toolbarItems', 'toolbarItemsList'])
+    ...mapState(useNappStore, ['toolbarItems', 'toolbarItemsList'])
   },
   mounted() {
     //Register additional toolbarItems

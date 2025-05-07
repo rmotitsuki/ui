@@ -10,7 +10,7 @@
 import KytosBase from '../base/KytosBase'
 import KytosBaseWithIcon from '../base/KytosBaseWithIcon'
 import { mapActions } from 'pinia'
-import { useToolbarStore } from '../../../stores/toolbarStore'
+import { useNappStore } from '../../../stores/nappStore'
 
 /**
  * Component representing a toolbar item that create a new item in the
@@ -22,7 +22,7 @@ export default {
   mixins: [KytosBaseWithIcon],
   props: ["icon", "tooltip", "name"],
   methods: {
-    ...mapActions(useToolbarStore, ['addIconTooltip'])
+    ...mapActions(useNappStore, ['addIconTooltip'])
   },
   mounted() {
     this.addIconTooltip(this.name, this.icon, this.tooltip);

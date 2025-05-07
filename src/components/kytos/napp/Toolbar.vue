@@ -9,10 +9,8 @@
  </template>
  
  <script type="module">
- import { defineAsyncComponent } from 'vue'
- import { loadModule } from 'vue3-sfc-loader'
  import { mapState, mapActions } from 'pinia'
- import { useToolbarStore } from '../../../stores/toolbarStore'
+ import { useNappStore } from '../../../stores/nappStore'
  
  export default {
    name: 'k-toolbar',
@@ -35,13 +33,13 @@
       } catch (err) {
         console.error(err)
       } finally {
-        this.registerComponents(this);
+        this.registerComponents(this, this.toolbarItemsList);
       }
      },
-     ...mapActions(useToolbarStore, ['registerComponents'])
+     ...mapActions(useNappStore, ['registerComponents'])
   },
   computed: {
-    ...mapState(useToolbarStore, ['toolbarItems', 'toolbarItemsList', 'loaderOptions'])
+    ...mapState(useNappStore, ['toolbarItems', 'toolbarItemsList'])
   }
  }
  </script>
