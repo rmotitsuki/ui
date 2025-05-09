@@ -1,7 +1,6 @@
-import { mount, shallowMount, flushPromises } from "@vue/test-utils";
+import { mount, flushPromises } from "@vue/test-utils";
 import axios from "axios";
 import Toolbar from "@/components/kytos/napp/Toolbar.vue";
-import Input from "@/components/kytos/inputs/Input.vue";
 import { describe, test, expect, beforeAll, afterEach, vi } from "vitest";
 import { createTestingPinia } from "@pinia/testing";
 import { useNappStore } from "@/stores/nappStore.js";
