@@ -1,47 +1,39 @@
 import { mount, shallowMount, flushPromises } from "@vue/test-utils";
 import axios from "axios";
 import Toolbar from "@/components/kytos/napp/Toolbar.vue";
-import {
-  describe,
-  test,
-  expect,
-  beforeAll,
-  afterEach,
-  vi,
-  beforeEach,
-} from "vitest";
+import Input from "@/components/kytos/inputs/Input.vue";
+import { describe, test, expect, beforeAll, afterEach, vi } from "vitest";
 import { createTestingPinia } from "@pinia/testing";
-import { useToolbarStore } from "@/stores/toolbarStore.js";
+import { useNappStore } from "@/stores/nappStore.js";
 
-const mockComponentList = {data: [
-  {
-    name: "kytos-maintenance-k-toolbar-main",
-    url: "ui/kytos/maintenance/k-toolbar/main.kytos",
-  },
-  {
-    name: "kytos-mef_eline-k-toolbar-main",
-    url: "ui/kytos/mef_eline/k-toolbar/main.kytos",
-  },
-  {
-    name: "kytos-pathfinder-k-toolbar-main",
-    url: "ui/kytos/pathfinder/k-toolbar/main.kytos",
-  },
-  {
-    name: "kytos-telemetry_int-k-toolbar-main",
-    url: "ui/kytos/telemetry_int/k-toolbar/main.kytos",
-  },
-  {
-    name: "amlight-sdntrace-k-toolbar-main",
-    url: "ui/amlight/sdntrace/k-toolbar/main.kytos",
-  },
-  {
-    name: "amlight-sdntrace_cp-k-toolbar-main",
-    url: "ui/amlight/sdntrace_cp/k-toolbar/main.kytos",
-  },
-]};
-
-vi.spyOn(axios, "get").mockResolvedValue(mockComponentList);
-const mockFunction = vi.fn();
+const mockComponentList = {
+  data: [
+    {
+      name: "kytos-maintenance-k-toolbar-main",
+      url: "ui/kytos/maintenance/k-toolbar/main.kytos",
+    },
+    {
+      name: "kytos-mef_eline-k-toolbar-main",
+      url: "ui/kytos/mef_eline/k-toolbar/main.kytos",
+    },
+    {
+      name: "kytos-pathfinder-k-toolbar-main",
+      url: "ui/kytos/pathfinder/k-toolbar/main.kytos",
+    },
+    {
+      name: "kytos-telemetry_int-k-toolbar-main",
+      url: "ui/kytos/telemetry_int/k-toolbar/main.kytos",
+    },
+    {
+      name: "amlight-sdntrace-k-toolbar-main",
+      url: "ui/amlight/sdntrace/k-toolbar/main.kytos",
+    },
+    {
+      name: "amlight-sdntrace_cp-k-toolbar-main",
+      url: "ui/amlight/sdntrace_cp/k-toolbar/main.kytos",
+    },
+  ],
+};
 
 describe("Toolbar.vue", () => {
   let wrapper;
@@ -51,26 +43,91 @@ describe("Toolbar.vue", () => {
 
   afterEach(() => {
     wrapper.unmount();
-    vi.clearAllMocks();
+    vi.restoreAllMocks();
   });
 
   //Inputs
 
   describe("Props", () => {
     test("Active Toolbar Item", async () => {
-      wrapper = mount(Input);
+      vi.spyOn(axios, "get").mockResolvedValue(mockComponentList);
+      wrapper = mount(Toolbar, {
+        attachTo: document.body,
+        props: {
+          active: 1,
+        },
+        global: {
+          plugins: [
+            createTestingPinia({
+              createSpy: vi.fn,
+            }),
+          ],
+          mocks: {
+            $kytos_server: "http://localhost:8181/",
+            $http: axios,
+          },
+          stubs: {
+            "kytos-maintenance-k-toolbar-main": {
+              template: '<div data-test="test1">Test</div>',
+            },
+            "kytos-mef_eline-k-toolbar-main": {
+              template: '<div data-test="test2">Test</div>',
+            },
+            "kytos-pathfinder-k-toolbar-main": {
+              template: '<div data-test="test3">Test</div>',
+            },
+            "kytos-telemetry_int-k-toolbar-main": {
+              template: '<div data-test="test4">Test</div>',
+            },
+            "amlight-sdntrace-k-toolbar-main": {
+              template: '<div data-test="test5">Test</div>',
+            },
+            "amlight-sdntrace_cp-k-toolbar-main": {
+              template: '<div data-test="test6">Test</div>',
+            },
+          },
+        },
+      });
       expect(wrapper.exists()).toBe(true);
-      const mainInput = wrapper.get('[data-test="main-input"]');
-      expect(mainInput.element.hasAttribute("disabled")).toBe(false);
+      const store = useNappStore();
 
-      await wrapper.setProps({ isDisabled: true });
+      await flushPromises();
 
-      expect(mainInput.element.hasAttribute("disabled")).toBe(true);
+      const div1 = wrapper.find('[data-test="test1"]');
+      const div2 = wrapper.find('[data-test="test2"]');
+      const div3 = wrapper.find('[data-test="test3"]');
+      const div4 = wrapper.find('[data-test="test4"]');
+      const div5 = wrapper.find('[data-test="test5"]');
+      const div6 = wrapper.find('[data-test="test6"]');
+
+      expect(div1.exists()).toBe(true);
+      expect(div2.exists()).toBe(true);
+      expect(div3.exists()).toBe(true);
+      expect(div4.exists()).toBe(true);
+      expect(div5.exists()).toBe(true);
+      expect(div6.exists()).toBe(true);
+
+      expect(div1.isVisible()).toBe(true);
+      expect(div2.isVisible()).toBe(false);
+      expect(div3.isVisible()).toBe(false);
+      expect(div4.isVisible()).toBe(false);
+      expect(div5.isVisible()).toBe(false);
+      expect(div6.isVisible()).toBe(false);
+
+      await wrapper.setProps({ active: 5 });
+
+      expect(div1.isVisible()).toBe(false);
+      expect(div2.isVisible()).toBe(false);
+      expect(div3.isVisible()).toBe(false);
+      expect(div4.isVisible()).toBe(false);
+      expect(div5.isVisible()).toBe(true);
+      expect(div6.isVisible()).toBe(false);
     });
   });
 
   describe("HTTP Requests", () => {
     test("Fetch k-toolbar Components", async () => {
+      vi.spyOn(axios, "get").mockResolvedValue(mockComponentList);
       wrapper = mount(Toolbar, {
         props: {
           active: 1,
@@ -78,18 +135,17 @@ describe("Toolbar.vue", () => {
         global: {
           plugins: [
             createTestingPinia({
-              createSpy: vi.fn
+              createSpy: vi.fn,
             }),
           ],
           mocks: {
             $kytos_server: "http://localhost:8181/",
             $http: axios,
-            $kytos: { component: mockFunction }
           },
         },
       });
       expect(wrapper.exists()).toBe(true);
-      const store = useToolbarStore();
+      const store = useNappStore();
 
       expect(axios.get).toHaveBeenCalledTimes(1);
       expect(axios.get).toHaveBeenCalledWith(
@@ -99,50 +155,133 @@ describe("Toolbar.vue", () => {
       await flushPromises();
 
       expect(store.toolbarItemsList).toEqual(mockComponentList.data);
-      expect(mockFunction).toHaveBeenCalledTimes(mockComponentList.data.length);
     });
-    //Fail
+
+    test("HTTP Error", async () => {
+      const error = new Error("Network error");
+      vi.spyOn(axios, "get").mockRejectedValue(error);
+      vi.spyOn(console, "error").mockImplementation(() => {});
+      wrapper = mount(Toolbar, {
+        props: {
+          active: 1,
+        },
+        global: {
+          plugins: [
+            createTestingPinia({
+              createSpy: vi.fn,
+            }),
+          ],
+          mocks: {
+            $kytos_server: "http://localhost:8181/",
+            $http: axios,
+          },
+        },
+      });
+      expect(wrapper.exists()).toBe(true);
+      const store = useNappStore();
+
+      expect(axios.get).toHaveBeenCalledTimes(1);
+      expect(axios.get).toHaveBeenCalledWith(
+        "http://localhost:8181/ui/k-toolbar"
+      );
+
+      await flushPromises();
+
+      expect(console.error).toHaveBeenCalledTimes(1);
+      expect(console.error).toHaveBeenCalledWith(error);
+    });
   });
 
   //Outputs
 
   describe("DOM Elements", () => {
-    test("Input", () => {
-      wrapper = mount(Input);
+    test("Toolbar Components", async () => {
+      vi.spyOn(axios, "get").mockResolvedValue(mockComponentList);
+      wrapper = mount(Toolbar, {
+        props: {
+          active: 1,
+        },
+        global: {
+          plugins: [
+            createTestingPinia({
+              createSpy: vi.fn,
+            }),
+          ],
+          mocks: {
+            $kytos_server: "http://localhost:8181/",
+            $http: axios,
+          },
+          stubs: {
+            "kytos-maintenance-k-toolbar-main": {
+              template: '<div data-test="test1">Test</div>',
+            },
+            "kytos-mef_eline-k-toolbar-main": {
+              template: '<div data-test="test2">Test</div>',
+            },
+            "kytos-pathfinder-k-toolbar-main": {
+              template: '<div data-test="test3">Test</div>',
+            },
+            "kytos-telemetry_int-k-toolbar-main": {
+              template: '<div data-test="test4">Test</div>',
+            },
+            "amlight-sdntrace-k-toolbar-main": {
+              template: '<div data-test="test5">Test</div>',
+            },
+            "amlight-sdntrace_cp-k-toolbar-main": {
+              template: '<div data-test="test6">Test</div>',
+            },
+          },
+        },
+      });
       expect(wrapper.exists()).toBe(true);
+      const store = useNappStore();
 
-      expect(wrapper.find('[data-test="main-input"]').exists()).toBe(true);
-    });
+      await flushPromises();
 
-    test("Icon", async () => {
-      const testIcon = "arrow-right";
-      wrapper = shallowMount(Input);
-      expect(wrapper.exists()).toBe(true);
+      const div1 = wrapper.find('[data-test="test1"]');
+      const div2 = wrapper.find('[data-test="test2"]');
+      const div3 = wrapper.find('[data-test="test3"]');
+      const div4 = wrapper.find('[data-test="test4"]');
+      const div5 = wrapper.find('[data-test="test5"]');
+      const div6 = wrapper.find('[data-test="test6"]');
 
-      expect(wrapper.find('[data-test="main-icon"]').exists()).toBe(false);
-
-      await wrapper.setProps({ icon: testIcon });
-
-      expect(wrapper.find('[data-test="main-icon"]').exists()).toBe(true);
-
-      const icon = wrapper.get('[data-test="main-icon"]');
-
-      expect(icon.attributes("icon")).toBe(testIcon);
+      expect(div1.exists()).toBe(true);
+      expect(div2.exists()).toBe(true);
+      expect(div3.exists()).toBe(true);
+      expect(div4.exists()).toBe(true);
+      expect(div5.exists()).toBe(true);
+      expect(div6.exists()).toBe(true);
     });
   });
 
   describe("vue3-sfc-loader", () => {
-    test("Emit Input Value", async () => {
-      const text = "test";
-      wrapper = mount(Input);
+    test("Register Components", async () => {
+      vi.spyOn(axios, "get").mockResolvedValue(mockComponentList);
+      wrapper = mount(Toolbar, {
+        props: {
+          active: 1,
+        },
+        global: {
+          plugins: [
+            createTestingPinia({
+              createSpy: vi.fn,
+            }),
+          ],
+          mocks: {
+            $kytos_server: "http://localhost:8181/",
+            $http: axios,
+          },
+        },
+      });
       expect(wrapper.exists()).toBe(true);
-      const mainInput = wrapper.get('[data-test="main-input"]');
+      const store = useNappStore();
 
-      await mainInput.setValue(text);
+      await flushPromises();
 
-      expect(wrapper.emitted("update:value")).toHaveLength(1);
-      expect(wrapper.emitted("update:value")[0]).toEqual([text]);
+      expect(store.registerComponents).toHaveBeenCalledTimes(1);
+      expect(store.registerComponents.mock.calls[0][1]).toEqual(
+        mockComponentList.data
+      );
     });
   });
-
 });
