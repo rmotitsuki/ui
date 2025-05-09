@@ -72,7 +72,7 @@ describe("NappsInfoPanel.vue", () => {
   //Inputs
 
   describe("HTTP Requests", () => {
-    test("Fetch k-toolbar Components", async () => {
+    test("Fetch NappsInfoPanel Components", async () => {
       vi.spyOn(axios, "get").mockResolvedValue(mockComponentList);
       wrapper = mount(NappsInfoPanel, {
         props: {
