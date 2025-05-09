@@ -1,5 +1,6 @@
 import { createApp } from 'vue'
 import VueHotkey from 'v-hotkey3'
+import { createPinia } from 'pinia'
 import App from './App.vue'
 import * as packageInfo from '../package.json';
 import eventBus from './event-bus'
@@ -7,12 +8,16 @@ import { toRaw } from 'vue';
 
 const {version} = packageInfo;
 
+const pinia = createPinia()
 const kytos = createApp(App)
 
+kytos.use(pinia)
 kytos.use(VueHotkey)
 
 import $ from 'jquery';
 window.$ = window.jQuery = $;
+import axios from 'axios';
+kytos.config.globalProperties.$http = axios;
 
 import * as d3 from 'd3';
 window.d3 = window.D3 = d3;

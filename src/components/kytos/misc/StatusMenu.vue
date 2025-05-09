@@ -1,5 +1,5 @@
 <template>
-  <k-toolbar-item icon="signal" tooltip="Status Menu">
+  <k-toolbar-item name="k-status-menu" icon="signal" tooltip="Status Menu">
     <div class="k-status-menu">
       <div class="k-status-title">
         <icon icon="signal"></icon>

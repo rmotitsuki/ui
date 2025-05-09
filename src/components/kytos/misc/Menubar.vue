@@ -9,20 +9,22 @@
        </div>
        <img v-show="compacted" src="../../../assets/kytosng_icon_white.svg" class="icon-kytos" alt="Kytos">
      </div>
-     <k-button v-for="(component, index) in components"
+     <k-button v-for="(component, index) in toolbarItemsList"
                :class="{ active: activeItem==(index+1) }"
                :key="component.name"
                :icon="component.icon"
                :tooltip="component.tooltip"
                @click="setItem(index+1)"/>
    </section>
-   <k-toolbar :active="activeItem" v-model:components="components" :compacted="compacted"></k-toolbar>
+   <k-toolbar :active="activeItem" :compacted="compacted"></k-toolbar>
  </div>
 </template>
 
 <script>
 import KytosBase from '../base/KytosBase'
 import KytosBaseWithIcon from '../base/KytosBaseWithIcon'
+import { useNappStore } from '../../../stores/nappStore'
+import { mapState } from 'pinia'
 
 export default {
   name: 'k-menu-bar',
@@ -31,7 +33,6 @@ export default {
   data() {
     return {
       version: this.$kytos_version,
-      components: [{'icon': 'desktop', 'name':'mapbox-settings'}, {'icon': 'signal', 'name': 'k-status-menu'}],
       activeItem: 1
     }
   },
@@ -60,7 +61,7 @@ export default {
     keymap () {
       var self = this
       var keys = []
-      for (let component in self.components) {
+      for (let component in this.toolbarItemsList) {
         let componentNumber = Number(component) + 1
         let currentKey = 'ctrl+shift+' + componentNumber
         let keyObject = {}
@@ -81,7 +82,13 @@ export default {
         keys.push(keyObject)
       }
       return keys
-    }
+    },
+    ...mapState(useNappStore, ['toolbarItems', 'toolbarItemsList'])
+  },
+  mounted() {
+    //Register additional toolbarItems
+    this.toolbarItems['mapbox-settings'] = {name: 'mapbox-settings'};
+    this.toolbarItems['k-status-menu'] = {name: 'k-status-menu'};
   }
 }
 </script>

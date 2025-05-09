@@ -1,5 +1,5 @@
 <template>
- <div class='k-toolbar-item'  :icon="icon" :tooltip="tooltip">
+ <div class='k-toolbar-item' :icon="icon" :tooltip="tooltip">
     <!-- @slot Slot with the toolbar item. -->
     <slot>
     </slot>
@@ -9,6 +9,8 @@
 <script>
 import KytosBase from '../base/KytosBase'
 import KytosBaseWithIcon from '../base/KytosBaseWithIcon'
+import { mapActions } from 'pinia'
+import { useNappStore } from '../../../stores/nappStore'
 
 /**
  * Component representing a toolbar item that create a new item in the
@@ -18,6 +20,12 @@ import KytosBaseWithIcon from '../base/KytosBaseWithIcon'
 export default {
   name: 'k-toolbar-item',
   mixins: [KytosBaseWithIcon],
+  props: ["icon", "tooltip", "name"],
+  methods: {
+    ...mapActions(useNappStore, ['addIconTooltip'])
+  },
+  mounted() {
+    this.addIconTooltip(this.name, this.icon, this.tooltip);
+  }
 }
-
 </script>
