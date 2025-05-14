@@ -31,9 +31,6 @@ describe("ActionMenuItem.vue", () => {
     test("Fetch ActionMenuItem Components", async () => {
       vi.spyOn(axios, "get").mockResolvedValue(mockComponentList);
       wrapper = mount(ActionMenuItem, {
-        props: {
-          active: 1,
-        },
         global: {
           plugins: [
             createTestingPinia({
@@ -47,7 +44,6 @@ describe("ActionMenuItem.vue", () => {
         },
       });
       expect(wrapper.exists()).toBe(true);
-      const store = useNappStore();
 
       expect(axios.get).toHaveBeenCalledTimes(1);
       expect(axios.get).toHaveBeenCalledWith(
@@ -64,9 +60,6 @@ describe("ActionMenuItem.vue", () => {
       vi.spyOn(axios, "get").mockRejectedValue(error);
       vi.spyOn(console, "error").mockImplementation(() => {});
       wrapper = mount(ActionMenuItem, {
-        props: {
-          active: 1,
-        },
         global: {
           plugins: [
             createTestingPinia({
@@ -80,7 +73,6 @@ describe("ActionMenuItem.vue", () => {
         },
       });
       expect(wrapper.exists()).toBe(true);
-      const store = useNappStore();
 
       expect(axios.get).toHaveBeenCalledTimes(1);
       expect(axios.get).toHaveBeenCalledWith(
@@ -100,9 +92,6 @@ describe("ActionMenuItem.vue", () => {
     test("ActionMenuItem Components", async () => {
       vi.spyOn(axios, "get").mockResolvedValue(mockComponentList);
       wrapper = mount(ActionMenuItem, {
-        props: {
-          active: 1,
-        },
         global: {
           plugins: [
             createTestingPinia({
@@ -121,7 +110,6 @@ describe("ActionMenuItem.vue", () => {
         },
       });
       expect(wrapper.exists()).toBe(true);
-      const store = useNappStore();
 
       await flushPromises();
 
@@ -135,9 +123,6 @@ describe("ActionMenuItem.vue", () => {
     test("Register Components", async () => {
       vi.spyOn(axios, "get").mockResolvedValue(mockComponentList);
       wrapper = mount(ActionMenuItem, {
-        props: {
-          active: 1,
-        },
         global: {
           plugins: [
             createTestingPinia({
