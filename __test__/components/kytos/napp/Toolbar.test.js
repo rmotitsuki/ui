@@ -88,7 +88,6 @@ describe("Toolbar.vue", () => {
         },
       });
       expect(wrapper.exists()).toBe(true);
-      const store = useNappStore();
 
       await flushPromises();
 
@@ -233,7 +232,6 @@ describe("Toolbar.vue", () => {
         },
       });
       expect(wrapper.exists()).toBe(true);
-      const store = useNappStore();
 
       await flushPromises();
 

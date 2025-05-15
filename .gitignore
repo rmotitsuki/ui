@@ -7,9 +7,7 @@ node_modules/
 package-lock.json
 
 # Distribution / packaging
-dist/
-latest.zip
-
+web-ui/
 
 # Build
 /docs/src
@@ -17,3 +15,12 @@ build/
 
 # Log
 *.log
+
+# Sass
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map
+
+# Coverage
+coverage/
