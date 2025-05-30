@@ -66,11 +66,11 @@ export default {
       mapboxgl.accessToken = "pk.eyJ1Ijoia3l0b3MiLCJhIjoiY2o5ZTRsbHpnMjd3ZjMzbnJxc2xqa2hibyJ9.bBZPeP_YLA5oP0heHRpL6A";
 
       const map = new mapboxgl.Map({
-        container: "k-map",
-        style: this.map_style_empty,
+        container: this.$refs.mapContainer,
+        style: this.map_style_kytos,
         center: this.map_center,
         zoom: this.map_zoom,
-        hash: true
+        hash: false
       });
       
       map.dragRotate.disable();
