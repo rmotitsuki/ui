@@ -5,10 +5,10 @@
 </template>
 
 <script>
-import KytosBase from '../base/KytosBase'
-import KytosBaseWithIcon from '../base/KytosBaseWithIcon'
-import KytosTopology from '../topology/Topology.vue'
-import {json} from "d3-request"
+import KytosBase from '../base/KytosBase';
+import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
+import KytosTopology from '../topology/Topology.vue';
+
 
 export default {
   name: 'k-map',
@@ -57,7 +57,7 @@ export default {
         center: this.map_center,
         zoom: this.map_zoom
       })
-
+      
       map.dragRotate.disable()
 
       map.on("load", () => {
@@ -82,16 +82,18 @@ export default {
     getTopology () {
       let topoTimer = this.topoTimer
       console.log("Fetching topology data")
-      json(this.topology.url, (error, graph) => {
-        if (error) {
+
+      this.$http.get(this.topology.url)
+        .then(response => {
+          this.topology.graph = response.data.topology
+          this.extraComponent = KytosTopology
+        })
+        .catch(error => {
           var msg = "Error while trying to load the topology"
           this.$kytos.eventBus.$emit("statusMessage", msg, true)
           throw error
-        } else {
-          this.topology.graph = graph.topology
-          this.extraComponent = KytosTopology
-        }
-      })
+        });
+
     }
   },
   mounted () {
