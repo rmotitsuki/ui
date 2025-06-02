@@ -43,18 +43,6 @@ export default {
     setItem (item) {
       this.$kytos.eventBus.$emit("hideInfoPanel")
       this.activeItem = item
-      $(".k-toolbar").show();
-
-      this.$nextTick(function () {
-      // DOM is now updated
-        $(".k-toolbar .k-menu-item").not(":hidden").each(function() {
-            $(this).each(function(){
-                if ($(this).find(".compact").length == 0){
-                    $(".compacted .k-toolbar").css("display","none");
-                }
-            });
-        });
-      });
     },
   },
   computed: {
@@ -67,17 +55,6 @@ export default {
         let keyObject = {}
         keyObject[currentKey] = function() {
           self.activeItem = componentNumber
-          $(".k-toolbar").show();
-
-          self.$nextTick(function () {
-            $(".k-toolbar .k-menu-item").not(":hidden").each(function() {
-                $(self).each(function(){
-                    if ($(self).find(".compact").length == 0){
-                        $(".compacted .k-toolbar").css("display","none");
-                    }
-                });
-            });
-          });
         }
         keys.push(keyObject)
       }
