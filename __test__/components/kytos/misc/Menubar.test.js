@@ -173,7 +173,7 @@ describe("Menubar.vue", () => {
   //Outputs
 
   describe("DOM Elements", () => {
-    test("Menubar Buttons", async () => {
+    test("Menubar Buttons", () => {
       wrapper = mount(Menubar, {
         props: {
           compacted: false,
