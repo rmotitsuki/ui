@@ -1,8 +1,11 @@
-import { describe, test, expect, afterEach, vi } from "vitest";
+import { describe, test, expect, afterEach, beforeAll, vi } from "vitest";
 import http_helpers from "@/helpers/http-helpers";
-import { error } from "jquery";
 
 describe("HTTP Utils", () => {
+  beforeAll(() => {
+    expect(http_helpers).toBeTruthy();
+  });
+
   afterEach(() => {
     vi.restoreAllMocks();
   });

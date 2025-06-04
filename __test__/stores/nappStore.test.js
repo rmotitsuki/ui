@@ -1,8 +1,12 @@
-import { describe, test, expect, beforeEach, vi } from "vitest";
+import { describe, test, expect, beforeEach, beforeAll, vi } from "vitest";
 import { setActivePinia, createPinia } from "pinia";
 import { useNappStore } from "@/stores/nappStore.js";
 
 describe("Napp Store", () => {
+  beforeAll(() => {
+    expect(useNappStore).toBeTruthy();
+  });
+
   beforeEach(() => {
     vi.restoreAllMocks();
     setActivePinia(createPinia());
