@@ -3,7 +3,6 @@
 
 <script>
 import * as d3 from "d3";
-import mapboxgl from "mapbox-gl";
 import KytosBase from '../base/KytosBase';
 import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
 
@@ -285,7 +284,7 @@ export default {
       })
     },
     project (lat, lng) {
-      return this.map.project(new mapboxgl.LngLat(+lng, +lat))
+      return this.map.project(new this.$mapboxgl.LngLat(+lng, +lat))
     },
     get_interface_owner (d) {
       /* Get the switch in which the "d" interface is connected */

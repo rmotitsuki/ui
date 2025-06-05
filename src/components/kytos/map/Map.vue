@@ -1,14 +1,13 @@
 <template>
-  <div id="k-map" ref="mapContainer">
+  <div id="k-map" ref="mapContainer" data-test="map-container">
   </div>
-  <component v-bind:is="this.extraComponent" v-bind:map="this.map" v-bind:original_graph="this.topology.graph"></component>
+  <component v-bind:is="this.extraComponent" v-bind:map="this.map" v-bind:original_graph="this.topology.graph" data-test="map-topology"></component>
 </template>
 
 <script>
 import KytosBase from '../base/KytosBase';
 import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
 import KytosTopology from '../topology/Topology.vue';
-import mapboxgl from 'mapbox-gl';
 
 
 export default {
@@ -63,9 +62,8 @@ export default {
     // Kytos mapbox style: "mapbox://styles/kytos/cj9e4mbtm6s532smy6767uftz"
     // Dark style: "mapbox://styles/mapbox/dark-v10",
     async loadMap () {
-      mapboxgl.accessToken = "pk.eyJ1Ijoia3l0b3MiLCJhIjoiY2o5ZTRsbHpnMjd3ZjMzbnJxc2xqa2hibyJ9.bBZPeP_YLA5oP0heHRpL6A";
-
-      const map = new mapboxgl.Map({
+      const map = new this.$mapboxgl.Map({
+        accessToken: "pk.eyJ1Ijoia3l0b3MiLCJhIjoiY2o5ZTRsbHpnMjd3ZjMzbnJxc2xqa2hibyJ9.bBZPeP_YLA5oP0heHRpL6A",
         container: this.$refs.mapContainer,
         style: this.map_style_kytos,
         center: this.map_center,
@@ -93,7 +91,7 @@ export default {
       });
 
       this.map = map;
-
+      
     },
     async getTopology () {
       console.log("Fetching topology data")
@@ -112,11 +110,11 @@ export default {
     }
   },
   async mounted () {
-    await this.loadMap();
+    this.loadMap();
     this.setListeners();
   },
   unmounted() {
-    this.map.remove();
+    this.map?.remove();
     this.map = null;
   }
 }
