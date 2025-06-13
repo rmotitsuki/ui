@@ -508,31 +508,36 @@ describe("StatusMenu.vue", () => {
 
     test("Filter Switch Name", async () => {
       const switchName_Filter = wrapper.get('[data-test="switchName_Filter"]');
-      let [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      let row1, row2, row3, rows;
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchName_Filter.setValue("0");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchName_Filter.setValue("00:00:00:00:00:00:00:02");
 
-      [row1] = wrapper.findAll("[data-test^=switchRow]");
+      [row1] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(1);
       expect(row1.exists()).toBe(true);
       expect(row1.html()).toContain("00:00:00:00:00:00:00:02");
 
       await switchName_Filter.setValue("");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -542,38 +547,43 @@ describe("StatusMenu.vue", () => {
       const switchStatus_Filter = wrapper.get(
         '[data-test="switchStatus_Filter"]'
       );
-      let [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      let row1, row2, row3, rows;
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchStatus_Filter.setValue("UP");
 
-      let rows = wrapper.findAll("[data-test^=switchRow]");
+      rows = wrapper.findAll("[data-test^=switchRow]");
 
       expect(rows.length).toBe(0);
 
       await switchStatus_Filter.setValue("DOWN");
 
-      [row1] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchStatus_Filter.setValue("DO");
 
-      [row1] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchStatus_Filter.setValue("");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -583,38 +593,43 @@ describe("StatusMenu.vue", () => {
       const switchReason_Filter = wrapper.get(
         '[data-test="switchReason_Filter"]'
       );
-      let [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      let row1, row2, row3, rows;
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchReason_Filter.setValue("Something");
 
-      let rows = wrapper.findAll("[data-test^=switchRow]");
+      rows = wrapper.findAll("[data-test^=switchRow]");
 
       expect(rows.length).toBe(0);
 
       await switchReason_Filter.setValue("N/A");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchReason_Filter.setValue("N/");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchReason_Filter.setValue("");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -624,38 +639,43 @@ describe("StatusMenu.vue", () => {
       const switchEnabled_Filter = wrapper.get(
         '[data-test="switchEnabled_Filter"]'
       );
-      let [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      let row1, row2, row3, rows;
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchEnabled_Filter.setValue("false");
 
-      let rows = wrapper.findAll("[data-test^=switchRow]");
+      rows = wrapper.findAll("[data-test^=switchRow]");
 
       expect(rows.length).toBe(0);
 
       await switchEnabled_Filter.setValue("true");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchEnabled_Filter.setValue("tr");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchEnabled_Filter.setValue("");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -665,38 +685,43 @@ describe("StatusMenu.vue", () => {
       const switchActive_Filter = wrapper.get(
         '[data-test="switchActive_Filter"]'
       );
-      let [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      let row1, row2, row3, rows;
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchActive_Filter.setValue("true");
 
-      let rows = wrapper.findAll("[data-test^=switchRow]");
+      rows = wrapper.findAll("[data-test^=switchRow]");
 
       expect(rows.length).toBe(0);
 
       await switchActive_Filter.setValue("false");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchActive_Filter.setValue("fa");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
 
       await switchActive_Filter.setValue("");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=switchRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=switchRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -704,15 +729,18 @@ describe("StatusMenu.vue", () => {
 
     test("Filter Link Name", async () => {
       const linkName_Filter = wrapper.get('[data-test="linkName_Filter"]');
-      let [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      let row1, row2, rows;
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkName_Filter.setValue("0");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
@@ -720,8 +748,9 @@ describe("StatusMenu.vue", () => {
         "4d42dc0852278accac7d9df15418f6d921db160b13d674029a87cef1b5f67f30"
       );
 
-      [row1] = wrapper.findAll("[data-test^=linkRow]");
+      [row1] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(1);
       expect(row1.exists()).toBe(true);
       expect(row1.html()).toContain(
         "4d42dc0852278accac7d9df15418f6d921db160b13d674029a87cef1b5f67f30"
@@ -729,78 +758,89 @@ describe("StatusMenu.vue", () => {
 
       await linkName_Filter.setValue("");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
     });
 
     test("Filter Link Status", async () => {
       const linkStatus_Filter = wrapper.get('[data-test="linkStatus_Filter"]');
-      let [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      let row1, row2, rows;
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkStatus_Filter.setValue("UP");
 
-      let rows = wrapper.findAll("[data-test^=linkRow]");
+      rows = wrapper.findAll("[data-test^=linkRow]");
 
       expect(rows.length).toBe(0);
 
       await linkStatus_Filter.setValue("DOWN");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkStatus_Filter.setValue("DO");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkStatus_Filter.setValue("");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
     });
 
     test("Filter Link Reason", async () => {
       const linkReason_Filter = wrapper.get('[data-test="linkReason_Filter"]');
-      let [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      let row1, row2, rows;
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkReason_Filter.setValue("Something");
 
-      let rows = wrapper.findAll("[data-test^=linkRow]");
+      rows = wrapper.findAll("[data-test^=linkRow]");
 
       expect(rows.length).toBe(0);
 
       await linkReason_Filter.setValue("N/A");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkReason_Filter.setValue("N/");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkReason_Filter.setValue("");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
     });
@@ -809,70 +849,80 @@ describe("StatusMenu.vue", () => {
       const linkEnabled_Filter = wrapper.get(
         '[data-test="linkEnabled_Filter"]'
       );
-      let [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      let row1, row2, rows;
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkEnabled_Filter.setValue("false");
 
-      let rows = wrapper.findAll("[data-test^=linkRow]");
+      rows = wrapper.findAll("[data-test^=linkRow]");
 
       expect(rows.length).toBe(0);
 
       await linkEnabled_Filter.setValue("true");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkEnabled_Filter.setValue("tr");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkEnabled_Filter.setValue("");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
     });
 
     test("Filter Link Active", async () => {
       const linkActive_Filter = wrapper.get('[data-test="linkActive_Filter"]');
-      let [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      let row1, row2, rows;
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkActive_Filter.setValue("true");
 
-      let rows = wrapper.findAll("[data-test^=linkRow]");
+      rows = wrapper.findAll("[data-test^=linkRow]");
 
       expect(rows.length).toBe(0);
 
       await linkActive_Filter.setValue("false");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkActive_Filter.setValue("fa");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
 
       await linkActive_Filter.setValue("");
 
-      [row1, row2] = wrapper.findAll("[data-test^=linkRow]");
+      [row1, row2] = rows = wrapper.findAll("[data-test^=linkRow]");
 
+      expect(rows).toHaveLength(2);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
     });
@@ -881,9 +931,11 @@ describe("StatusMenu.vue", () => {
       const interfaceNode_Filter = wrapper.get(
         '[data-test="interfaceNode_Filter"]'
       );
-      let [row1, row2, row3, row4, row5, row6, row7, row8, row9] =
+      let row1, row2, row3, row4, row5, row6, row7, row8, row9, row10, rows;
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
         wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -893,13 +945,14 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceNode_Filter.setValue("00");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -909,24 +962,30 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceNode_Filter.setValue("00:00:00:00:00:00:00:02");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=interfaceRow]");
-
-      expect(row1.exists()).toBe(true);
-      expect(row2.exists()).toBe(true);
-      expect(row3.exists()).toBe(true);
-      expect(row1.html()).toContain("00:00:00:00:00:00:00:02");
-      expect(row2.html()).toContain("00:00:00:00:00:00:00:02");
-      expect(row3.html()).toContain("00:00:00:00:00:00:00:02");
-
-      await interfaceNode_Filter.setValue("");
-
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
+      [row1, row2, row3, row4] = rows = wrapper.findAll(
         "[data-test^=interfaceRow]"
       );
 
+      expect(rows).toHaveLength(4);
+      expect(row1.exists()).toBe(true);
+      expect(row2.exists()).toBe(true);
+      expect(row3.exists()).toBe(true);
+      expect(row4.exists()).toBe(true);
+      expect(row1.html()).toContain("00:00:00:00:00:00:00:02");
+      expect(row2.html()).toContain("00:00:00:00:00:00:00:02");
+      expect(row3.html()).toContain("00:00:00:00:00:00:00:02");
+      expect(row4.html()).toContain("00:00:00:00:00:00:00:02");
+
+      await interfaceNode_Filter.setValue("");
+
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
+
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -936,15 +995,18 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
     });
 
     test("Filter Interfaces Port", async () => {
       const interfacePort_Filter = wrapper.get(
         '[data-test="interfacePort_Filter"]'
       );
-      let [row1, row2, row3, row4, row5, row6, row7, row8, row9] =
+      let row1, row2, row3, row4, row5, row6, row7, row8, row9, row10, rows;
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
         wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -954,13 +1016,14 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfacePort_Filter.setValue("s");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -970,11 +1033,13 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfacePort_Filter.setValue("s1");
 
-      [row1, row2, row3] = wrapper.findAll("[data-test^=interfaceRow]");
+      [row1, row2, row3] = rows = wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(3);
       expect(row1.exists()).toBe(true);
       expect(row1.html()).toContain("s1");
       expect(row2.exists()).toBe(true);
@@ -984,10 +1049,10 @@ describe("StatusMenu.vue", () => {
 
       await interfacePort_Filter.setValue("");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -997,15 +1062,18 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
     });
 
     test("Filter Interfaces Status", async () => {
       const interfaceStatus_Filter = wrapper.get(
         '[data-test="interfaceStatus_Filter"]'
       );
-      let [row1, row2, row3, row4, row5, row6, row7, row8, row9] =
+      let row1, row2, row3, row4, row5, row6, row7, row8, row9, row10, rows;
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
         wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1015,19 +1083,20 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceStatus_Filter.setValue("UP");
 
-      let rows = wrapper.findAll("[data-test^=interfaceRow]");
+      rows = wrapper.findAll("[data-test^=interfaceRow]");
 
       expect(rows.length).toBe(0);
 
       await interfaceStatus_Filter.setValue("DOWN");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1037,13 +1106,14 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceStatus_Filter.setValue("DO");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1053,13 +1123,14 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceStatus_Filter.setValue("");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1069,15 +1140,18 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
     });
 
     test("Filter Interfaces Reason", async () => {
       const interfaceReason_Filter = wrapper.get(
         '[data-test="interfaceReason_Filter"]'
       );
-      let [row1, row2, row3, row4, row5, row6, row7, row8, row9] =
+      let row1, row2, row3, row4, row5, row6, row7, row8, row9, row10, rows;
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
         wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1087,19 +1161,20 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceReason_Filter.setValue("Something");
 
-      let rows = wrapper.findAll("[data-test^=interfaceRow]");
+      rows = wrapper.findAll("[data-test^=interfaceRow]");
 
       expect(rows.length).toBe(0);
 
       await interfaceReason_Filter.setValue("N/A");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1109,13 +1184,14 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceReason_Filter.setValue("N/");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1125,13 +1201,14 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceReason_Filter.setValue("");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1141,15 +1218,18 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
     });
 
     test("Filter Interfaces Enabled", async () => {
       const interfaceEnabled_Filter = wrapper.get(
         '[data-test="interfaceEnabled_Filter"]'
       );
-      let [row1, row2, row3, row4, row5, row6, row7, row8, row9] =
+      let row1, row2, row3, row4, row5, row6, row7, row8, row9, row10, rows;
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
         wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1159,19 +1239,20 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceEnabled_Filter.setValue("false");
 
-      let rows = wrapper.findAll("[data-test^=interfaceRow]");
+      rows = wrapper.findAll("[data-test^=interfaceRow]");
 
       expect(rows.length).toBe(0);
 
       await interfaceEnabled_Filter.setValue("true");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1181,13 +1262,14 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceEnabled_Filter.setValue("tr");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1197,13 +1279,14 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceEnabled_Filter.setValue("");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1213,15 +1296,18 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
     });
 
     test("Filter Interfaces Active", async () => {
       const interfaceActive_Filter = wrapper.get(
         '[data-test="interfaceActive_Filter"]'
       );
-      let [row1, row2, row3, row4, row5, row6, row7, row8, row9] =
+      let row1, row2, row3, row4, row5, row6, row7, row8, row9, row10, rows;
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
         wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1231,19 +1317,20 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceActive_Filter.setValue("true");
 
-      let rows = wrapper.findAll("[data-test^=interfaceRow]");
+      rows = wrapper.findAll("[data-test^=interfaceRow]");
 
       expect(rows.length).toBe(0);
 
       await interfaceActive_Filter.setValue("false");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1253,13 +1340,14 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceActive_Filter.setValue("fa");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1269,13 +1357,14 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
 
       await interfaceActive_Filter.setValue("");
 
-      [row1, row2, row3, row4, row5, row6, row7, row8, row9] = wrapper.findAll(
-        "[data-test^=interfaceRow]"
-      );
+      [row1, row2, row3, row4, row5, row6, row7, row8, row9, row10] = rows =
+        wrapper.findAll("[data-test^=interfaceRow]");
 
+      expect(rows).toHaveLength(10);
       expect(row1.exists()).toBe(true);
       expect(row2.exists()).toBe(true);
       expect(row3.exists()).toBe(true);
@@ -1285,6 +1374,7 @@ describe("StatusMenu.vue", () => {
       expect(row7.exists()).toBe(true);
       expect(row8.exists()).toBe(true);
       expect(row9.exists()).toBe(true);
+      expect(row10.exists()).toBe(true);
     });
 
     test("Collapse Accordion Refresh", async () => {
