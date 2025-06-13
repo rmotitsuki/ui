@@ -1,7 +1,7 @@
 <template>
   <div class='k-toolbar'>
    <component v-for="(component, index) in toolbarItemsList"
-              v-show="active == (index+1)"
+              v-show="active == (index+1) && (!compacted)"
               :is='component.name'
               :key="component.name">
    </component>
@@ -22,6 +22,13 @@
       type: Number,
       required: true
    },
+   /**
+    * Wether the toolbar should be compacted or not
+    */
+   compacted: {
+    type: Boolean,
+    required: true
+   }
   },
    data () {
      return {
