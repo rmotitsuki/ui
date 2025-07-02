@@ -10,7 +10,7 @@
         :action="state_toggle_interface"
         v-model:show-modal="show_modal_state_toggle">
       </k-modal>
-      <k-accordion-item title="Interface Plot" v-if="chartJsonData">
+      <k-accordion-item :defaultState="false" title="Interface Plot" v-if="chartJsonData">
         <k-button-group>
             <!-- input type="text" class="k-input" placeholder="Zoom" disabled -->
             <k-button title="5" tooltip="5 minutes" @click="change_plotRange(5)"></k-button>
@@ -22,14 +22,14 @@
         <k-chart-timeseries :interface_id="metadata.interface_id" :jsonData="chartJsonData" :display_legend="true" :chartHeight="200" ></k-chart-timeseries>
       </k-accordion-item>
 
-      <k-accordion-item title="Basic Details">
+      <k-accordion-item :defaultState="false" title="Basic Details">
           <k-property-panel>
             <template v-if="content"> 
               <k-property-panel-item :name="key" :value="value" :key="key" v-for="(value, key) in this.metadata"></k-property-panel-item>
             </template>
           </k-property-panel>
       </k-accordion-item>
-      <k-accordion-item title="Available Tags">
+      <k-accordion-item :defaultState="false" title="Available Tags">
         <div class="metadata_table">
           <table>
             <thead>
@@ -47,7 +47,7 @@
           </table>
         </div>
       </k-accordion-item>
-      <k-accordion-item title="Tag ranges">
+      <k-accordion-item :defaultState="false" title="Tag ranges">
         <div class="metadata_table">
           <table>
             <thead>
@@ -73,7 +73,7 @@
           <k-button title="Set tag_ranges" @click="set_tag_ranges"></k-button>
         </div>
       </k-accordion-item>
-      <k-accordion-item title="Metadata" v-if="Object.keys(this.metadata_items).length !== 0">
+      <k-accordion-item :defaultState="false" title="Metadata" v-if="Object.keys(this.metadata_items).length !== 0">
          <div class="metadata_table">
             <table>
               <thead>
@@ -91,7 +91,7 @@
             </table>
          </div>
       </k-accordion-item>
-      <k-accordion-item title="Metadata actions"> 
+      <k-accordion-item :defaultState="false" title="Metadata actions"> 
          <k-textarea title="Add metadata" icon="arrow-right" placeholder='Eg. {"node_name": "some_name", "address": "some_address"}' v-model:value="to_add"></k-textarea>
          <div class="metadata_container">
               <k-button title="Add metadata" @click="bt_add_metadata"></k-button>

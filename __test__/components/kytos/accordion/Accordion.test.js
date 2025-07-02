@@ -5,7 +5,7 @@ import { describe, test, expect, beforeAll, afterEach, vi } from "vitest";
 
 
 
-describe("ButtonGroup.vue", () => {
+describe("Accordion.vue", () => {
     let wrapper;
     beforeAll(() => {
         expect(Accordion).toBeTruthy();

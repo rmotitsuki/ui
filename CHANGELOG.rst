@@ -6,6 +6,10 @@ All notable changes to the Kytos-NG UI project will be documented in this file.
 UNRELEASED - Under development
 ******************************
 
+Changed
+=======
+- The tabs in the Interface Details Menu are now collapsed by default
+
 Added
 =====
 - Added pinia for state management
