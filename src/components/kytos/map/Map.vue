@@ -8,7 +8,7 @@
 import KytosBase from '../base/KytosBase';
 import KytosBaseWithIcon from '../base/KytosBaseWithIcon';
 import KytosTopology from '../topology/Topology.vue';
-
+import "mapbox-gl/dist/mapbox-gl.css";
 
 export default {
   name: 'k-map',
