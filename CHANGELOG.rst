@@ -15,6 +15,7 @@ Added
 - Added pinia for state management
 - Replaced ``jquery ajax`` with axios
 - Added helper function for HTTP Requests
+- Autocompletes now supports actions for both input and submit
 
 Changed
 =======
