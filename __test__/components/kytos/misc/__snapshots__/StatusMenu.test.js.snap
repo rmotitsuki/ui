@@ -24,7 +24,7 @@ exports[`StatusMenu.vue > DOM Elements > Interface Table 1`] = `
   <tbody>
     <tr data-test="interfaceRow_0">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td>s1</td>
@@ -35,7 +35,7 @@ exports[`StatusMenu.vue > DOM Elements > Interface Table 1`] = `
     </tr>
     <tr data-test="interfaceRow_1">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td>s1-eth1</td>
@@ -46,7 +46,7 @@ exports[`StatusMenu.vue > DOM Elements > Interface Table 1`] = `
     </tr>
     <tr data-test="interfaceRow_2">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td>s1-eth2</td>
@@ -57,7 +57,7 @@ exports[`StatusMenu.vue > DOM Elements > Interface Table 1`] = `
     </tr>
     <tr data-test="interfaceRow_3">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td>s2</td>
@@ -68,7 +68,7 @@ exports[`StatusMenu.vue > DOM Elements > Interface Table 1`] = `
     </tr>
     <tr data-test="interfaceRow_4">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td>s2-eth1</td>
@@ -79,7 +79,7 @@ exports[`StatusMenu.vue > DOM Elements > Interface Table 1`] = `
     </tr>
     <tr data-test="interfaceRow_5">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td>s2-eth2</td>
@@ -90,7 +90,7 @@ exports[`StatusMenu.vue > DOM Elements > Interface Table 1`] = `
     </tr>
     <tr data-test="interfaceRow_6">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td>s2-eth3</td>
@@ -101,7 +101,7 @@ exports[`StatusMenu.vue > DOM Elements > Interface Table 1`] = `
     </tr>
     <tr data-test="interfaceRow_7">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:03</td>
       <td>s3</td>
@@ -112,7 +112,7 @@ exports[`StatusMenu.vue > DOM Elements > Interface Table 1`] = `
     </tr>
     <tr data-test="interfaceRow_8">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:03</td>
       <td>s3-eth1</td>
@@ -123,7 +123,7 @@ exports[`StatusMenu.vue > DOM Elements > Interface Table 1`] = `
     </tr>
     <tr data-test="interfaceRow_9">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:03</td>
       <td>s3-eth2</td>
@@ -158,7 +158,7 @@ exports[`StatusMenu.vue > DOM Elements > Link Table 1`] = `
   <tbody>
     <tr data-test="linkRow_0">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>4d42dc0852278accac7d9df15418f6d921db160b13d674029a87cef1b5f67f30</td>
       <td class="red">DOWN</td>
@@ -168,7 +168,7 @@ exports[`StatusMenu.vue > DOM Elements > Link Table 1`] = `
     </tr>
     <tr data-test="linkRow_1">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>cf0f4071be426b3f745027f5d22bc61f8312ae86293c9b28e7e66015607a9260</td>
       <td class="red">DOWN</td>
@@ -202,7 +202,7 @@ exports[`StatusMenu.vue > DOM Elements > Switch Table 1`] = `
   <tbody>
     <tr data-test="switchRow_0">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td class="red">DOWN</td>
@@ -212,7 +212,7 @@ exports[`StatusMenu.vue > DOM Elements > Switch Table 1`] = `
     </tr>
     <tr data-test="switchRow_1">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td class="red">DOWN</td>
@@ -222,7 +222,7 @@ exports[`StatusMenu.vue > DOM Elements > Switch Table 1`] = `
     </tr>
     <tr data-test="switchRow_2">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:03</td>
       <td class="red">DOWN</td>
@@ -873,7 +873,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 1`
   <tbody>
     <tr data-test="interfaceRow_0">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td>s1</td>
@@ -884,7 +884,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 1`
     </tr>
     <tr data-test="interfaceRow_1">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td>s1-eth1</td>
@@ -895,7 +895,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 1`
     </tr>
     <tr data-test="interfaceRow_2">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td>s1-eth2</td>
@@ -906,7 +906,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 1`
     </tr>
     <tr data-test="interfaceRow_3">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td>s2</td>
@@ -917,7 +917,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 1`
     </tr>
     <tr data-test="interfaceRow_4">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td>s2-eth1</td>
@@ -928,7 +928,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 1`
     </tr>
     <tr data-test="interfaceRow_5">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td>s2-eth2</td>
@@ -939,7 +939,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 1`
     </tr>
     <tr data-test="interfaceRow_6">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td>s2-eth3</td>
@@ -950,7 +950,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 1`
     </tr>
     <tr data-test="interfaceRow_7">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:03</td>
       <td>s3</td>
@@ -961,7 +961,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 1`
     </tr>
     <tr data-test="interfaceRow_8">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:03</td>
       <td>s3-eth1</td>
@@ -972,7 +972,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 1`
     </tr>
     <tr data-test="interfaceRow_9">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:03</td>
       <td>s3-eth2</td>
@@ -1034,7 +1034,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 3`
   <tbody>
     <tr data-test="interfaceRow_0">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td>s1</td>
@@ -1045,7 +1045,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 3`
     </tr>
     <tr data-test="interfaceRow_1">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td>s1-eth1</td>
@@ -1056,7 +1056,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 3`
     </tr>
     <tr data-test="interfaceRow_2">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td>s1-eth2</td>
@@ -1067,7 +1067,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 3`
     </tr>
     <tr data-test="interfaceRow_3">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td>s2</td>
@@ -1078,7 +1078,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 3`
     </tr>
     <tr data-test="interfaceRow_4">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td>s2-eth1</td>
@@ -1089,7 +1089,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 3`
     </tr>
     <tr data-test="interfaceRow_5">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td>s2-eth2</td>
@@ -1100,7 +1100,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 3`
     </tr>
     <tr data-test="interfaceRow_6">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td>s2-eth3</td>
@@ -1111,7 +1111,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 3`
     </tr>
     <tr data-test="interfaceRow_7">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:03</td>
       <td>s3</td>
@@ -1122,7 +1122,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 3`
     </tr>
     <tr data-test="interfaceRow_8">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:03</td>
       <td>s3-eth1</td>
@@ -1133,7 +1133,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 3`
     </tr>
     <tr data-test="interfaceRow_9">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:03</td>
       <td>s3-eth2</td>
@@ -1184,7 +1184,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Interface 5`
   <tbody>
     <tr data-test="interfaceRow_0">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="check-square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="check-square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td>s1</td>
@@ -1219,7 +1219,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Link 1`] = `
   <tbody>
     <tr data-test="linkRow_0">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>4d42dc0852278accac7d9df15418f6d921db160b13d674029a87cef1b5f67f30</td>
       <td class="red">DOWN</td>
@@ -1229,7 +1229,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Link 1`] = `
     </tr>
     <tr data-test="linkRow_1">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>cf0f4071be426b3f745027f5d22bc61f8312ae86293c9b28e7e66015607a9260</td>
       <td class="red">DOWN</td>
@@ -1286,7 +1286,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Link 3`] = `
   <tbody>
     <tr data-test="linkRow_0">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>4d42dc0852278accac7d9df15418f6d921db160b13d674029a87cef1b5f67f30</td>
       <td class="red">DOWN</td>
@@ -1296,7 +1296,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Link 3`] = `
     </tr>
     <tr data-test="linkRow_1">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>cf0f4071be426b3f745027f5d22bc61f8312ae86293c9b28e7e66015607a9260</td>
       <td class="red">DOWN</td>
@@ -1343,7 +1343,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Link 5`] = `
   <tbody>
     <tr data-test="linkRow_0">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="check-square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="check-square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>4d42dc0852278accac7d9df15418f6d921db160b13d674029a87cef1b5f67f30</td>
       <td class="red">DOWN</td>
@@ -1377,7 +1377,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Switch 1`] =
   <tbody>
     <tr data-test="switchRow_0">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td class="red">DOWN</td>
@@ -1387,7 +1387,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Switch 1`] =
     </tr>
     <tr data-test="switchRow_1">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td class="red">DOWN</td>
@@ -1397,7 +1397,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Switch 1`] =
     </tr>
     <tr data-test="switchRow_2">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:03</td>
       <td class="red">DOWN</td>
@@ -1454,7 +1454,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Switch 3`] =
   <tbody>
     <tr data-test="switchRow_0">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td class="red">DOWN</td>
@@ -1464,7 +1464,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Switch 3`] =
     </tr>
     <tr data-test="switchRow_1">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:02</td>
       <td class="red">DOWN</td>
@@ -1474,7 +1474,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Switch 3`] =
     </tr>
     <tr data-test="switchRow_2">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:03</td>
       <td class="red">DOWN</td>
@@ -1521,7 +1521,7 @@ exports[`StatusMenu.vue > User Interactions > Show All and Selected Switch 5`] =
   <tbody>
     <tr data-test="switchRow_0">
       <td><button class="k-button compact statusTableButton" data-test="main-button">
-          <font-awesome-icon-stub icon="check-square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" data-test="main-icon"></font-awesome-icon-stub>
+          <font-awesome-icon-stub icon="check-square" border="false" fixedwidth="false" flip="false" listitem="false" pulse="false" rotateby="false" swapopacity="false" spin="false" symbol="false" inverse="false" bounce="false" shake="false" beat="false" fade="false" beatfade="false" flash="false" spinpulse="false" spinreverse="false" widthauto="false" data-test="main-icon"></font-awesome-icon-stub>
         </button></td>
       <td>00:00:00:00:00:00:00:01</td>
       <td class="red">DOWN</td>
