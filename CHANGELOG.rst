@@ -16,6 +16,7 @@ Added
 - Replaced ``jquery ajax`` with axios
 - Added helper function for HTTP Requests
 - Autocompletes now supports actions for both input and submit
+- Fixed map background buttons
 
 Changed
 =======
